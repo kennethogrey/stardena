@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Home\LandingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [LandingPageController::class, 'index']);
+Route::prefix('welcome')->namespace('Home')->group(function () {
+    // Route::get('/', 'LandingPageController@index');
 });
