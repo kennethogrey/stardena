@@ -1,10 +1,13 @@
 /* ------------------ General CSS ------------------ */
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     color: #656565;
     font-family: 'Montserrat', sans-serif;
     background: #ffffff;
 }
-
 a {
     color: #ff9900;
     transition: 0.3s;
