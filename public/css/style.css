@@ -1,8 +1,4 @@
 /* ------------------ General CSS ------------------ */
-html{
-    scroll-behavior: smooth;
-}
-
 body {
     color: #656565;
     font-family: 'Montserrat', sans-serif;
