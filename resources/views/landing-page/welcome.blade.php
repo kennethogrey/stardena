@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
     <!-- Slider Section Start-->
-        <section class="slider" >
+        <section class="slider hidden" >
             <div class="slider-container home">
                 <div id="carousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
@@ -11,13 +11,13 @@
 
                         <div class="carousel-item active">
                             <div class="carousel-background"><img src="img/slider-1.jpg" alt=""></div>
-                            <div class="carousel-container">
+                            <div class="carousel-container" >
                                 <div class="carousel-content">
-                                    <h2>Web Development</h2>
-                                    <p>
+                                    <h2 data-aos="zoom-out-down" data-aos-duration="1000">Web Development</h2>
+                                    <p data-aos="zoom-out-down" data-aos-duration="1000">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum rutrum ligula. Integer ac porttitor mi. In finibus vehicula aliquet. Vestibulum et velit placerat.
                                     </p>
-                                    <a href="https://htmlcodex.com" class="btn-get-started">Get Started</a>
+                                    <a href="https://htmlcodex.com" class="btn-get-started" data-aos="flip-left" data-aos-duration="2000">Get Started</a>
                                 </div>
                             </div>
                         </div>
@@ -66,9 +66,9 @@
     <!-- Slider Section End-->
 
     <!-- About Us Section Start-->
-        <section class="about" >
+        <section class="about hidden" >
             <div class="container">
-                <header class="section-header">
+                <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3>About Us</h3>
                     <p>
                         Maecenas vel turpis quis lorem aliquam tempus quis non mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
@@ -76,10 +76,10 @@
                 </header>
 
                 <div class="row align-items-center about-row">
-                    <div class="col-md-6">
+                    <div class="col-md-6" data-aos="fade-right" data-aos-duration=2000">
                         <img src="img/about.jpg" alt="" class="img-fluid">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" data-aos="fade-left" data-aos-duration="2000">
                         <h2 class="title">Welcome to Our Site</h2>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum rutrum ligula. Integer ac porttitor mi. In finibus vehicula aliquet. Vestibulum et velit placerat, pretium lorem id, porttitor libero. Suspendisse scelerisque nec arcu a malesuada. Nulla tempus dictum tristique.
@@ -90,8 +90,8 @@
                     </div>
                 </div>
 
-                <div class="row about-cols">
-                    <div class="col-md-4">
+                <div class="row about-cols" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="about-col">
                             <div class="img">
                                 <img src="img/about-mission.jpg" alt="" class="img-fluid">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="about-col">
                             <div class="img">
                                 <img src="img/about-vision.jpg" alt="" class="img-fluid">
@@ -123,7 +123,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="about-col">
                             <div class="img">
                                 <img src="img/about-objective.jpg" alt="" class="img-fluid">
@@ -144,37 +144,37 @@
     <!-- About Us Section End -->
 
     <!-- Services Section Start -->
-        <section class="services">
+        <section class="services hidden">
             <div class="container">
-                <header class="section-header">
+                <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3>Services</h3>
                     <p>
                         Integer sollicitudin sed nulla non consequat. Nullam vitae erat quis leo accumsan ullamcorper. Suspendisse leo purus, pellentesque posuere.
                     </p>
                 </header>
                 <div class="row">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-right" data-aos-duration="1000">
                         <div class="single-service">
                             <i class="ion-ios-desktop"></i>
                             <h4><a href="">Web Design</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium.</p>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up-right" data-aos-duration="1000">
                         <div class="single-service">
                             <i class="ion-ios-laptop"></i>
                             <h4><a href="">Web Development</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium.</p>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up-left" data-aos-duration="1000">
                         <div class="single-service">
                             <i class="ion-ios-tablet-portrait"></i>
                             <h4><a href="">App Design</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium.</p>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-left" data-aos-duration="1000">
                         <div class="single-service">
                             <i class="ion-ios-phone-portrait"></i>
                             <h4><a href="">App Development</a></h4>
@@ -187,15 +187,15 @@
     <!-- Services Section End -->
 
     <!-- Call To Action Start -->
-    <div class="call-to-action">
+    <div class="call-to-action hidden">
         <div class="container text-center">
             <header class="section-header">
-                <h3>Call to Action</h3>
-                <p>
+                <h3 data-aos="zoom-out-down" data-aos-duration="1000">Call to Action</h3>
+                <p data-aos="zoom-out-down" data-aos-duration="1000">
                     Integer sollicitudin sed nulla non consequat. Nullam vitae erat quis leo accumsan ullamcorper. Suspendisse leo purus, pellentesque posuere.
                 </p>
             </header>
-            <a class="cta-btn" href="#">Call To Action</a>
+            <a class="cta-btn" data-aos="flip-left" data-aos-duration="2000" href="#">Call To Action</a>
         </div>
     </div>
     <!-- Call To Action End -->
@@ -270,9 +270,9 @@
     <!--Pricing Section End-->
 
     <!-- Skills Section Start-->
-        <section class="skills">
+        <section class="skills hidden">
             <div class="container">
-                <header class="section-header">
+                <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3>Our Skills & Expertize</h3>
                     <p>
                         Quisque ac tincidunt ipsum egestas viverra mi, ac vehicula enim consectetur quis. In imperdiet varius elit, ut convallis lectus luctus quis.
@@ -280,7 +280,7 @@
                 </header>
 
                 <div class="row">
-                    <div class="skills-content col-md-6">
+                    <div class="skills-content col-md-6" data-aos="fade-right" data-aos-duration="1000">
                         <div class="progress">
                             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                 <span class="skill">HTML <i class="val">100%</i></span>
@@ -327,15 +327,17 @@
                         </div>
 
                     </div>
-                    <div class=" skills-content col-md-6" style="text-align: right">
-                        <p>htistsoisiteos </p>
-                        <p>htistsoisiteos </p>
-                        <p>htistsoisiteos </p>
-                        <p>htistsoisiteos </p>
-                        <p>htistsoisiteos </p>
-                        <p>htistsoisiteos </p>
-                        <p>htistsoisiteos </p>
-                        <p>htistsoisiteos </p>
+                    <div class="skills-content col-md-6" data-aos="fade-left" data-aos-duration="1000">
+                        <ul class="skills-list">
+                            <li>Web Development</li>
+                            <li>Front-end Technologies</li>
+                            <li>Responsive Design</li>
+                            <li>User Experience (UX) Design</li>
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>Bootstrap Framework</li>
+                            <li>Version Control (Git)</li>
+                            <li>Problem Solving</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -344,17 +346,17 @@
     <!-- Skills Section End-->
 
     <!-- Portfolio Section Start -->
-        <section class="portfolio">
+        <section class="portfolio hidden">
             <div class="container">
 
-                <header class="section-header">
+                <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3 class="section-title">Our Portfolio</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper pharetra ligula nec hendrerit. Ut eu libero nec magna placerat fringilla.
                     </p>
                 </header>
 
-                <div class="row">
+                <div class="row" data-aos="zoom-in" data-aos-duration="2000">
                     <div class="col-lg-12">
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
@@ -367,7 +369,7 @@
                 </div>
 
                 <div class="row portfolio-container">
-                    <div class="col-lg-4 col-md-6 portfolio-item web-des">
+                    <div class="col-lg-4 col-md-6 portfolio-item web-des" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="img/portfolio-1.jpg" class="img-fluid" alt="Portfolio">
@@ -382,7 +384,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item web-dev">
+                    <div class="col-lg-4 col-md-6 portfolio-item web-dev" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="img/portfolio-2.jpg" class="img-fluid" alt="Portfolio">
@@ -397,7 +399,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item app-des">
+                    <div class="col-lg-4 col-md-6 portfolio-item app-des" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="img/portfolio-3.jpg" class="img-fluid" alt="Portfolio">
@@ -412,7 +414,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item app-dev">
+                    <div class="col-lg-4 col-md-6 portfolio-item app-dev" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="img/portfolio-4.jpg" class="img-fluid" alt="Portfolio">
@@ -427,7 +429,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item web-des">
+                    <div class="col-lg-4 col-md-6 portfolio-item web-des" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="img/portfolio-5.jpg" class="img-fluid" alt="Portfolio">
@@ -442,7 +444,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item web-dev">
+                    <div class="col-lg-4 col-md-6 portfolio-item web-dev" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="portfolio-wrap">
                             <figure>
                                 <img src="img/portfolio-6.jpg" class="img-fluid" alt="Portfolio">
@@ -463,9 +465,9 @@
     <!-- Portfolio Section End -->
 
     <!-- Team Section Start -->
-        <section class="team">
+        <section class="team hidden">
             <div class="container">
-                <header class="section-header">
+                <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3 class="section-title">Meet our team</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper pharetra ligula nec hendrerit. Ut eu libero nec magna placerat fringilla.
@@ -473,7 +475,7 @@
                 </header>
 
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 team" data-aos="flip-left" data-aos-duration="2000">
                         <div class="card card-block">
                             <a href="#"><img alt="" class="team-img" src="img/team-1.jpg">
                                 <div class="card-title-wrap">
@@ -490,7 +492,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 team" data-aos="fade-up" data-aos-duration="2000">
                         <div class="card card-block">
                             <a href="#"><img alt="" class="team-img" src="img/team-2.jpg">
                                 <div class="card-title-wrap">
@@ -507,7 +509,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 team" data-aos="fade-down" data-aos-duration="2000">
                         <div class="card card-block">
                             <a href="#"><img alt="" class="team-img" src="img/team-3.jpg">
                                 <div class="card-title-wrap">
@@ -524,7 +526,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 team" data-aos="flip-right" data-aos-duration="2000">
                         <div class="card card-block">
                             <a href="#"><img alt="" class="team-img" src="img/team-4.jpg">
                                 <div class="card-title-wrap">
@@ -546,9 +548,9 @@
     <!-- Team Section End -->
 
     <!-- Testimonials Section Start -->
-        <section class="testimonials">
+        <section class="testimonials hidden">
             <div class="container">
-                <header class="section-header">
+                <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3 class="section-title">Testimonials</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper pharetra ligula nec hendrerit. Ut eu libero nec magna placerat fringilla.
@@ -610,9 +612,9 @@
     <!-- Testimonials Section End -->
 
     <!-- Clients Section Start -->
-        <section class="clients">
+        <section class="clients hidden">
             <div class="container">
-                <header class="section-header">
+                <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3 class="section-title">Our Clients</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper pharetra ligula nec hendrerit. Ut eu libero nec magna placerat fringilla.
@@ -635,16 +637,16 @@
     <!-- Clients Section End -->
 
     <!-- Contact Section Start -->
-        <section class="contact">
+        <section class="contact hidden">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3 class="section-title">Contact Us</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper pharetra ligula nec hendrerit. Ut eu libero nec magna placerat fringilla.
                     </p>
                 </div>
 
-                <div class="row contact-info">
+                <div class="row contact-info" data-aos="zoom-in" data-aos-duration="2000"data-aos="zoom-in" data-aos-duration="2000">
                     <div class="col-md-4">
                         <div class="contact-address">
                             <i class="ion-md-pin"></i>
