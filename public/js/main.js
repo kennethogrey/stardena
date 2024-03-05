@@ -1,20 +1,6 @@
 
 (function ($) {
     "use strict";
-
-    $('.__nav-link').on('click', function (e) {
-        e.preventDefault();
-
-        var targetSectionId = $(this).attr('href');
-        var targetSection = $(targetSectionId);
-
-        if (targetSection.length) {
-            $('html, body').animate({
-                scrollTop: targetSection.offset().top - $('.header').outerHeight() // Adjusted for header height
-            }, 1000, 'easeInOutExpo'); // You can adjust the duration and easing effect as needed
-        }
-    });
-
     // Superfish on nav menu
     $('.nav-menu').superfish({
         animation: {

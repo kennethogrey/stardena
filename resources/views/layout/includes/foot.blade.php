@@ -13,6 +13,11 @@
 
 {{--Main JavaScript file--}}
 <script src="{{asset('js/main.js')}}"></script>
-
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
+{{--<script>--}}
+{{--    var scroll = new SmoothScroll('a[href*="#"]', {--}}
+{{--        speed: 1000--}}
+{{--    });--}}
+{{--</script>--}}
 </body>
 </html>
