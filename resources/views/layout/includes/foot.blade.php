@@ -14,6 +14,10 @@
 {{--Main JavaScript file--}}
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/scrolls.min.js')}}"></script>
+<script src="{{asset('js/aos.js')}}"></script>
+<script>
+    AOS.init();
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const links = document.querySelectorAll('.nav-menu li a');
@@ -60,6 +64,19 @@
         window.addEventListener('scroll', setActiveLink);
     });
 </script>
+{{--<script>--}}
+{{--    const observer = new IntersectionObserver((entries)=>{--}}
+{{--        entries.forEach((entry)=>{--}}
+{{--            if(entry.isIntersecting){--}}
+{{--                entry.target.classList.add('show');--}}
+{{--            }else{--}}
+{{--                entry.target.classList.remove('show');--}}
+{{--            }--}}
+{{--        })--}}
+{{--    })--}}
+{{--    const hiddenElements = document.querySelectorAll('.hidden');--}}
+{{--    hiddenElements.forEach((el) => observer.observe(el));--}}
+{{--</script>--}}
 
 </body>
 </html>
