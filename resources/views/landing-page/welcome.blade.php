@@ -1,9 +1,8 @@
 @extends('layout.layout')
 @section('content')
     <!-- Slider Section Start-->
-    <div id="home">
         <section class="slider" >
-            <div class="slider-container">
+            <div class="slider-container home">
                 <div id="carousel" class="carousel  slide carousel-fade" data-ride="carousel">
 
                     <ol class="carousel-indicators"></ol>
@@ -64,11 +63,9 @@
                 </div>
             </div>
         </section>
-    </div>
     <!-- Slider Section End-->
 
     <!-- About Us Section Start-->
-    <div id="about">
         <section class="about" >
             <div class="container">
                 <header class="section-header">
@@ -144,11 +141,9 @@
                 </div>
             </div>
         </section>
-    </div>
     <!-- About Us Section End -->
 
     <!-- Services Section Start -->
-    <div id="services">
         <section class="services">
             <div class="container">
                 <header class="section-header">
@@ -189,11 +184,10 @@
                 </div>
             </div>
         </section>
-    </div>
     <!-- Services Section End -->
 
     <!-- Call To Action Start -->
-    <section class="call-to-action">
+    <div class="call-to-action">
         <div class="container text-center">
             <header class="section-header">
                 <h3>Call to Action</h3>
@@ -203,7 +197,7 @@
             </header>
             <a class="cta-btn" href="#">Call To Action</a>
         </div>
-    </section>
+    </div>
     <!-- Call To Action End -->
 
     <!--Pricing Section start-->
@@ -276,7 +270,6 @@
     <!--Pricing Section End-->
 
     <!-- Skills Section Start-->
-    <div id="skills">
         <section class="skills">
             <div class="container">
                 <header class="section-header">
@@ -348,11 +341,9 @@
 
             </div>
         </section>
-    </div>
     <!-- Skills Section End-->
 
     <!-- Portfolio Section Start -->
-    <div id="portfolio">
         <section class="portfolio">
             <div class="container">
 
@@ -469,11 +460,9 @@
                 </div>
             </div>
         </section>
-    </div>
     <!-- Portfolio Section End -->
 
     <!-- Team Section Start -->
-    <div id="team">
         <section class="team">
             <div class="container">
                 <header class="section-header">
@@ -554,11 +543,9 @@
                 </div>
             </div>
         </section>
-    </div>
     <!-- Team Section End -->
 
     <!-- Testimonials Section Start -->
-    <div id="testimonials">
         <section class="testimonials">
             <div class="container">
                 <header class="section-header">
@@ -620,11 +607,9 @@
                 </div>
             </div>
         </section>
-    </div>
     <!-- Testimonials Section End -->
 
     <!-- Clients Section Start -->
-    <div id="clients">
         <section class="clients">
             <div class="container">
                 <header class="section-header">
@@ -647,11 +632,9 @@
 
             </div>
         </section>
-    </div>
     <!-- Clients Section End -->
 
     <!-- Contact Section Start -->
-    <div id="contact">
         <section class="contact">
             <div class="container">
                 <div class="section-header">
@@ -717,6 +700,5 @@
                 </div>
             </div>
         </section>
-    </div>
     <!-- Contact Section End -->
 @endsection

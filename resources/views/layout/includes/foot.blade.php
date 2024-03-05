@@ -13,11 +13,53 @@
 
 {{--Main JavaScript file--}}
 <script src="{{asset('js/main.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
-{{--<script>--}}
-{{--    var scroll = new SmoothScroll('a[href*="#"]', {--}}
-{{--        speed: 1000--}}
-{{--    });--}}
-{{--</script>--}}
+<script src="{{asset('js/scrolls.min.js')}}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('.nav-menu li a');
+
+        function setActiveLink() {
+            const scrollPosition = window.scrollY;
+
+            // Iterate through each section and check if it's in view
+            links.forEach((link) => {
+                const section = link.getAttribute('href').replace('#', '');
+                const targetElement = document.querySelector('.' + section);
+
+                if (targetElement) {
+                    const sectionTop = targetElement.offsetTop;
+                    const sectionBottom = sectionTop + targetElement.offsetHeight;
+
+                    if(scrollPosition >= sectionTop && scrollPosition < sectionBottom - window.innerHeight / 2){
+                        // Remove 'menu-active' class from all links
+                        links.forEach((otherLink) => {
+                            otherLink.parentElement.classList.remove('menu-active');
+                        });
+
+                        // Add 'menu-active' class to the link corresponding to the active section
+                        link.parentElement.classList.add('menu-active');
+                    }
+                }
+            });
+        }
+
+        links.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Scroll to the section using scrolls.js or your preferred method
+                const section = link.getAttribute('href').replace('#', '');
+                scrolls('.' + section);
+            });
+        });
+
+        // Add 'menu-active' class to the first link on page load
+        links[0].parentElement.classList.add('menu-active');
+
+        // Add event listener for scrolling
+        window.addEventListener('scroll', setActiveLink);
+    });
+</script>
+
 </body>
 </html>
