@@ -19,8 +19,6 @@
                 <li><a href="#contact" class="__nav-link">Contact</a></li>
             </ul>
         </nav>
-
-
     </div>
 </header>
 <!-- Header Section End -->

@@ -4,9 +4,7 @@
         <section class="slider hidden" >
             <div class="slider-container home">
                 <div id="carousel" class="carousel  slide carousel-fade" data-ride="carousel">
-
                     <ol class="carousel-indicators"></ol>
-
                     <div class="carousel-inner" role="listbox">
 
                         <div class="carousel-item active">
@@ -15,9 +13,12 @@
                                 <div class="carousel-content">
                                     <h2 data-aos="zoom-out-down" data-aos-duration="1000">Web Development</h2>
                                     <p data-aos="zoom-out-down" data-aos-duration="1000">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum rutrum ligula. Integer ac porttitor mi. In finibus vehicula aliquet. Vestibulum et velit placerat.
+                                        Elevate your online presence with our expert web development services. From 
+                                            sleek designs to seamless functionality, our tech company specializes in crafting 
+                                            dynamic websites tailored to your needs. Experience innovation and reliability as we 
+                                            bring your vision to life on the digital frontier.
                                     </p>
-                                    <a href="https://htmlcodex.com" class="btn-get-started" data-aos="flip-left" data-aos-duration="2000">Get Started</a>
+                                    <a href="" class="btn-get-started" data-aos="flip-left" data-aos-duration="2000">Get Started</a>
                                 </div>
                             </div>
                         </div>
@@ -28,9 +29,12 @@
                                 <div class="carousel-content">
                                     <h2>App Development</h2>
                                     <p>
-                                        Maecenas vel turpis quis lorem aliquam tempus quis non mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                                        Transform your ideas into powerful digital solutions with our cutting-edge app development 
+                                            services. Whether it's iOS, Android, or cross-platform, our tech company delivers tailored 
+                                            applications that captivate users and drive engagement. From concept to launch, trust us to 
+                                            craft intuitive and impactful mobile experiences for your business
                                     </p>
-                                    <a href="https://htmlcodex.com" class="btn-get-started">Get Started</a>
+                                    <a href="" class="btn-get-started">Get Started</a>
                                 </div>
                             </div>
                         </div>
@@ -39,11 +43,14 @@
                             <div class="carousel-background"><img src="img/slider-3.jpg" alt=""></div>
                             <div class="carousel-container">
                                 <div class="carousel-content">
-                                    <h2>Game Development</h2>
+                                    <h2>Embedded Systems Development</h2>
                                     <p>
-                                        Aenean volutpat, dolor eu finibus rhoncus, elit felis vehicula nunc, ut pulvinar ex diam nec lacus. Phasellus sit amet rhoncus turpis. Aenean tincidunt auctor purus
+                                        Harness the power of embedded technology with our specialized development solutions. From 
+                                            IoT devices to industrial automation, our tech company delivers robust and efficient 
+                                            systems tailored to your requirements. Experience seamless integration and optimized 
+                                            performance as we bring innovation to the heart of your hardware projects.
                                     </p>
-                                    <a href="https://htmlcodex.com" class="btn-get-started">Get Started</a>
+                                    <a href="" class="btn-get-started">Get Started</a>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +78,11 @@
                 <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3>About Us</h3>
                     <p>
-                        Maecenas vel turpis quis lorem aliquam tempus quis non mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                        Stardena Tech Solutions is a dynamic portfolio tech company specializing in the 
+                            development of innovative solutions across web, mobile apps, and embedded 
+                            systems. Founded in January 2024 by software engineers Ogire Kenneth and 
+                            Eluk Samuel Kiira, Stardena brings a wealth of expertise and passion for 
+                            technology to every project.
                     </p>
                 </header>
 
@@ -82,7 +93,13 @@
                     <div class="col-md-6" data-aos="fade-left" data-aos-duration="2000">
                         <h2 class="title">Welcome to Our Site</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum rutrum ligula. Integer ac porttitor mi. In finibus vehicula aliquet. Vestibulum et velit placerat, pretium lorem id, porttitor libero. Suspendisse scelerisque nec arcu a malesuada. Nulla tempus dictum tristique.
+                            At Stardena, we pioneer technology to revolutionize experiences. Our 
+                                adept developers specialize in crafting tailored web solutions, leveraging 
+                                cutting-edge tools to captivate audiences and yield tangible results. 
+                                In mobile app development, we excel in creating intuitive, feature-rich 
+                                experiences across platforms, while our expertise in embedded systems 
+                                ensures efficient solutions for diverse industry requirements, empowering 
+                                businesses to thrive in the digital era.
                         </p>
                         {{--                    <div class="read-more">--}}
                         {{--                        <a href="#">Read More</a>--}}
@@ -99,7 +116,11 @@
                             </div>
                             <h2 class="title">Our Mission</h2>
                             <p>
-                                Aenean volutpat, dolor eu finibus rhoncus, elit felis vehicula nunc, ut pulvinar ex diam nec lacus. Phasellus sit amet rhoncus turpis. Aenean tincidunt auctor purus, ac sodales sapien sagittis
+                                Our mission is to catalyze progress by delivering transformative tech 
+                                    solutions that resonate with the spirit of Africa. Stardena commits to 
+                                    pioneering user-centric experiences, ensuring accessibility and 
+                                    inclusivity in every line of code we write. We embark on a journey to 
+                                    bridge gaps and empower communities through cutting-edge technology.
                             </p>
                             {{--                        <div class="read-more">--}}
                             {{--                            <a href="#">Read More</a>--}}
@@ -115,7 +136,10 @@
                             </div>
                             <h2 class="title">Our Vision</h2>
                             <p>
-                                Aenean volutpat, dolor eu finibus rhoncus, elit felis vehicula nunc, ut pulvinar ex diam nec lacus. Phasellus sit amet rhoncus turpis. Aenean tincidunt auctor purus, ac sodales sapien sagittis
+                                In the vibrant tapestry of Africa, we envision a digital landscape 
+                                    where innovation knows no bounds. Stardena's vision is to be a beacon 
+                                    of technological empowerment, weaving solutions that harmonize seamlessly 
+                                    with the diverse rhythms of the continent.
                             </p>
                             {{--                        <div class="read-more">--}}
                             {{--                            <a href="#">Read More</a>--}}
@@ -131,7 +155,11 @@
                             </div>
                             <h2 class="title">Our Objective</h2>
                             <p>
-                                Aenean volutpat, dolor eu finibus rhoncus, elit felis vehicula nunc, ut pulvinar ex diam nec lacus. Phasellus sit amet rhoncus turpis. Aenean tincidunt auctor purus, ac sodales sapien sagittis
+                                At Stardena, our objective is to redefine possibilities for Africa through 
+                                    purposeful innovation. By crafting solutions that transcend boundaries, 
+                                    we strive to elevate user experiences, foster sustainable growth, and 
+                                    contribute to the collective advancement of the continent. Our passion for 
+                                    technology aligns with the richness of Africa's potential, driving us to create solutions that inspire change and shape a brighter future.
                             </p>
                             {{--                        <div class="read-more">--}}
                             {{--                            <a href="#">Read More</a>--}}
@@ -149,7 +177,10 @@
                 <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3>Services</h3>
                     <p>
-                        Integer sollicitudin sed nulla non consequat. Nullam vitae erat quis leo accumsan ullamcorper. Suspendisse leo purus, pellentesque posuere.
+                        Stardena offers comprehensive tech solutions tailored to your needs, spanning 
+                            web development, mobile app creation, embedded systems integration, and AI 
+                            integration. With expertise and innovation, we ensure excellence and deliver 
+                            impactful results for every project.
                     </p>
                 </header>
                 <div class="row">
@@ -157,28 +188,81 @@
                         <div class="single-service">
                             <i class="ion-ios-desktop"></i>
                             <h4><a href="">Web Design</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium.</p>
+                            <p>
+                                Web design involves crafting website visuals, including layout, colors, 
+                                    typography, and graphics.
+                            </p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up-right" data-aos-duration="1000">
                         <div class="single-service">
                             <i class="ion-ios-laptop"></i>
                             <h4><a href="">Web Development</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium.</p>
+                            <p>
+                                Involves building and maintaining websites and web applications using 
+                                    programming languages, frameworks, and tools
+                            </p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up-left" data-aos-duration="1000">
                         <div class="single-service">
                             <i class="ion-ios-tablet-portrait"></i>
                             <h4><a href="">App Design</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium.</p>
+                            <p>
+                                Entails the creation of user interfaces and experiences for mobile 
+                                    applications, focusing on layout, navigation, visual elements, and overall usability.
+                            </p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-left" data-aos-duration="1000">
                         <div class="single-service">
                             <i class="ion-ios-phone-portrait"></i>
                             <h4><a href="">App Development</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium.</p>
+                            <p>
+                                Crafting software for mobile devices, involving design, 
+                                coding, testing, and deployment for platforms like iOS, Android, or cross-platform solutions
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="single-service">
+                            <i class="ion-md-nuclear"></i>
+                            <h4><a href="">Embedded System Development</a></h4>
+                            <p>
+                                Specialized computing systems within larger electronics, encompassing hardware and 
+                                    software design, programming, and testing to meet specific application needs
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="single-service">
+                            <i class="ion-md-pulse"></i>
+                            <h4><a href="">PCB Design</a></h4>
+                            <p>
+                                Involves creating layouts and schematics for printed circuit boards, 
+                                    facilitating the connections between electronic components.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="single-service">
+                            <i class="ion-ios-ribbon"></i>
+                            <h4><a href="">UX/UI Design</a></h4>
+                            <p>
+                                UX/UI design focuses on creating intuitive and visually appealing interfaces 
+                                    for digital products, prioritizing user experience and interface aesthetics.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="single-service">
+                            <i class="ion-logo-vimeo"></i>
+                            <h4><a href="">Video/Annimation</a></h4>
+                            <p>
+                                involves creating dynamic visual content through the combination of images, 
+                                graphics, and motion effects, often used for entertainment, marketing, or 
+                                educational purposes.                            
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -192,10 +276,10 @@
             <header class="section-header">
                 <h3 data-aos="zoom-out-down" data-aos-duration="1000">Call to Action</h3>
                 <p data-aos="zoom-out-down" data-aos-duration="1000">
-                    Integer sollicitudin sed nulla non consequat. Nullam vitae erat quis leo accumsan ullamcorper. Suspendisse leo purus, pellentesque posuere.
+                    If you are interested in any of the above services, kindly contact us now at +256776263482.
                 </p>
             </header>
-            <a class="cta-btn" data-aos="flip-left" data-aos-duration="2000" href="#">Call To Action</a>
+            <a class="cta-btn" data-aos="flip-left" data-aos-duration="2000" href="tel:+256776263482">Call To Action</a>
         </div>
     </div>
     <!-- Call To Action End -->
@@ -275,7 +359,8 @@
                 <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3>Our Skills & Expertize</h3>
                     <p>
-                        Quisque ac tincidunt ipsum egestas viverra mi, ac vehicula enim consectetur quis. In imperdiet varius elit, ut convallis lectus luctus quis.
+                        We leverage cutting-edge tools and frameworks to deliver innovative solutions 
+                            tailored to our clients' needs, ensuring excellence in every project.
                     </p>
                 </header>
 
@@ -289,21 +374,40 @@
 
                         <div class="progress">
                             <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                <span class="skill">CSS <i class="val">90%</i></span>
+                                <span class="skill">CSS <i class="val">95%</i></span>
                             </div>
                         </div>
 
                         <div class="progress">
                             <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                                <span class="skill">jQuery <i class="val">80%</i></span>
+                                <span class="skill">JavaScript <i class="val">90%</i></span>
                             </div>
                         </div>
 
                         <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                                <span class="skill">PHP <i class="val">70%</i></span>
+                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                <span class="skill">PHP <i class="val">90%</i></span>
                             </div>
                         </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                <span class="skill">Java <i class="val">80%</i></span>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                <span class="skill">C <i class="val">70%</i></span>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                <span class="skill">Dart <i class="val">70%</i></span>
+                            </div>
+                        </div>
+
                         <div class="row counters">
                             {{--                <div class="col-lg-3 col-6 text-center">--}}
                             {{--                    <h2 data-toggle="counter-up">100</h2>--}}
@@ -311,12 +415,12 @@
                             {{--                </div>--}}
 
                             <div class="col-lg-6 col-6 text-center">
-                                <h2 data-toggle="counter-up">200</h2>
+                                <h2 data-toggle="counter-up">20</h2>
                                 <p>Our Clients</p>
                             </div>
 
                             <div class="col-lg-6 col-6 text-center">
-                                <h2 data-toggle="counter-up">300</h2>
+                                <h2 data-toggle="counter-up">30</h2>
                                 <p>Completed Projects</p>
                             </div>
 
@@ -329,12 +433,17 @@
                     </div>
                     <div class="skills-content col-md-6" data-aos="fade-left" data-aos-duration="1000">
                         <ul class="skills-list">
-                            <li>Web Development</li>
-                            <li>Front-end Technologies</li>
-                            <li>Responsive Design</li>
-                            <li>User Experience (UX) Design</li>
-                            <li>HTML, CSS, JavaScript</li>
-                            <li>Bootstrap Framework</li>
+                            <li>Laravel</li>
+                            <li>Flutter</li>
+                            <li>Node.js</li>
+                            <li>React.js</li>
+                            <li>React Native</li>
+                            <li>SpringBoot, Maven, Kotlin</li>
+                            <li>Adobe</li>
+                            <li>Codeigniter</li>
+                            <li>Arduino IDE</li>
+                            <li>Tailwind</li>
+                            <li>Bootstrap</li>
                             <li>Version Control (Git)</li>
                             <li>Problem Solving</li>
                         </ul>
