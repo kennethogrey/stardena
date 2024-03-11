@@ -11,4 +11,6 @@ class LandingPageController extends Controller
     {
         return view('landing-page.welcome')->render();
     }
+
+    
 }
