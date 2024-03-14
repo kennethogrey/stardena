@@ -17,6 +17,8 @@
                 <li><a href="#testimonials" class="__nav-link">Testimonials</a></li>
                 <li><a href="#clients" class="__nav-link">Our Clients</a></li>
                 <li><a href="#contact" class="__nav-link">Contact</a></li>
+                <a href="{{ route('register') }}" class="">Register</a>
+                <a href="{{ route('login') }}" class="">Login</a>
             </ul>
         </nav>
     </div>
