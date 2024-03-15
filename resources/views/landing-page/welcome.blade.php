@@ -578,79 +578,25 @@
             <div class="container">
                 <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3 class="section-title">Meet our team</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper pharetra ligula nec hendrerit. Ut eu libero nec magna placerat fringilla.
-                    </p>
                 </header>
 
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 team" data-aos="flip-left" data-aos-duration="2000">
-                        <div class="card card-block">
-                            <a href="#"><img alt="" class="team-img" src="img/team-1.jpg">
+                    @foreach($developers as $developer)
+                        <div class="col-md-3 col-sm-6 team" data-aos="flip-left" data-aos-duration="2000">
+                            <div class="card card-block">
+                                <img alt="" class="team-img" src="{{ asset('storage/profile-photos')}}/{{$developer->profile_photo }}">
                                 <div class="card-title-wrap">
-                                    <span class="card-title">John P. Haight</span> <span class="card-text">Web Designer</span>
+                                    <span class="card-title">{{ $developer->name }}</span> <span class="card-text">Devloper</span>
                                     <div class="social-nav">
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-twitter"></i></a>
-                                        <a href="https://facebook.com/freewebsitecode/"><i class="ion-logo-facebook"></i></a>
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-linkedin"></i></a>
+                                        <a href="mailto:{{ $developer->email }}"><i class="ion-logo-linkedin"></i></a>        
+                                        <!-- <a href="https://freewebsitecode.com/"><i class="ion-logo-linkedin"></i></a>
                                         <a href="https://freewebsitecode.com/"><i class="ion-logo-instagram"></i></a>
-                                        <a href="https://www.youtube.com/channel/UC9HlQRmKgG3jeVD_fBxj1Pw/videos"><i class="ion-logo-youtube"></i></a>
+                                        <a href="https://www.youtube.com/channel/UC9HlQRmKgG3jeVD_fBxj1Pw/videos"><i class="ion-logo-youtube"></i></a> -->
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 team" data-aos="fade-up" data-aos-duration="2000">
-                        <div class="card card-block">
-                            <a href="#"><img alt="" class="team-img" src="img/team-2.jpg">
-                                <div class="card-title-wrap">
-                                    <span class="card-title">David R. Bernard</span> <span class="card-text">Web Developer</span>
-                                    <div class="social-nav">
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-twitter"></i></a>
-                                        <a href="https://facebook.com/freewebsitecode/"><i class="ion-logo-facebook"></i></a>
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-linkedin"></i></a>
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-instagram"></i></a>
-                                        <a href="https://www.youtube.com/channel/UC9HlQRmKgG3jeVD_fBxj1Pw/videos"><i class="ion-logo-youtube"></i></a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 team" data-aos="fade-down" data-aos-duration="2000">
-                        <div class="card card-block">
-                            <a href="#"><img alt="" class="team-img" src="img/team-3.jpg">
-                                <div class="card-title-wrap">
-                                    <span class="card-title">Dana A. Thomas</span> <span class="card-text">App Designer</span>
-                                    <div class="social-nav">
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-twitter"></i></a>
-                                        <a href="https://facebook.com/freewebsitecode/"><i class="ion-logo-facebook"></i></a>
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-linkedin"></i></a>
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-instagram"></i></a>
-                                        <a href="https://www.youtube.com/channel/UC9HlQRmKgG3jeVD_fBxj1Pw/videos"><i class="ion-logo-youtube"></i></a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6 team" data-aos="flip-right" data-aos-duration="2000">
-                        <div class="card card-block">
-                            <a href="#"><img alt="" class="team-img" src="img/team-4.jpg">
-                                <div class="card-title-wrap">
-                                    <span class="card-title">Ava M. Proctor</span> <span class="card-text">App Developer</span>
-                                    <div class="social-nav">
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-twitter"></i></a>
-                                        <a href="https://facebook.com/freewebsitecode/"><i class="ion-logo-facebook"></i></a>
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-linkedin"></i></a>
-                                        <a href="https://freewebsitecode.com/"><i class="ion-logo-instagram"></i></a>
-                                        <a href="https://www.youtube.com/channel/UC9HlQRmKgG3jeVD_fBxj1Pw/videos"><i class="ion-logo-youtube"></i></a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

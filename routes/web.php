@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Home\LandingPageController;
-use App\Http\Controllers\Dashboard\UserController; 
-use App\Http\Controllers\Dashboard\DashboardController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +16,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 |
 */
 
+
 // Route::view('/', 'landing-page.welcome');
 Route::get('/', [LandingPageController::class, 'index']);
 
@@ -26,10 +27,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware('verified')->name('dashboard');
     Route::get('users', [UserController::class, 'userIndex'])->name('user');
+    Route::get('user-status/{id}', [UserController::class, 'userStatus'])->name('user-status');
+    Route::post('user-photo', [UserController::class, 'userPhoto'])->name('user-photo');
 
     Route::view('profile', 'dashboard.profile')->name('profile');
 });
-
-
 
 require __DIR__.'/auth.php';
