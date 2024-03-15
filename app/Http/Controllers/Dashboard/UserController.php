@@ -47,4 +47,21 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Profile Photo Upload FAILED');
         }
     }
+
+    public function updateUserRole(Request $request)
+    {
+        $role_id = $request->role_id;
+        $user_id = $request->user_id;
+        $staff = $request->staff;
+        // dd($role_id);
+
+        $user = User::where('id', $user_id)->first();
+
+        if ($user) {
+            $user->update(['role_id' => $role_id, 'staff' => $staff]); 
+            return response()->json(['success' => true, 'message' => 'User Role Updated Successfully']);
+        } else {
+            return response()->json(['success' => false, 'message' => 'An error occurred']);        
+        }
+    }
 }

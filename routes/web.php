@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users', [UserController::class, 'userIndex'])->name('user');
     Route::get('user-status/{id}', [UserController::class, 'userStatus'])->name('user-status');
     Route::post('user-photo', [UserController::class, 'userPhoto'])->name('user-photo');
+    Route::post('user-role', [UserController::class, 'updateUserRole'])->name('user-role');
 
     Route::view('profile', 'dashboard.profile')->name('profile');
 });
