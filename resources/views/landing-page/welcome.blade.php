@@ -586,7 +586,7 @@
                             <div class="card card-block">
                                 <img alt="" class="team-img" src="{{ asset('storage/profile-photos')}}/{{$developer->profile_photo }}">
                                 <div class="card-title-wrap">
-                                    <span class="card-title">{{ $developer->name }}</span> <span class="card-text">Devloper</span>
+                                    <span class="card-title">{{ $developer->name }}</span> <span class="card-text">{{ $developer->staff }}</span>
                                     <div class="social-nav">
                                         <a href="mailto:{{ $developer->email }}"><i class="ion-logo-linkedin"></i></a>        
                                         <!-- <a href="https://freewebsitecode.com/"><i class="ion-logo-linkedin"></i></a>

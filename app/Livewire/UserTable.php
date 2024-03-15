@@ -52,6 +52,7 @@ final class UserTable extends PowerGridComponent
             ->add('name')
             ->add('email')
             ->add('phone')
+            ->add('staff')
             ->add('role_id', function (User $model) {
                 $statusText = ($model->role_id == 1) ? 'Client' : 'Developer';
                 $statusColor = ($model->role_id == 1) ? 'blue' : 'green';
@@ -85,6 +86,10 @@ final class UserTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
+            Column::make('Staff', 'staff')
+                ->sortable()
+                ->searchable(),
+
             Column::make('Role id', 'role_id')
                 ->sortable()
                 ->searchable(),
@@ -112,12 +117,13 @@ final class UserTable extends PowerGridComponent
     #[\Livewire\Attributes\On('edit')]
     public function edit($rowId): void
     {
-        $user = User::find($rowId);
-        if ($user->role_id == 1) {
-            $user->update(['role_id' => 2]);
-        } else{
-            $user->update(['role_id' => 1]);
-        }
+        $this->js('openForm('.$rowId.')');
+        // $user = User::find($rowId);
+        // if ($user->role_id == 1) {
+        //     $user->update(['role_id' => 2]);
+        // } else{
+        //     $user->update(['role_id' => 1]);
+        // }
     }
 
     public function actions(User $row): array
