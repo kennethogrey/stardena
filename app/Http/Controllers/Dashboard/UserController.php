@@ -32,13 +32,15 @@ class UserController extends Controller
     public function userPhoto(Request $request) 
     {
         $user = auth()->user();
-        if ($request->hasFile('photo')) {
+        $file = $request->file('photo');
+        if ($file != null) {
             // Delete the existing profile photo if it exists
             if ($user->profile_photo) {
                 Storage::delete('public/profile-photos/'.$user->profile_photo);
             }
-            $fileName = time() . '.' . $request->photo->extension();
-            $request->photo->storeAs('public/profile-photos', $fileName);
+            $fileName = time().'.'.$file->extension();
+            $file->move(storage_path('app/public/profile-photos'),$fileName);
+
             User::where('id', $user->id)->update(['profile_photo' => $fileName]);
             return redirect()->back()->with('success', 'Profile Photo Updated Successfully');
         } else {
