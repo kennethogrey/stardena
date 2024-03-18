@@ -19,6 +19,8 @@ use App\Http\Controllers\Home\LandingPageController;
 
 // Route::view('/', 'landing-page.welcome');
 Route::get('/', [LandingPageController::class, 'index']);
+Route::post('post-message', [LandingPageController::class, 'contactUs'])->name('contact-us');
+
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('welcome')->namespace('Home')->group(function () {
@@ -29,7 +31,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users', [UserController::class, 'userIndex'])->name('user');
     Route::get('user-status/{id}', [UserController::class, 'userStatus'])->name('user-status');
     Route::post('user-photo', [UserController::class, 'userPhoto'])->name('user-photo');
-    Route::post('user-role', [UserController::class, 'updateUserRole'])->name('user-role');
+    Route::post('user-role', [UserController::class, 'updateUserRole'])->name('user-role');   
+    Route::get('messages', [LandingPageController::class, 'visitorsMessage'])->name('message');
+    Route::get('delete-msg/{id}', [LandingPageController::class, 'deleteMessage'])->name('destroy-feedback');
+
 
     Route::view('profile', 'dashboard.profile')->name('profile');
 });
