@@ -12,7 +12,7 @@
                 <li><a href="#about" class="__nav-link">About</a></li>
                 <li><a href="#services" class="__nav-link">Services</a></li>
                 <li><a href="#skills" class="__nav-link">Skills</a></li>
-                {{--<li><a href="#portfolio" class="__nav-link">Portfolio</a></li>--}}
+                {{--<li><a href="#portfolio" class="__nav-link">Projects</a></li>--}}
                 <li><a href="#team" class="__nav-link">Our Team</a></li>
                 {{--<li><a href="#testimonials" class="__nav-link">Testimonials</a></li>--}}
                 <li><a href="#clients" class="__nav-link">Our Clients</a></li>
