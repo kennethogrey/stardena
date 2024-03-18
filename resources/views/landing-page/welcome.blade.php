@@ -1,5 +1,6 @@
 @extends('layout.layout')
 @section('content')
+
     <!-- Slider Section Start-->
         <section class="slider hidden" >
             <div class="slider-container home">
@@ -454,6 +455,7 @@
         </section>
     <!-- Skills Section End-->
 
+    {{--
     <!-- Portfolio Section Start -->
         <section class="portfolio hidden">
             <div class="container">
@@ -572,6 +574,7 @@
             </div>
         </section>
     <!-- Portfolio Section End -->
+    --}}
 
     <!-- Team Section Start -->
         <section class="team hidden">
@@ -602,6 +605,7 @@
         </section>
     <!-- Team Section End -->
 
+    {{--
     <!-- Testimonials Section Start -->
         <section class="testimonials hidden">
             <div class="container">
@@ -665,6 +669,7 @@
             </div>
         </section>
     <!-- Testimonials Section End -->
+    --}}
 
     <!-- Clients Section Start -->
         <section class="clients hidden">
@@ -672,19 +677,18 @@
                 <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3 class="section-title">Our Clients</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper pharetra ligula nec hendrerit. Ut eu libero nec magna placerat fringilla.
+                        Our clients are customers to whom we have provided services, and they have appreciated our work
                     </p>
                 </header>
 
                 <div class="owl-carousel clients-carousel">
-                    <img src="img/client-1.jpg" alt="Client Logo">
-                    <img src="img/client-2.jpg" alt="Client Logo">
-                    <img src="img/client-3.jpg" alt="Client Logo">
+                    <img src="img/mytreeuganda.png" alt="Client Logo">
                     <img src="img/client-4.jpg" alt="Client Logo">
+                    <img src="img/thesealed.png" alt="Client Logo">
                     <img src="img/client-5.jpg" alt="Client Logo">
                     <img src="img/client-6.jpg" alt="Client Logo">
+                    <img src="img/yorentos.png" alt="Client Logo">
                     <img src="img/client-7.jpg" alt="Client Logo">
-                    <img src="img/client-8.jpg" alt="Client Logo">
                 </div>
 
             </div>
@@ -697,7 +701,7 @@
                 <div class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                     <h3 class="section-title">Contact Us</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper pharetra ligula nec hendrerit. Ut eu libero nec magna placerat fringilla.
+                        We are just a call or text away from making your dreams come to reality
                     </p>
                 </div>
 
@@ -706,7 +710,7 @@
                         <div class="contact-address">
                             <i class="ion-md-pin"></i>
                             <h3>Address</h3>
-                            <address>Your Location, City, Country</address>
+                            <address>Namanve, Mukono, Uganda</address>
                         </div>
                     </div>
 
@@ -714,7 +718,7 @@
                         <div class="contact-phone">
                             <i class="ion-md-call"></i>
                             <h3>Phone Number</h3>
-                            <p><a href="tel:+123-456-789">+123-456-789</a></p>
+                            <p><a href="tel:+123-456-789">+256 776263482</a></p>
                         </div>
                     </div>
 
@@ -722,33 +726,49 @@
                         <div class="contact-email">
                             <i class="ion-md-mail"></i>
                             <h3>Email</h3>
-                            <p><a href="mailto:info@example.com">info@example.com</a></p>
+                            <p><a href="mailto:samueleluk11@gmail.com"></a>samueleluk11@gmail.com</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    {{--                <div class="col-md-6">--}}
-                    {{--                    <div class="map">--}}
-                    {{--                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26361250.667320687!2d-113.75533773453304!3d36.24128894212527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1574923227698!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen=""></iframe>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
+                    {{--
+                    <div class="col-md-6">
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26361250.667320687!2d-113.75533773453304!3d36.24128894212527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1574923227698!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                       </div>
+                    </div>
+                    --}}
                     <div class="col-md-12">
+                        <h4>
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                        </h4>
                         <div class="form">
-                            <form class="contactForm">
+                            <form class="contactForm" method="POST" action="{{ route('contact-us') }}">
+                                @csrf
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" placeholder="Your Name" />
+                                        <input type="text" name="name" class="form-control" placeholder="Your Name" required />
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="email" class="form-control" placeholder="Your Email" />
+                                        <input type="email" name="email" class="form-control" placeholder="Your Email" required />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Subject" />
+                                    <input type="text" name="subject" class="form-control" placeholder="Subject" required />
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required ></textarea>
                                 </div>
                                 <div><button type="submit">Send Message</button></div>
                             </form>
