@@ -9,7 +9,7 @@
                     <div class="carousel-inner" role="listbox">
 
                         <div class="carousel-item active">
-                            <div class="carousel-background"><img src="img/slider-1.jpg" alt=""></div>
+                            <div class="carousel-background"><img src="img/slide-1.png" alt=""></div>
                             <div class="carousel-container" >
                                 <div class="carousel-content">
                                     <h2 data-aos="zoom-out-down" data-aos-duration="1000">Web Development</h2>
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="carousel-item">
-                            <div class="carousel-background"><img src="img/slider-2.jpg" alt=""></div>
+                            <div class="carousel-background"><img src="img/slide-2.png" alt=""></div>
                             <div class="carousel-container">
                                 <div class="carousel-content">
                                     <h2>App Development</h2>
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="carousel-item">
-                            <div class="carousel-background"><img src="img/slider-3.jpg" alt=""></div>
+                            <div class="carousel-background"><img src="img/slide-3.png" alt=""></div>
                             <div class="carousel-container">
                                 <div class="carousel-content">
                                     <h2>Embedded Systems Development</h2>
@@ -285,74 +285,76 @@
     </div>
     <!-- Call To Action End -->
 
+    {{--
     <!--Pricing Section start-->
-{{--    <section class="pricing">--}}
-{{--        <div class="container">--}}
-{{--            <header class="section-header">--}}
-{{--                <h3>Our Pricing</h3>--}}
-{{--                <p>--}}
-{{--                    Nulla in est tincidunt, volutpat mi quis, gravida tortor. Suspendisse potenti. Nullam ornare, dui a vulputate mollis, est lorem ultrices neque.--}}
-{{--                </p>--}}
-{{--            </header>--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-md-4">--}}
-{{--                    <div class="price-content">--}}
-{{--                        <div class="price-plan">--}}
-{{--                            <p class="price-title">Silver</p>--}}
-{{--                            <h2 class="price-amount">9.<span>99</span></h2>--}}
-{{--                            <p class="price-date">Per Month</p>--}}
-{{--                        </div>--}}
-{{--                        <ul class="price-details">--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>HTML5</strong> and <strong>CSS3</strong></li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>Bootstrap 4</strong></li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>Well-commented</strong> code</li>--}}
-{{--                            <li><i class="ion-md-close"></i><strong>IonIcons</strong> integrated</li>--}}
-{{--                            <li><i class="ion-md-close"></i>Free <strong>Google Font</strong> integrated</li>--}}
-{{--                            <li><i class="ion-md-close"></i><strong>Responsive</strong> design</li>--}}
-{{--                        </ul>--}}
-{{--                        <a href="#" class="btn mian-btn price-btn">Buy Now</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-4">--}}
-{{--                    <div class="price-content features-price">--}}
-{{--                        <div class="price-plan">--}}
-{{--                            <p class="price-title">Gold</p>--}}
-{{--                            <h2 class="price-amount">19.<span>99</span></h2>--}}
-{{--                            <p class="price-date">Per Month</p>--}}
-{{--                        </div>--}}
-{{--                        <ul class="price-details">--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>HTML5</strong> and <strong>CSS3</strong></li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>Bootstrap 4</strong></li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>Well-commented</strong> code</li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>IonIcons</strong> integrated</li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i>Free <strong>Google Font</strong> integrated</li>--}}
-{{--                            <li><i class="ion-md-close"></i><strong>Responsive</strong> design</li>--}}
-{{--                        </ul>--}}
-{{--                        <a href="#" class="btn mian-btn price-btn features-price-btn">Buy Now</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-4">--}}
-{{--                    <div class="price-content">--}}
-{{--                        <div class="price-plan">--}}
-{{--                            <p class="price-title">Platinum</p>--}}
-{{--                            <h2 class="price-amount">29.<span>99</span></h2>--}}
-{{--                            <p class="price-date">Per Month</p>--}}
-{{--                        </div>--}}
-{{--                        <ul class="price-details">--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>HTML5</strong> and <strong>CSS3</strong></li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>Bootstrap 4</strong></li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>Well-commented</strong> code</li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>IonIcons</strong> integrated</li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i>Free <strong>Google Font</strong> integrated</li>--}}
-{{--                            <li><i class="ion-md-checkmark"></i><strong>Responsive</strong> design</li>--}}
-{{--                        </ul>--}}
-{{--                        <a href="#" class="btn mian-btn price-btn">Buy Now</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
+    <section class="pricing">
+        <div class="container">
+            <header class="section-header">
+                <h3>Our Pricing</h3>
+               <p>
+                  Nulla in est tincidunt, volutpat mi quis, gravida tortor. Suspendisse potenti. Nullam ornare, dui a vulputate mollis, est lorem ultrices neque.
+              </p>
+           </header>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="price-content">
+                        <div class="price-plan">
+                            <p class="price-title">Silver</p>
+                            <h2 class="price-amount">9.<span>99</span></h2>
+                            <p class="price-date">Per Month</p>
+                        </div>
+                        <ul class="price-details">
+                            <li><i class="ion-md-checkmark"></i><strong>HTML5</strong> and <strong>CSS3</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>Bootstrap 4</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>Well-commented</strong> code</li>
+                            <li><i class="ion-md-close"></i><strong>IonIcons</strong> integrated</li>
+                            <li><i class="ion-md-close"></i>Free <strong>Google Font</strong> integrated</li>
+                            <li><i class="ion-md-close"></i><strong>Responsive</strong> design</li>
+                        </ul>
+                        <a href="#" class="btn mian-btn price-btn">Buy Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-content features-price">
+                        <div class="price-plan">
+                           <p class="price-title">Gold</p>
+                           <h2 class="price-amount">19.<span>99</span></h2>
+                           <p class="price-date">Per Month</p>
+                        </div>
+                       <ul class="price-details">
+                           <li><i class="ion-md-checkmark"></i><strong>HTML5</strong> and <strong>CSS3</strong></li>
+                           <li><i class="ion-md-checkmark"></i><strong>Bootstrap 4</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>Well-commented</strong> code</li>
+                            <li><i class="ion-md-checkmark"></i><strong>IonIcons</strong> integrated</li>
+                            <li><i class="ion-md-checkmark"></i>Free <strong>Google Font</strong> integrated</li>
+                            <li><i class="ion-md-close"></i><strong>Responsive</strong> design</li>
+                        </ul>
+                        <a href="#" class="btn mian-btn price-btn features-price-btn">Buy Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-content">
+                        <div class="price-plan">                 
+                            <p class="price-title">Platinum</p>
+                            <h2 class="price-amount">29.<span>99</span></h2>
+                            <p class="price-date">Per Month</p>
+                        </div>
+                        <ul class="price-details">
+                           <li><i class="ion-md-checkmark"></i><strong>HTML5</strong> and <strong>CSS3</strong></li>
+                           <li><i class="ion-md-checkmark"></i><strong>Bootstrap 4</strong></li>
+                            <li><i class="ion-md-checkmark"></i><strong>Well-commented</strong> code</li>
+                            <li><i class="ion-md-checkmark"></i><strong>IonIcons</strong> integrated</li>
+                            <li><i class="ion-md-checkmark"></i>Free <strong>Google Font</strong> integrated</li>
+                            <li><i class="ion-md-checkmark"></i><strong>Responsive</strong> design</li>
+                        </ul>
+                        <a href="#" class="btn mian-btn price-btn">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!--Pricing Section End-->
+    --}}
 
     <!-- Skills Section Start-->
         <section class="skills hidden">
@@ -410,27 +412,16 @@
                         </div>
 
                         <div class="row counters">
-                            {{--                <div class="col-lg-3 col-6 text-center">--}}
-                            {{--                    <h2 data-toggle="counter-up">100</h2>--}}
-                            {{--                    <p>Our Staffs</p>--}}
-                            {{--                </div>--}}
-
                             <div class="col-lg-6 col-6 text-center">
-                                <h2 data-toggle="counter-up">20</h2>
+                                <h2 data-toggle="counter-up">15</h2>
                                 <p>Our Clients</p>
                             </div>
 
                             <div class="col-lg-6 col-6 text-center">
-                                <h2 data-toggle="counter-up">30</h2>
+                                <h2 data-toggle="counter-up">20</h2>
                                 <p>Completed Projects</p>
                             </div>
-
-                            {{--                <div class="col-lg-3 col-6 text-center">--}}
-                            {{--                    <h2 data-toggle="counter-up">400</h2>--}}
-                            {{--                    <p>Running Projects</p>--}}
-                            {{--                </div>--}}
                         </div>
-
                     </div>
                     <div class="skills-content col-md-6" data-aos="fade-left" data-aos-duration="1000">
                         <ul class="skills-list">
@@ -450,10 +441,77 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
         </section>
     <!-- Skills Section End-->
+
+    <!-- Ongoing Projects Section Start-->
+    <section class="about hidden" >
+        <div class="container">
+            <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
+                <h3>Ongoing Projects</h3>
+            </header>
+
+            <div class="row about-cols" data-aos="fade-up" data-aos-duration="2000">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-duration="2000">
+                    <div class="about-col">
+                        <div class="img">
+                            <img src="img/yorentos.png" alt="" class="img-fluid">
+                            <div class="icon"><i class="ion-ios-disc"></i></div>
+                        </div>
+                        <h2 class="title">YoRentos</h2>
+                        <p>
+                            This project aims to facilitate and easen connections between tenants and landlords in Uganda,
+                                fostering a seamless and secure rental experience. We aim to bridge the gap 
+                                between those seeking rental accommodations and property owners, ensuring 
+                                satisfaction and trust among all parties
+                        </p>
+                        {{--                        <div class="read-more">--}}
+                        {{--                            <a href="#">Read More</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="zoom-in" data-aos-duration="2000">
+                    <div class="about-col">
+                        <div class="img">
+                            <img src="img/project K1.jpg" alt="" class="img-fluid">
+                            <div class="icon"><i class="ion-ios-eye"></i></div>
+                        </div>
+                        <h2 class="title">Project K1</h2>
+                        <p>
+                            Project K1 employs AI to evaluate water purity and chemical compositions, 
+                                determining the safety of water for consumption. It conducts comprehensive 
+                                tests for contaminants, analyzes chemical combinations, and generates 
+                                user-friendly reports indicating safety levels. With real-time updates and 
+                                intuitive interfaces, K1 empowers users to make informed decisions about water 
+                                quality, promoting health and well-being
+                        </p>
+                        {{--                        <div class="read-more">--}}
+                        {{--                            <a href="#">Read More</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="zoom-in" data-aos-duration="2000">
+                    <div class="about-col">
+                        <div class="img">
+                            <img src="img/about-objective.jpg" alt="" class="img-fluid">
+                            <div class="icon"><i class="ion-ios-options"></i></div>
+                        </div>
+                        <h2 class="title">Project K2</h2>
+                        <p>
+                            Not Decided yet
+                        </p>
+                        {{--                        <div class="read-more">--}}
+                        {{--                            <a href="#">Read More</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Ongoing Projects Section End -->
 
     {{--
     <!-- Portfolio Section Start -->
