@@ -22,7 +22,7 @@
                             </div>
                         @endif
                     </h4>
-                    <div class="table-responsive" style="overflow-x: auto;" id="rentalTable">
+                    <div class="table-responsive" style="overflow-x: auto;">
                         <div class="container mx-auto mt-8">
                             <table class="min-w-full border border-blue-500 text-gray-500">
                                 <thead>

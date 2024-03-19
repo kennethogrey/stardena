@@ -6,11 +6,27 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Contact;
+use App\Models\Visitor;
+use DB;
 
 class LandingPageController extends Controller
 {
     public function index()
     {
+        // Check for existing session or cookie
+        if (!session()->has('visitor_id')) {
+            // Generate a unique session ID
+            $visitorId = uniqid();
+            session()->put('visitor_id', $visitorId);
+            Visitor::updateOrCreate(['visitor_id' => $visitorId],[
+                'counter' => DB::raw('counter + 1'),
+            ]);
+        } else {
+            $visitorId = session()->get('visitor_id');
+            Visitor::updateOrCreate(['visitor_id' => $visitorId],[
+                'counter' => DB::raw('counter + 1'),
+            ]);
+        }
         $developers = User::where('role_id', 2)->get();
         return view('landing-page.welcome', compact(
             'developers'
