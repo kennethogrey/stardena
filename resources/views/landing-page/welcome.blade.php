@@ -446,7 +446,7 @@
     <!-- Skills Section End-->
 
     <!-- Ongoing Projects Section Start-->
-    <section class="about hidden" >
+    <section class="projects about hidden" >
         <div class="container">
             <header class="section-header" data-aos="zoom-in" data-aos-duration="2000">
                 <h3>Ongoing Projects</h3>

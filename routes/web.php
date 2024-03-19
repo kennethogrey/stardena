@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('user-role', [UserController::class, 'updateUserRole'])->name('user-role');   
     Route::get('messages', [LandingPageController::class, 'visitorsMessage'])->name('message');
     Route::get('delete-msg/{id}', [LandingPageController::class, 'deleteMessage'])->name('destroy-feedback');
+    Route::get('delete-visitor/{id}', [DashboardController::class, 'deleteVisitor'])->name('destroy-visitor');
 
 
     Route::view('profile', 'dashboard.profile')->name('profile');
