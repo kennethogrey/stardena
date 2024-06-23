@@ -1,17 +1,20 @@
 <?php
 
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use Livewire\Volt\Component;
+use Livewire\WithFileUploads;
 
 new class extends Component
 {
+    
+    use WithFileUploads;
     public string $name = '';
     public string $email = '';
     public string $phone = '';
+    public $photo;
 
     /**
      * Mount the component.
@@ -21,7 +24,6 @@ new class extends Component
         $this->name = Auth::user()->name;
         $this->email = Auth::user()->email;
         $this->phone = Auth::user()->phone;
-        $this->profile_photo = Auth::user()->profile_photo;
     }
 
     /**
@@ -56,7 +58,7 @@ new class extends Component
         $user = Auth::user();
 
         if ($user->hasVerifiedEmail()) {
-            $this->redirectIntended(default: RouteServiceProvider::HOME);
+            $this->redirectIntended(default: route('dashboard', absolute: false));
 
             return;
         }
@@ -65,63 +67,98 @@ new class extends Component
 
         Session::flash('status', 'verification-link-sent');
     }
-}; ?>
 
+    public function updateProfilePhoto(): void
+    {
+        $this->validate([
+            'photo' => 'required|file|mimes:png,jpeg,jpg|max:5120',
+        ]);
 
-<section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
-        </h2>
-
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
-        </p>
-    </header>
-
-    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" name="name" type="text" class="mt-1 block w-full" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
-        </div>
-
-        <div>
-            <x-input-label for="phone" :value="__('Phone')" />
-            <x-text-input wire:model="phone" id="phone" name="phone" type="text" class="mt-1 block w-full" required autofocus autocomplete="phone" />
-            <x-input-error class="mt-2" :messages="$errors->get('phone')" />
-        </div>
-
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" name="email" type="email" class="mt-1 block w-full" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
-
-            @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! auth()->user()->hasVerifiedEmail())
-                <div>
-                    <p class="text-sm mt-2 text-gray-800">
-                        {{ __('Your email address is unverified.') }}
-
-                        <button wire:click.prevent="sendVerification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            {{ __('Click here to re-send the verification email.') }}
-                        </button>
-                    </p>
-
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600">
-                            {{ __('A new verification link has been sent to your email address.') }}
-                        </p>
-                    @endif
-                </div>
-            @endif
-        </div>
+        $image_extension = $this->photo->getClientOriginalExtension();
+        $image_name = 'profile_' . time() . '.' . $image_extension;
+        $this->photo->storeAs('public/profile-photos', $image_name);
         
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        $user = Auth::user();
+        if ($user) {
+            // delete previous Image
+            \Storage::delete('public/profile-photos/' . $user->photo);
+            $user->profile_photo = $image_name;
+            $user->save();
+            $this->dispatch('photo-updated', ['name' => $user->name]);   
+        }
+    }
 
-            <x-action-message class="me-3" on="profile-updated">
-                {{ __('Saved.') }}
-            </x-action-message>
+}; ?>
+<section>
+    <div class="row mb-4 align-items-stretch">
+        <div class="col-xl-5 col-xxl-5 mb-4 mb-xl-0">
+            <div class="border p-4 rounded-3 d-flex flex-column h-100">
+                <h4 class="fw-bolder">{{__('Profile Photo')}}</h4>
+                <p>{{__('Update your account\'s profile photo.')}}</p>
+            </div>
         </div>
-    </form>
+        <div class="col-xl-7 col-xxl-7">
+            <div class="border p-4 rounded-3 d-flex flex-column h-100">
+                <div class="text-center mb-3">
+                    <img src="{{ getUserPhoto() }}" class="rounded" alt="favicon" width="auto" height="60">
+                </div>
+                <form wire:submit="updateProfilePhoto">
+                    <div class="input-group mb-3">
+                        <input wire:model="photo" class="form-control" id="inputGroupFile02" type="file">
+                        <label class="input-group-text" for="inputGroupFile02">{{ __('Upload') }}</label>
+                    </div>
+                    @error('photo')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="col-md-6 mb-3">
+                        <button class="btn btn-ghost-primary">{{ __('Update Photo') }}</button>
+                    </div>
+                    <x-action-message class="text-success" on="photo-updated">
+                        {{ __('Photo Updated') }}
+                    </x-action-message>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4 align-items-stretch">
+        <div class="col-xl-5 col-xxl-5 mb-4 mb-xl-0">
+            <div class="border p-4 rounded-3 d-flex flex-column h-100">
+                <h4 class="fw-bolder">{{__('Profile Information')}}</h4>
+                <p>{{__('Update your account\'s profile information and email address.')}}</p>
+            </div>
+        </div>
+        <div class="col-xl-7 col-xxl-7">
+            <div class="border p-4 rounded-3 d-flex flex-column h-100">
+                <form wire:submit="updateProfileInformation">
+                    <div class="form-floating mb-3">
+                        <input wire:model="name" class="form-control rounded-md" id="name" name="name" type="text" placeholder="name">
+                        <label for="floatingInput2">{{ __('Full Name') }}</label>
+                    </div>
+                    @error('name')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="form-floating mb-3">
+                        <input wire:model="email" class="form-control rounded-md" id="email" name="email" type="email" placeholder="email">
+                        <label for="floatingInput2">{{ __('Email') }}</label>
+                    </div>
+                    @error('email')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="form-floating mb-3">
+                        <input wire:model="phone" class="form-control rounded-md" id="phone" name="phone" type="text" placeholder="phone">
+                        <label for="floatingInput2">{{ __('Phone') }}</label>
+                    </div>
+                    @error('phone')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="col-md-6 mb-3">
+                        <button class="btn btn-ghost-primary">{{ __('Update Info') }}</button>
+                    </div>
+                    <x-action-message class="text-success" on="profile-updated">
+                    {{ __('Info Updated') }}
+                    </x-action-message>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
