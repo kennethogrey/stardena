@@ -15,108 +15,76 @@ new class extends Component
         $this->redirect('/', navigate: true);
     }
 }; ?>
-
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" wire:navigate>
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('user')" :active="request()->routeIs('user')" wire:navigate>
-                        {{ __('Users') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('message')" :active="request()->routeIs('message')" wire:navigate>
-                        {{ __('Messages') }}
-                    </x-nav-link>
-                </div>
+<div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
+    <div class="sidebar-header border-bottom">
+        <div class="sidebar-brand">
+            <!-- <svg class="sidebar-brand-full" width="88" height="32" alt="CoreUI Logo">
+                <use xlink:href="{{ asset('panel/assets/brand/coreui.svg#full') }}"></use>
+            </svg>
+            <svg class="sidebar-brand-narrow" width="32" height="32" alt="CoreUI Logo">
+                <use xlink:href="{{ asset('panel/assets/brand/coreui.svg#signet') }}"></use>
+            </svg> -->
+            <div class="sidebar-brand-full" width="88" height="32" alt="CoreUI Logo">
+                <img src="{{ getLogoUrl() }}" alt="Stardena" width="auto" height="30">
             </div>
-
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
-
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile')" wire:navigate>
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
-                        <!-- Authentication -->
-                        <button wire:click="logout" class="w-full text-start">
-                            <x-dropdown-link>
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </button>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+            <div class="sidebar-brand-narrow" width="32" height="32" alt="CoreUI Logo">
+                <img src="{{ getFaviconUrl() }}" alt="Stardena" width="auto" height="30">
             </div>
         </div>
+        <button class="btn-close d-lg-none" type="button" data-coreui-dismiss="offcanvas" data-coreui-theme="dark" aria-label="Close" onclick="coreui.Sidebar.getInstance(document.querySelector(&quot;#sidebar&quot;)).toggle()"></button>
     </div>
-
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('user')" :active="request()->routeIs('user')" wire:navigate>
-                {{ __('Users') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('message')" :active="request()->routeIs('message')" wire:navigate>
-                {{ __('Messages') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800" x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
-                <div class="font-medium text-sm text-gray-500">{{ auth()->user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile')" wire:navigate>
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <button wire:click="logout" class="w-full text-start">
-                    <x-responsive-nav-link>
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </button>
-            </div>
-        </div>
+    <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
+        <li class="nav-item"><a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}" aria-current="{{ request()->routeIs('dashboard') ? 'true' : '' }}">
+            <svg class="nav-icon">
+            <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-speedometer') }}"></use>
+            </svg> {{ __('Dashboard') }}
+            <!-- <span class="badge badge-sm bg-info ms-auto">NEW</span> -->
+            </a>
+        </li>
+        <li class="nav-title">{{ __('Users Management') }}</li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('user') }}">
+            <svg class="nav-icon">
+                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-user-female') }}"></use>
+            </svg> {{ __('Users') }}</a>
+        </li>
+        {{-- <li class="nav-item"><a class="nav-link" href="typography.html">
+            <svg class="nav-icon">
+                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-pencil') }}"></use>
+            </svg> Typography</a>
+        </li> --}}
+        
+        <li class="nav-title">{{ __('Products & Services') }}</li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-star') }}"></use>
+            </svg> {{ __('APPs & Systems') }}</a>
+            <ul class="nav-group-items compact">
+                <li class="nav-item"><a class="nav-link" href="//" target="_top">
+                    <svg class="nav-icon">
+                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-apps') }}"></use>
+                    </svg> {{ __('APPs') }}</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            <svg class="nav-icon">
+                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-view-module') }}"></use>
+            </svg> {{ __('License & Revenue') }}</a>
+            <ul class="nav-group-items compact">
+                <li class="nav-item"><a class="nav-link" href="//" target="_top">
+                    <svg class="nav-icon">
+                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-terrain') }}"></use>
+                    </svg> {{ __('License') }}</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="//" target="_top">
+                    <svg class="nav-icon">
+                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-money') }}"></use>
+                    </svg> {{ __('Revenue') }}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="sidebar-footer border-top d-none d-md-flex">     
+        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
-</nav>
+</div>

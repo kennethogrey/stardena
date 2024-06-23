@@ -115,3 +115,104 @@
         }
     }
 </script>
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <button class="btn btn-secondary">{{ __('Update User') }}</button>
+            <button class="btn btn-ghost-danger" wire:click="closeEditUserModal">{{ __('Close') }}</button>
+            <form wire:submit="update_user" class="mt-4">
+                @csrf
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="d-grid gap-2 d-md-block me-3">
+                                <button class="btn btn-primary" type="button">
+                                    {{ $updateUser->name }}
+                                </button>
+                            </div>
+                            <div class="form-floating flex-grow-1">
+                                <input wire:model="name" class="form-control rounded-md" id="floatingInput2" type="text" placeholder="{{ __('user.name') }}">
+                                <label for="floatingInput2">{{ __('user.name') }}</label>
+                            </div>
+                        </div>
+                        @error('name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="d-grid gap-2 d-md-block me-3">
+                                <button class="btn btn-primary" type="button">
+                                    {{ $updateUser->email }}
+                                </button>
+                            </div>
+                            <div class="form-floating flex-grow-1">
+                                <input wire:model="email" class="form-control rounded-md" id="floatingInput2" type="email" placeholder="{{ __('user.email') }}">
+                                <label for="floatingInput2">{{ __('user.email') }}</label>
+                            </div>
+                        </div>
+                        @error('email')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="d-grid gap-2 d-md-block me-3">
+                                <button class="btn btn-primary" type="button">
+                                    {{ $updateUser->phone_number }}
+                                </button>
+                            </div>
+                            <div class="form-floating flex-grow-1">
+                                <input wire:model="phone_number" class="form-control rounded-md" id="floatingInput2" type="integer" placeholder="{{ __('user.phone_number') }}">
+                                <label for="floatingInput2">{{ __('user.phone_number') }}</label>
+                            </div>
+                        </div>
+                        @error('phone_number')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                        <div class="d-grid gap-2 d-md-block me-3">
+                            <button class="btn btn-primary" type="button">
+                                {{ $updateUser->role }}
+                            </button>
+                        </div>
+                        <div class="flex-grow-1">
+                            <select wire:model="role" class="form-select  h-10 px-3 py-3 rounded-md text-sm font-medium" aria-label="Default select example">
+                                <option>{{ __('user.role_name') }}</option>
+                                @foreach($roles as $role)
+                                    <option value="{{ $role->name }}" {{ $updateUser->role === $role->name ? "selected" : '' }}>{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('role')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                        <div class="d-grid gap-2 d-md-block me-3">
+                            <button class="btn btn-primary" type="button">
+                                {{ $updateUser->status }}
+                            </button>
+                        </div>
+                        <div class="flex-grow-1">
+                            <select wire:model="status" class="form-select  h-10 px-3 py-3 rounded-md text-sm font-medium" aria-label="Default select example">
+                                <option>{{ __('user.rol_status') }}</option>
+                                <option value="active">active</option>
+                                <option value="inactive">inactive</option>
+                            </select>
+                        </div>
+                        @error('status')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <button class="btn btn-ghost-primary">{{ __('user.update') }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
