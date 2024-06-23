@@ -1,41 +1,24 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <h4>  
-                <div id="notification" class="fixed top-4 right-4 z-50 p-4 bg-gray-800 text-white rounded shadow-md opacity-0 transition-opacity duration-500 hidden">
-                    <span id="notificationMessage"></span>
-                </div>
-            </h4>
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <livewire:profile.update-profile-information-form />
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('dashboard.profile-photo')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <livewire:profile.update-password-form />
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <livewire:profile.delete-user-form />
+    @section('title', 'Profile - Stardena')
+    @section('content')
+        <div class="body flex-grow-1">
+            <div class="container-lg px-4">
+                <div class="row">
+                    <div class="col-12">    
+                        <div class="row">
+                            <div class="col">
+                                <div class="card mb-4">
+                                    <div class="card-header"><strong> {{ __('Your Profile Information') }}</strong></div>
+                                        <livewire:profile.update-profile-information-form />
+                                        <livewire:profile.update-password-form />
+                                        {{-- <livewire:profile.delete-user-form /> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endsection
 </x-app-layout>
-@include('action-status.session')

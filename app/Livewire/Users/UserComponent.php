@@ -22,14 +22,19 @@ class UserComponent extends Component
     {
         $this->user_id = $userId;
         $this->updateUser = User::find($this->user_id);
-        $this->name = $this->updateUser->name;
-        $this->email = $this->updateUser->email;
-        $this->phone = $this->updateUser->phone;
-        $this->role = $this->updateUser->role;
-        $this->staff = $this->updateUser->staff;
-        $this->status = $this->updateUser->status;
+        if ($this->updateUser->staff == 'admin' || $this->updateUser->role == 'admin') {
+            session()->flash('danger', 'User Can Not Be Updated');
+        } else {
+            $this->name = $this->updateUser->name;
+            $this->email = $this->updateUser->email;
+            $this->phone = $this->updateUser->phone;
+            $this->role = $this->updateUser->role;
+            $this->staff = $this->updateUser->staff;
+            $this->status = $this->updateUser->status;
+    
+            $this->js('openModal()');
 
-        $this->js('openModal()');
+        }
     }
 
 
@@ -50,7 +55,7 @@ class UserComponent extends Component
             'phone' => 'required|string|min:10|regex:/^[0-9]+$/',
             'role' => 'nullable|string|max:25|in:admin,developer,staff,client',
             'staff' => 'nullable|string|max:25|in:admin,client',
-            'status' => 'nullable|string|max:25|in:1,0',
+            'status' => 'nullable|integer|max:25|in:1,0',
         ]);
         
         if($validatedData->fails()){
@@ -62,7 +67,7 @@ class UserComponent extends Component
             $user = User::find($this->user_id);
             try {
                 
-                if ($user) {
+                if (!$user->staff == 'admin' || !$user->role == 'admin') {
                     $user->update([
                         'name' => $data['name'],
                         'email' => $data['email'],

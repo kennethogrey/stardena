@@ -75,10 +75,28 @@
                                                                 </div>
                                                                 <div class="col-md-6 d-flex align-items-center">
                                                                     <div class="flex-grow-1">
+                                                                        <select wire:model="staff" class="form-select  h-10 px-3 py-3 rounded-md text-sm font-medium" aria-label="Default select example">
+                                                                            <option>{{ __('Select Staff') }}</option>
+                                                                            <option value="client"> Client</option>
+                                                                            <option value="admin"> Admin</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="text-danger d-block">
+                                                                        @if(isset($validationErrors['staff']))
+                                                                            @foreach($validationErrors['staff'] as $error)
+                                                                                {{ $error }}<br>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 d-flex align-items-center">
+                                                                    <div class="flex-grow-1">
                                                                         <select wire:model="role" class="form-select  h-10 px-3 py-3 rounded-md text-sm font-medium" aria-label="Default select example">
                                                                             <option>{{ __('Select Role') }}</option>
                                                                             <option value="client"> Client</option>
                                                                             <option value="admin"> Admin</option>
+                                                                            <option value="developer"> Developer</option>
+                                                                            <option value="staff"> Employee</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="text-danger d-block">
