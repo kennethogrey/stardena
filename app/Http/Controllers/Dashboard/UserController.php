@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function userIndex()
     {
-        return view('dashboard.users')->render();
+        return view('users.users')->render();
     }
 
     public function userStatus($id) 

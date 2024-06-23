@@ -14,6 +14,7 @@ class LandingPageController extends Controller
     public function index()
     {
         // Check for existing session or cookie
+        //Notice This algo is not accurate as per now
         if (!session()->has('visitor_id')) {
             // Generate a unique session ID
             $visitorId = uniqid();
@@ -27,8 +28,10 @@ class LandingPageController extends Controller
                 'counter' => DB::raw('counter + 1'),
             ]);
         }
-        $developers = User::where('role_id', 2)->get();
-        return view('landing-page.welcome', compact(
+        $developers = User::where('status', 1)
+            ->whereIn('role', ['admin', 'developer', 'staff'])
+            ->get();
+            return view('landing-page.welcome', compact(
             'developers'
         ))->render();
     }
