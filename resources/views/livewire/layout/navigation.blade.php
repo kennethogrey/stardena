@@ -47,11 +47,11 @@ new class extends Component
                 <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-user-female') }}"></use>
             </svg> {{ __('Users') }}</a>
         </li>
-        {{-- <li class="nav-item"><a class="nav-link" href="typography.html">
+        <li class="nav-item"><a class="nav-link" href="{{ route('message') }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-pencil') }}"></use>
-            </svg> Typography</a>
-        </li> --}}
+            </svg> Feedback</a>
+        </li>
         
         <li class="nav-title">{{ __('Products & Services') }}</li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
