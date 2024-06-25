@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('subject')->nullable();
             $table->string('message')->nullable();
+            $table->enum('status', [1, 0])->default(0);
             $table->timestamps();
         });
     }
