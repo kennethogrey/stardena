@@ -81,7 +81,7 @@ new class extends Component
         $user = Auth::user();
         if ($user) {
             // delete previous Image
-            \Storage::delete('public/profile-photos/' . $user->photo);
+            \Storage::delete('public/profile-photos/' . $user->profile_photo);
             $user->profile_photo = $image_name;
             $user->save();
             $this->dispatch('photo-updated', ['name' => $user->name]);   
