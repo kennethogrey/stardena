@@ -141,12 +141,6 @@ final class UserTable extends PowerGridComponent
     }
 
 
-    // #[\Livewire\Attributes\On('edit')]
-    // public function edit($rowId): void
-    // {
-    //     $this->js('openForm('.$rowId.')');
-    // }
-
     /*
     public function actionRules($row): array
     {
