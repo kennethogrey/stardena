@@ -11,8 +11,7 @@ new class extends Component
     public function logout(Logout $logout): void
     {
         $logout();
-
-        $this->redirect('/', navigate: true);
+        $this->js('logoutRefresh()');
     }
 }; ?>
 <header class="header header-sticky p-0 mb-4">
@@ -84,4 +83,10 @@ new class extends Component
             </li>
         </ul>
     </div>
+    <script>
+        function logoutRefresh() {
+            // window.location.reload();
+            window.location.href = '/';
+        }
+    </script>
 </header>

@@ -26,4 +26,9 @@ class DashboardController extends Controller
             return redirect()->back()->with('error', 'Something Went Wrong');
         }
     }
+
+    public function partners() 
+    {
+        return view('users.partners');
+    }
 }

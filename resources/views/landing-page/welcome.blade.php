@@ -23,7 +23,7 @@
                             Stardena is a dynamic portfolio tech company specializing in the development of innovative solutions across A.I, web, mobile apps, and embedded systems.     
                         </p>
                         <ul class="banner-btn">
-                            <li><a class="readon started" href="login.html">Get Started</a></li>
+                            <li><a class="readon started" href="#rs-contact">Get Started</a></li>
                         </ul>
                     </div>
                 </div>
@@ -693,7 +693,7 @@
                             </div>
                             <div class="address-text">
                                 <span class="label">Phone:</span>
-                                <a href="tel:123222-8888">(+256) 776-263482</a>
+                                <a href="tel:0781315904">(+256) 781-315904</a>
                             </div>
                         </div>
                         <div class="address-box mb-25">
@@ -711,7 +711,7 @@
                             </div>
                             <div class="address-text">
                                 <span class="label">Address:</span>
-                                <div class="desc">Makerere University, Uganda</div>
+                                <div class="desc">Makerere Kikoni, Uganda</div>
                             </div>
                         </div>
                     </div>

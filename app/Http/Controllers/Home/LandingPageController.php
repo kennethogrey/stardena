@@ -64,5 +64,10 @@ class LandingPageController extends Controller
             return redirect()->back()->with('error', 'Something Went Wrong');
         }
     }
+
+    // public function login()
+    // {
+    //     return view('landing-page.login');
+    // }
     
 }

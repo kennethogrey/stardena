@@ -58,7 +58,7 @@
                         {{ __('Version: 1.0.0') }}
                     </div>
                     <div class="ms-auto"><a href="https://stardena.com">
-                        <img src="{{ asset('panel/assets/img/stardena.png') }}" alt="Stardena" width="100" height="32"></a> 
+                        <img src="{{ getLogoUrl() }}" alt="Stardena" width="100" height="32"></a> 
                     </div>
                 </footer>
             </div>

@@ -9,9 +9,12 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
+use App\Livewire\Home\SessionComponent;
 
 class LoginForm extends Form
 {
+    use SessionComponent;
+
     #[Validate('required|string|email')]
     public string $email = '';
 
@@ -32,6 +35,7 @@ class LoginForm extends Form
 
         if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
             RateLimiter::hit($this->throttleKey());
+            session()->flash('danger', 'Login Failed');
 
             throw ValidationException::withMessages([
                 'form.email' => trans('auth.failed'),
