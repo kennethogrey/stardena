@@ -13,10 +13,10 @@ function getLogoUrl()
 function getUserPhoto()
 {
     $user = Auth::user();
-    if ($user->profile_photo) {
+
+    if (isset($user) && isset($user->profile_photo)) {
         return asset('storage/profile-photos/' . $user->profile_photo);
     } else {
         return asset('panel/assets/img/avatars/8.jpg');
     }
-    return null;
 }

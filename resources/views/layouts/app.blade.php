@@ -41,7 +41,6 @@
         <script src="{{ asset('panel/js/color-modes.js') }}"></script>
         <!-- <link href="{{ asset('panel/css/coreui-chartjs.css') }}" rel="stylesheet"> -->
         <link href="{{ asset('panel/css/simplebar.css') }}" rel="stylesheet">
-
         <link href="{{ asset('panel/icons/css/flag.min.css') }}" rel="stylesheet">
         @livewireStyles
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
@@ -58,7 +57,7 @@
                         {{ __('Version: 1.0.0') }}
                     </div>
                     <div class="ms-auto"><a href="https://stardena.com">
-                        <img src="{{ asset('panel/assets/img/stardena.png') }}" alt="Stardena" width="100" height="32"></a> 
+                        <img src="{{ getLogoUrl() }}" alt="Stardena" width="100" height="32"></a> 
                     </div>
                 </footer>
             </div>

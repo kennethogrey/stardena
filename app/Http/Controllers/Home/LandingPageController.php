@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Contact;
 use App\Models\Visitor;
+use App\Models\Partner;
 use DB;
 
 class LandingPageController extends Controller
@@ -31,8 +32,28 @@ class LandingPageController extends Controller
         $developers = User::where('status', 1)
             ->whereIn('role', ['admin', 'developer', 'staff'])
             ->get();
-            return view('landing-page.welcome', compact(
-            'developers'
+
+        $originalPartners = Partner::all();
+        $clonedPartners = $originalPartners->map(function ($partner) {
+            return clone $partner;
+        });
+        $partners = $clonedPartners->pluck('company_logo', 'domain_name')->toArray();
+        $project_counter = $clonedPartners->count();
+        // dd($partners);
+
+        $originalUsers = User::all();
+        $clonedUsers = $originalUsers->map(function ($user) {
+            return clone $user;
+        });
+        $client_counter = $clonedUsers->filter(function ($user) {
+            return $user->role === 'client' || $user->staff === 'client';
+        });
+        $clientCount = $client_counter->count();
+        return view('landing-page.welcome', compact(
+            'partners',
+            'project_counter',
+            'developers',
+            'clientCount',
         ))->render();
     }
 
@@ -64,5 +85,10 @@ class LandingPageController extends Controller
             return redirect()->back()->with('error', 'Something Went Wrong');
         }
     }
+
+    // public function login()
+    // {
+    //     return view('landing-page.login');
+    // }
     
 }

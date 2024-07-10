@@ -87,8 +87,7 @@
             <a href="index.html"><img src="{{asset('front/assets/images/stardena_blue.png')}}" alt="logo"></a>
         </div>
         <div class="offcanvas-text">
-            <p>Braintech quisque placerat vitae lacus ut scelerisque. Fusce luctus odio ac nibh luctus, in
-                porttitor theo lacus egestas etiusto odio data center.</p>
+            <p>To empower organizations with innovative ICT solutions that enhance efficiency, connectivity, and security.</p>
         </div>
         <div class="canvas-contact">
             <div class="address-area">
@@ -98,7 +97,7 @@
                     </div>
                     <div class="info-content">
                         <h4 class="title">Address</h4>
-                        <em>05 kandi BR. New York</em>
+                        <em>Makerere-Kikoni. Kampala</em>
                     </div>
                 </div>
                 <div class="address-list">
@@ -107,7 +106,7 @@
                     </div>
                     <div class="info-content">
                         <h4 class="title">Email</h4>
-                        <em><a href="mailto:info@yourmail.com">info@yourmail.com</a></em>
+                        <em><a href="mailto:info@stardena.com">info@stardena.com</a></em>
                     </div>
                 </div>
                 <div class="address-list">
@@ -116,14 +115,15 @@
                     </div>
                     <div class="info-content">
                         <h4 class="title">Phone</h4>
-                        <em>+019988772</em>
+                        <a href="tel:0781315904"><em>+256 781 315904</em></a>
+                        <a href="tel:0776263482"><em>+256 776 263482</em></a>
                     </div>
                 </div>
             </div>
             <ul class="social">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
                 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
             </ul>
         </div>

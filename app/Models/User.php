@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Partner;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -47,4 +49,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // public function projectManager()
+    // {
+    //     return $this->hasMany(Partner::class, 'project_manager', 'id');
+    // }
 }

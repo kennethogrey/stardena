@@ -52,6 +52,11 @@ new class extends Component
                 <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-pencil') }}"></use>
             </svg> Feedback</a>
         </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('partner') }}">
+            <svg class="nav-icon">
+                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-people') }}"></use>
+            </svg> Partners</a>
+        </li>
         
         <li class="nav-title">{{ __('Products & Services') }}</li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">

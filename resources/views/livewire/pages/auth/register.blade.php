@@ -37,9 +37,78 @@ new #[Layout('layouts.guest')] class extends Component
 
         $this->redirect(RouteServiceProvider::HOME, navigate: true);
     }
+
 }; ?>
 
 <div>
+    <div class="row mb-4">
+        <div class="col-xl-7 col-xxl-4">
+            <p>
+                @include('livewire.home.session-component')
+            </p>
+        </div>
+    </div> 
+    <div class="card mb-4 mx-4">
+        <div class="card-body p-4">
+            <h1>{{__('Sign Up')}}</h1>
+            <p class="text-body-secondary">{{__('Create your account')}}</p>
+            <form wire:submit="register">
+                @if ($errors->any())
+                    <div class="text-danger">
+                        <ul class="mb-0" style="font-size: 0.875rem;">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
+                        <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-user')}}"></use>
+                    </svg></span>
+                    <input wire:model="name" id="name" name="name" class="form-control" type="text" placeholder="Full Names">
+                </div>
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
+                        <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-envelope-open')}}"></use>
+                    </svg></span>
+                    <input wire:model="email" id="email" name="email" class="form-control" type="email" placeholder="Email">
+                </div>
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
+                        <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-phone')}}"></use>
+                    </svg></span>
+                    <input wire:model="phone" id="phone" name="phone" class="form-control" type="text" placeholder="Phone Number">
+                </div>
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
+                        <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-lock-locked')}}"></use>
+                    </svg></span>
+                    <input wire:model="password" id="password" name="password" class="form-control" type="password" placeholder="Password">
+                </div>
+                <div class="input-group mb-4"><span class="input-group-text">
+                    <svg class="icon">
+                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-lock-locked')}}"></use>
+                    </svg></span>
+                    <input wire:model="password_confirmation" id="password_confirmation" name="password_confirmation" class="form-control" type="password" placeholder="Repeat password">
+                </div>
+                <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-ghost-primary px-4" type="submit">Create Account</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-ghost-primary px-4" onclick="loginPage()">{{ __('Already registered?') }}</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function loginPage() {
+            window.location.href = '/login';
+        }
+    </script>
+    {{--
     <form wire:submit="register">
         <!-- Name -->
         <div>
@@ -95,4 +164,5 @@ new #[Layout('layouts.guest')] class extends Component
             </x-primary-button>
         </div>
     </form>
+    --}}
 </div>

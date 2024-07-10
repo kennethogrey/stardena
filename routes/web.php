@@ -18,9 +18,9 @@ use App\Http\Controllers\Home\LandingPageController;
 
 
 // Route::view('/', 'landing-page.welcome');
-Route::get('/', [LandingPageController::class, 'index']);
+Route::get('/', [LandingPageController::class, 'index'])->name('home');
 Route::post('post-message', [LandingPageController::class, 'contactUs'])->name('contact-us');
-
+// Route::get('/login', [LandingPageController::class, 'login'])->name('login');
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('welcome')->namespace('Home')->group(function () {
@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('user-role', [UserController::class, 'updateUserRole'])->name('user-role');   
     Route::get('messages', [LandingPageController::class, 'visitorsMessage'])->name('message');
     Route::get('delete-visitor/{id}', [DashboardController::class, 'deleteVisitor'])->name('destroy-visitor');
+    Route::get('partners', [DashboardController::class, 'partners'])->name('partner');
 
 
     Route::view('profile', 'dashboard.profile')->name('profile');
