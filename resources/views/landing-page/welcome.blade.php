@@ -50,62 +50,15 @@
                 data-ipad-device="4" data-ipad-device-nav="false" data-ipad-device-dots="false"
                 data-ipad-device2="3" data-ipad-device-nav2="false" data-ipad-device-dots2="false"
                 data-md-device="5" data-md-device-nav="false" data-md-device-dots="false">
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="#">
-                            <img class="wrapper" src="{{asset('front/assets/images/partner/style2/yorentos.png')}}" alt="">
-                        </a>
+                @foreach ($partners as $domain => $logo)
+                    <div class="partner-item">
+                        <div class="logo-img">
+                            <a href="{{ $domain }}">
+                                <img class="wrapper" src="{{ asset('storage/files/logos/' . $logo) }}" alt="">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="#">
-                            <img class="wrapper" src="{{asset('front/assets/images/partner/style2/2.png')}}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="#">
-                            <img class="wrapper" src="{{asset('front/assets/images/partner/style2/thesealed.png')}}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="#">
-                            <img class="wrapper" src="{{asset('front/assets/images/partner/style2/4.png')}}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="#">
-                            <img class="wrapper" src="{{asset('front/assets/images/partner/style2/mytreeuganda.png')}}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="#">
-                            <img class="wrapper" src="{{asset('front/assets/images/partner/style2/6.png')}}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="#">
-                            <img class="wrapper" src="{{asset('front/assets/images/partner/style2/7.png')}}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="#">
-                            <img class="wrapper" src="{{asset('front/assets/images/partner/style2/8.png')}}" alt="">
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -138,9 +91,15 @@
                                         <div class="counter-list">
                                             <div class="counter-text">
                                                 <div class="count-number">
-                                                    <span class="rs-count plus orange-color">13</span>
+                                                    <span class="rs-count plus orange-color">
+                                                        @if ($clientCount)
+                                                            {{ $clientCount }}
+                                                        @else
+                                                            {{__('12')}}
+                                                        @endif
+                                                    </span>
                                                 </div>
-                                                <h3 class="title">Happy Clients</h3>
+                                                <h3 class="title">{{__('Happy Clients')}}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -148,9 +107,15 @@
                                         <div class="counter-list">
                                             <div class="counter-text">
                                                 <div class="count-number">
-                                                    <span class="rs-count plus">21</span>
+                                                    <span class="rs-count plus">
+                                                        @if ($project_counter)
+                                                            {{ $project_counter }}
+                                                        @else
+                                                            {{__('5')}}
+                                                        @endif
+                                                    </span>
                                                 </div>
-                                                <h3 class="title">Project Delivered</h3>
+                                                <h3 class="title">{{__('Project Delivered')}}</h3>
                                             </div>
                                         </div>
                                     </div>

@@ -52,22 +52,22 @@ final class PartnersTable extends PowerGridComponent
         return PowerGrid::fields()
             ->add('id')
             ->add('company_name')
-            ->add('company_logo')
+            // ->add('company_logo')
             ->add('company_location')
             ->add('project_owner')
             ->add('owner_contact')
             ->add('project_title')
-            ->add('project_description', function($partner) {
-                return '<span class="btn btn-ghost-primary" type="button" wire:click="viewDescription('.$partner->id.')">
-                            <svg class="icon me-2">
-                                <use xlink:href="panel/icons/sprites/free.svg#cil-screen-desktop"></use>
-                            </svg>View
-                        </span>';
-            })
+            // ->add('project_description', function($partner) {
+            //     return '<span class="btn btn-ghost-primary" type="button" wire:click="viewDescription('.$partner->id.')">
+            //                 <svg class="icon me-2">
+            //                     <use xlink:href="panel/icons/sprites/free.svg#cil-screen-desktop"></use>
+            //                 </svg>View
+            //             </span>';
+            // })
             ->add('project_bill')
             ->add('amount_paid')
             ->add('currency')
-            ->add('agreement_documents')
+            // ->add('agreement_documents')
             ->add('domain_name')
             ->add('project_manager', function($partner) {
                 $partner->with('projectManager')->get();
@@ -114,9 +114,9 @@ final class PartnersTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Company logo', 'company_logo')
-                ->sortable()
-                ->searchable(),
+            // Column::make('Company logo', 'company_logo')
+            //     ->sortable()
+            //     ->searchable(),
 
             Column::make('Company location', 'company_location')
                 ->sortable()
@@ -134,9 +134,9 @@ final class PartnersTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Project description', 'project_description')
-                ->sortable()
-                ->searchable(),
+            // Column::make('Project description', 'project_description')
+            //     ->sortable()
+            //     ->searchable(),
 
             Column::make('Project bill', 'project_bill')
                 ->sortable()
@@ -150,9 +150,9 @@ final class PartnersTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Agreement documents', 'agreement_documents')
-                ->sortable()
-                ->searchable(),
+            // Column::make('Agreement documents', 'agreement_documents')
+            //     ->sortable()
+            //     ->searchable(),
 
             Column::make('Domain name', 'domain_name')
                 ->sortable()
@@ -195,20 +195,21 @@ final class PartnersTable extends PowerGridComponent
         ];
     }
 
-    #[\Livewire\Attributes\On('edit')]
-    public function edit($rowId): void
-    {
-        $this->js('alert('.$rowId.')');
-    }
 
-    public function actions(Partner $row): array
+    public function actions(Partner $partner_id): array
     {
         return [
-            Button::add('edit')
-                ->slot('Edit: '.$row->id)
+            Button::add('show')
+                ->slot('<svg class="icon icon-lg me-2"><use xlink:href="' . asset('panel/icons/sprites/free.svg#cil-screen-desktop') . '"></use></svg>')
                 ->id()
-                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                ->dispatch('edit', ['rowId' => $row->id])
+                ->class('btn btn-ghost-primary')
+                ->dispatch('show', ['partner_id' => $partner_id->id]),
+                
+            Button::add('deletePartner')
+                ->slot('<svg class="icon icon-lg me-2"><use xlink:href="' . asset('panel/icons/sprites/free.svg#cil-delete') . '"></use></svg>')
+                ->id()
+                ->class('btn btn-ghost-danger')
+                ->dispatch('deletePartner', ['partner_id' => $partner_id->id]),
         ];
     }
 

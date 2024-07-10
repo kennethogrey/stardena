@@ -41,7 +41,6 @@
         <script src="{{ asset('panel/js/color-modes.js') }}"></script>
         <!-- <link href="{{ asset('panel/css/coreui-chartjs.css') }}" rel="stylesheet"> -->
         <link href="{{ asset('panel/css/simplebar.css') }}" rel="stylesheet">
-
         <link href="{{ asset('panel/icons/css/flag.min.css') }}" rel="stylesheet">
         @livewireStyles
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}

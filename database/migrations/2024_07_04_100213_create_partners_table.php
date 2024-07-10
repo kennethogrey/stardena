@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('project_bill')->nullable();
             $table->integer('amount_paid')->nullable();
             $table->string('currency')->nullable();
-            $table->string('agreement_documents')->nullable();
+            $table->longtext('agreement_documents')->nullable();
             $table->string('date_paid')->nullable();
             $table->string('project_manager')->nullable();
             $table->string('developers')->nullable();
