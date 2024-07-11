@@ -10,15 +10,15 @@
 
         <link rel="icon" type="image/png" href="{{ getFaviconUrl() }}"/>
         <link rel="apple-touch-icon" sizes="57x57" href="{{ getFaviconUrl() }}">
-        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('panel/assets/favicon/apple-icon-57x57.png') }}">
-        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('panel/assets/favicon/apple-icon-60x60.png') }}">
-        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('panel/assets/favicon/apple-icon-72x72.png') }}">
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('panel/assets/favicon/apple-icon-76x76.png') }}">
-        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('panel/assets/favicon/apple-icon-114x114.png') }}">
-        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('panel/assets/favicon/apple-icon-120x120.png') }}">
-        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('panel/assets/favicon/apple-icon-144x144.png') }}">
-        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('panel/assets/favicon/apple-icon-152x152.png') }}">
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('panel/assets/favicon/apple-icon-180x180.png') }}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ getFaviconUrl() }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ getFaviconUrl() }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ getFaviconUrl() }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ getFaviconUrl() }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ getFaviconUrl() }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ getFaviconUrl() }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ getFaviconUrl() }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ getFaviconUrl() }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ getFaviconUrl() }}">
 
         <link rel="icon" type="image/png" sizes="192x192" href="{{ getFaviconUrl() }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ getFaviconUrl() }}">
@@ -52,9 +52,9 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="d-flex justify-content-center">
-                            <a href="https://stardena.com">
-                                <img src="{{ getLogoUrl() }}" alt="Stardena" width="250" height="90">
-                            </a>
+                            <div class="sidebar-brand-full" width="78" height="50" alt="CoreUI Logo">
+                                <img src="{{ getLogoUrl() }}" alt="Stardena" width="auto" height="30">
+                            </div>
                         </div><br>
                         {{ $slot }}
                     </div>
