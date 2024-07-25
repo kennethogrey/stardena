@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('front/style.css')}}">
     <!-- responsive css -->
     <link rel="stylesheet" type="text/css" href="{{asset('front/assets/css/responsive.css')}}">
+
     @livewireStyles
 </head>
 

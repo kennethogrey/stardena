@@ -17,13 +17,13 @@
                             </div>
                         </div>
                         <h1 class="title">
-                            I.T Infrastructure For Your Business Needs...
+                            {{__('I.T Infrastructure For Your Business Needs...')}}
                         </h1>
                         <p class="desc">
-                            Stardena is a dynamic portfolio tech company specializing in the development of innovative solutions across A.I, web, mobile apps, and embedded systems.     
+                            {{__('Stardena is a dynamic portfolio tech company specializing in the development of innovative solutions across A.I, web, mobile apps, and embedded systems. ')}}    
                         </p>
                         <ul class="banner-btn">
-                            <li><a class="readon started" href="#rs-contact">Get Started</a></li>
+                            <li><a class="readon started" href="#rs-contact">{{__('Get Started')}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -70,16 +70,16 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 pb-100"> 
                     <div class="sec-title mb-50">
-                        <div class="sub-text style4-bg">About Us</div>
+                        <div class="sub-text style4-bg">{{__('About Us')}}</div>
                         <h2 class="title  pb-20">
-                            Stardena Tech Solutions: Pioneering Innovation Across Multiple Platforms
+                            {{__('Stardena Tech Solutions: Pioneering Innovation Across Multiple Platforms...')}}
                         </h2>
                         <div class="desc">
-                            At Stardena Tech Solutions, we are more than just a tech company. 
+                            {{__('At Stardena Tech Solutions, we are more than just a tech company. 
                             We are innovators, creators, and problem solvers dedicated to pushing the 
                             boundaries of technology. Founded in January 2024 by software engineers 
                             Ogire Kenneth and Eluk Samuel Kiira, Stardena has quickly emerged as a 
-                            dynamic force in the Software industry.                            
+                            dynamic force in the Software industry. ')}}                           
                         </div>
                     </div>
                     <!-- Counter Section Start -->
@@ -142,11 +142,11 @@
                                         </div>
                                         <div class="services-content">
                                             <div class="services-text">
-                                                <h3 class="title"><a href="#">High-quality Code</a></h3>
+                                                <h3 class="title"><a href="#">{{__('High-quality Code.')}}</a></h3>
                                             </div>
                                             <div class="services-desc">
                                                 <p>
-                                                    We Write code that meets certain standards of readability, maintainability, efficiency, and reliability            
+                                                    {{__('We Write code that meets certain standards of readability, maintainability, efficiency, and reliability.')}}            
                                                 </p>
                                             </div>
                                         </div>
@@ -162,11 +162,11 @@
                                         </div>
                                         <div class="services-content">
                                             <div class="services-text">
-                                                <h3 class="title"><a href="#">Scalability</a></h3>
+                                                <h3 class="title"><a href="#">{{__('Scalability.')}}</a></h3>
                                             </div>
                                             <div class="services-desc">
                                                 <p>
-                                                    Software solutions that can grow with the client's business and adapt to increasing demands and user bases.
+                                                    {{__('Software solutions that can grow with the client\'s business and adapt to increasing demands and user bases.')}}
                                                 </p>
                                             </div>
                                         </div>
@@ -184,11 +184,11 @@
                                         </div>
                                         <div class="services-content">
                                             <div class="services-text">
-                                                <h3 class="title"><a href="#">Agile Approach</a></h3>
+                                                <h3 class="title"><a href="#">{{__('Agile Approach.')}}</a></h3>
                                             </div>
                                             <div class="services-desc">
                                                 <p>
-                                                    For flexible development, quick iterations, and rapid responses to changing requirements.
+                                                    {{__('For flexible development, quick iterations, and rapid responses to changing requirements.')}}
                                                 </p>
                                             </div>
                                         </div>
@@ -204,11 +204,11 @@
                                         </div>
                                         <div class="services-content">
                                             <div class="services-text">
-                                                <h3 class="title"><a href="#">Ethical Practices</a></h3>
+                                                <h3 class="title"><a href="#">{{__('Ethical Practices.')}}</a></h3>
                                             </div>
                                             <div class="services-desc">
                                                 <p>
-                                                    Operates ethically, respecting intellectual property rights, privacy, and security standards.
+                                                    {{__('Operates ethically, respecting intellectual property rights, privacy, and security standards.')}}
                                                 </p>
                                             </div>
                                         </div>
@@ -230,15 +230,15 @@
             <div class="row md-mb-60">
                 <div class="col-lg-6 mb-60 md-mb-20">
                     <div class="sec-title2 md-center">
-                        <span class="sub-text">Services</span>
+                        <span class="sub-text">{{__('Services.')}}</span>
                         <h2 class="title testi-title">
-                            What Solutions We Provide to Our Valued Customers
+                            {{__('What Solutions We Provide to Our Valued Customers')}}
                         </h2>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-60 md-mb-0">
                     <div class="btn-part text-right mt-60 md-mt-0 md-center">
-                        <a class="readon started" href="login">Get Started</a>
+                        <a class="readon started" href="#rs-contact">{{__('Get Started.')}}</a>
                     </div>
                 </div>
             </div>
@@ -253,17 +253,15 @@
                         </div>
                         <div class="services-content">
                             <div class="services-text">
-                                <h3 class="title"><a href="#">Mobile Apps</a></h3>
+                                <h3 class="title"><a href="#">{{__('Mobile Apps')}}</a></h3>
                             </div>
                             <div class="services-desc">
                                 <p>
-                                    From concept to deployment, we craft engaging and scalable mobile apps that 
-                                    captivate audiences
+                                    {{__('From concept to deployment, we craft engaging and scalable mobile apps that 
+                                    captivate audiences')}}
                                 </p>
                             </div>
-                            <div class="serial-number">
-                                01
-                            </div>
+                            <div class="serial-number">{{__('01')}}</div>
                         </div>
                     </div>
                 </div>
@@ -277,17 +275,15 @@
                         </div>
                         <div class="services-content">
                             <div class="services-text">
-                                <h3 class="title"><a href="#">Web Development</a></h3>
+                                <h3 class="title"><a href="#">{{__('Web Development.')}}</a></h3>
                             </div>
                             <div class="services-desc">
                                 <p>
-                                    Our web development services are tailored to meet the unique needs of each client, 
-                                    ensuring user-friendly interfaces and robust functionality.
+                                    {{__('Our web development services are tailored to meet the unique needs of each client, 
+                                    ensuring user-friendly interfaces and robust functionality.')}}
                                 </p>
                             </div>
-                            <div class="serial-number">
-                                02
-                            </div>
+                            <div class="serial-number">{{__('02')}}</div>
                         </div>
                     </div>
                 </div>
@@ -301,16 +297,14 @@
                         </div>
                         <div class="services-content">
                             <div class="services-text">
-                                <h3 class="title"><a href="#">Analytic Solutions</a></h3>
+                                <h3 class="title"><a href="#">{{__('Analytic Solutions.')}}</a></h3>
                             </div>
                             <div class="services-desc">
                                 <p>
-                                    Data-driven tools extracting insights for informed decision-making and optimization for an organization or individuals.
+                                    {{__('Data-driven tools extracting insights for informed decision-making and optimization for an organization or individuals.')}}
                                 </p>
                             </div>
-                            <div class="serial-number">
-                                03
-                            </div>
+                            <div class="serial-number">{{__('03')}}</div>
                         </div>
                     </div>
                 </div>
@@ -324,17 +318,15 @@
                         </div>
                         <div class="services-content">
                             <div class="services-text">
-                                <h3 class="title"><a href="#">Videography</a></h3>
+                                <h3 class="title"><a href="#">{{__('Videography')}}</a></h3>
                             </div>
                             <div class="services-desc">
                                 <p>
-                                    Capturing moments with precision and creativity, offering professional
-                                        videography services for all your needs.
+                                    {{__('Capturing moments with precision and creativity, offering professional
+                                        videography services for all your needs.')}}
                                 </p>
                             </div>
-                            <div class="serial-number">
-                                04
-                            </div>
+                            <div class="serial-number">{{__('04')}}</div>
                         </div>
                     </div>
                 </div>
@@ -348,16 +340,14 @@
                         </div>
                         <div class="services-content">
                             <div class="services-text">
-                                <h3 class="title"><a href="web-development.html">Product & Design</a></h3>
+                                <h3 class="title"><a href="web-development.html">{{__('Product & Design.')}}</a></h3>
                             </div>
                             <div class="services-desc">
                                 <p>
-                                    Product & Design synergize to create user-centric solutions with aesthetic appeal.
+                                    {{__('Product & Design synergize to create user-centric solutions with aesthetic appeal.')}}
                                 </p>
                             </div>
-                            <div class="serial-number">
-                                05
-                            </div>
+                            <div class="serial-number">{{__('05')}}</div>
                         </div>
                     </div>
                 </div>
@@ -371,17 +361,15 @@
                         </div>
                         <div class="services-content">
                             <div class="services-text">
-                                <h3 class="title"><a href="#">UI/UX design</a></h3>
+                                <h3 class="title"><a href="#">{{__('UI/UX design')}}</a></h3>
                             </div>
                             <div class="services-desc">
                                 <p>
-                                    User Interface (UI) and User Experience (UX) design focus on creating intuitive, 
-                                    engaging, and functional digital experiences for users
+                                    {{__('User Interface (UI) and User Experience (UX) design focus on creating intuitive, 
+                                    engaging, and functional digital experiences for users')}}
                                 </p>
                             </div>
-                            <div class="serial-number">
-                                06
-                            </div>
+                            <div class="serial-number">{{__('06')}}</div>
                         </div>
                     </div>
                 </div>
@@ -398,10 +386,8 @@
     <!-- Team Section Start -->
     <div id="rs-team" class="rs-team onepage-team change-bg rs-rain-animate pt-5 pb-120 md-pt-90 md-pb-90">
         <div class="sec-title2 text-center mb-30">
-            <span class="sub-text">Team</span>
-            <h2 class="title">
-                Expert Team At Your Service
-            </h2>
+            <span class="sub-text">{{__('Team')}}</span>
+            <h2 class="title">{{__('Expert Team At Your Service')}}</h2>
         </div>
         <div class="container">
             <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30"
@@ -411,23 +397,49 @@
                 data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="true" data-ipad-device2="2"
                 data-ipad-device-nav2="false" data-ipad-device-dots2="true" data-md-device="3"
                 data-md-device-nav="false" data-md-device-dots="true">
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/1.jpg')}}" alt=""></a>
+                @foreach ($staff as $staff)
+                    <div class="team-item-wrap">
+                        <div class="team-wrap">
+                            <div class="image-inner">
+                                @if ($staff->profile_photo)
+                                    <a href="#"><img src="{{asset('storage/profile-photos/' . $staff->profile_photo)}}" alt=""></a>
+                                @else
+                                    <a href="#"><img src="{{asset('panel/assets/img/avatars/8.jpg');}}" alt=""></a>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="team-content text-center">{{ $staff->name }}</a></h4>
+                            <span class="designation">
+                            {{ $staff->profileDetails ? $staff->profileDetails->title : 'Staff' }}
+                            </span>
+                            <ul class="team-social">
+                            @if ($staff->profileDetails)
+                                <ul class="social-links">
+                                    @if ($staff->profileDetails->facebook)
+                                        <li><a href="{{ $staff->profileDetails->facebook }}"><i class="fa fa-facebook"></i></a></li>
+                                    @endif
+                                    @if ($staff->profileDetails->instagram)
+                                        <li><a href="{{ $staff->profileDetails->instagram }}"><i class="fa fa-instagram"></i></a></li>
+                                    @endif
+                                    @if ($staff->profileDetails->linkedin)
+                                        <li><a href="{{ $staff->profileDetails->linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+                                    @endif
+                                    @if ($staff->profileDetails->whatsapp)
+                                        <li><a href="{{ $staff->profileDetails->whatsapp }}"><i class="fa fa-whatsapp"></i></a></li>
+                                    @endif
+                                    @if ($staff->profileDetails->twitter)
+                                        <li><a href="{{ $staff->profileDetails->twitter }}"><i class="fa fa-twitter"></i></a></li>
+                                    @endif
+                                    @if ($staff->profileDetails->pinterest)
+                                        <li><a href="{{ $staff->profileDetails->pinterest }}"><i class="fa fa-pinterest-p"></i></a></li>
+                                    @endif
+                                </ul>
+                            @endif
+                            </ul>
                         </div>
                     </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Makhaia Antitni</a></h4>
-                        <span class="designation">President & CEO</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+                @endforeach
+                {{--
                 <div class="team-item-wrap">
                     <div class="team-wrap">
                         <div class="image-inner">
@@ -632,6 +644,7 @@
                         </ul>
                     </div>
                 </div>
+                --}}
             </div>
             <div class="line-inner">
                 <div class="line"></div>

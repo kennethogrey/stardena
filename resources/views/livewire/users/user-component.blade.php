@@ -25,7 +25,7 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="staticBackdropLiveLabel">Edit @if ($updateUser) {{ $updateUser->name }} @endif Infomation</h5>
+                                                        <h5 class="modal-title" id="staticBackdropLiveLabel">{{__('Edit')}} @if ($updateUser) {{ $updateUser->name }} @endif Infomation</h5>
                                                         <button class="btn-close" type="button" onclick="closeModal()" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -99,10 +99,10 @@
                                                                         <div class="flex-grow-1">
                                                                             <select wire:model="role" class="form-select  h-10 px-3 py-3 rounded-md text-sm font-medium" aria-label="Default select example">
                                                                                 <option>{{ __('Select Role') }}</option>
-                                                                                <option value="client"> Client</option>
-                                                                                <option value="admin"> Admin</option>
-                                                                                <option value="developer"> Developer</option>
-                                                                                <option value="staff"> Employee</option>
+                                                                                <option value="client"> {{__('Client')}}</option>
+                                                                                <option value="admin"> {{__('Admin')}}</option>
+                                                                                <option value="developer"> {{__('Developer')}}</option>
+                                                                                <option value="staff"> {{__('Employee')}}</option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="text-danger d-block">
@@ -117,8 +117,8 @@
                                                                         <div class="flex-grow-1">
                                                                             <select wire:model="status" class="form-select  h-10 px-3 py-3 rounded-md text-sm font-medium" aria-label="Default select example">
                                                                                 <option>{{ __('Select Status') }}</option>
-                                                                                <option value="0">Inactive</option>
-                                                                                <option value="1">Active</option>
+                                                                                <option value="0">{{__('Inactive')}}</option>
+                                                                                <option value="1">{{__('Active')}}</option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="text-danger">
@@ -131,7 +131,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button class="btn btn-ghost-secondary" type="button" onclick="closeModal()">Close</button>
+                                                                    <button class="btn btn-ghost-secondary" type="button" onclick="closeModal()">{{__('Close')}}</button>
                                                                     <button class="btn btn-ghost-primary">{{('Update')}}</button>
                                                                 </div>
                                                             </form>
@@ -152,7 +152,7 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="staticBackdropLiveLabel">Add New User</h5>
+                                                        <h5 class="modal-title" id="staticBackdropLiveLabel">{{__('Add New User')}}</h5>
                                                         <button class="btn-close" type="button" onclick="closeModal()" aria-label="Close"></button>
                                                     </div>
                                                     @if (!empty($form_create_user))
@@ -210,8 +210,8 @@
                                                                         <div class="flex-grow-1">
                                                                             <select wire:model="staff" class="form-select  h-10 px-3 py-3 rounded-md text-sm font-medium" aria-label="Default select example">
                                                                                 <option>{{ __('Select Staff') }}</option>
-                                                                                <option value="client"> Client</option>
-                                                                                <option value="admin"> Admin</option>
+                                                                                <option value="client"> {{__('Client')}}</option>
+                                                                                <option value="admin"> {{__('Admin')}}</option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="text-danger d-block">
@@ -226,10 +226,10 @@
                                                                         <div class="flex-grow-1">
                                                                             <select wire:model="role" class="form-select  h-10 px-3 py-3 rounded-md text-sm font-medium" aria-label="Default select example">
                                                                                 <option>{{ __('Select Role') }}</option>
-                                                                                <option value="client"> Client</option>
-                                                                                <option value="admin"> Admin</option>
-                                                                                <option value="developer"> Developer</option>
-                                                                                <option value="staff"> Employee</option>
+                                                                                <option value="client"> {{__('Client')}}</option>
+                                                                                <option value="admin"> {{__('Admin')}}</option>
+                                                                                <option value="developer"> {{__('Developer')}}</option>
+                                                                                <option value="staff"> {{__('Employee')}}</option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="text-danger d-block">
@@ -244,8 +244,8 @@
                                                                         <div class="flex-grow-1">
                                                                             <select wire:model="status" class="form-select  h-10 px-3 py-3 rounded-md text-sm font-medium" aria-label="Default select example">
                                                                                 <option>{{ __('Select Status') }}</option>
-                                                                                <option value="0">Inactive</option>
-                                                                                <option value="1">Active</option>
+                                                                                <option value="0">{{__('Inactive')}}</option>
+                                                                                <option value="1">{{__('Active')}}</option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="text-danger">
@@ -258,7 +258,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button class="btn btn-ghost-secondary" type="button" onclick="closeModal()">Close</button>
+                                                                    <button class="btn btn-ghost-secondary" type="button" onclick="closeModal()">{{__('Close')}}</button>
                                                                     <button class="btn btn-ghost-primary">{{('Save')}}</button>
                                                                 </div>
                                                             </form>
