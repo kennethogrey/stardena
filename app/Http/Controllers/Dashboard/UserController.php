@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Storage;
+use App\Models\Profile;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -62,6 +64,36 @@ class UserController extends Controller
             return response()->json(['success' => true, 'message' => 'User Role Updated Successfully']);
         } else {
             return response()->json(['success' => false, 'message' => 'An error occurred']);        
+        }
+    }
+
+    public function updateResume(Request $request)
+    {
+        // Validate the request data
+        $validated = $request->validate([
+            'resume' => ['required', 'string', 'max:10000'],
+        ]);
+
+        $user = Auth::user();
+        $user_id = $user->id;
+
+        $validated['user_id'] = $user_id;
+
+        $user_profile = Profile::updateOrInsert(
+            ['user_id' => $user_id], 
+            ['resume' => $validated['resume']]
+        );
+
+        if ($user_profile) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Personal Resume updated successfully.',
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Something went wrong.',
+            ], 500);
         }
     }
 }

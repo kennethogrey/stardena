@@ -45,15 +45,19 @@ class LandingPageController extends Controller
         $clonedUsers = $originalUsers->map(function ($user) {
             return clone $user;
         });
+
         $client_counter = $clonedUsers->filter(function ($user) {
             return $user->role === 'client' || $user->staff === 'client';
         });
         $clientCount = $client_counter->count();
+
+        $staff = User::with('profileDetails')->get();
         return view('landing-page.welcome', compact(
             'partners',
             'project_counter',
             'developers',
             'clientCount',
+            'staff',
         ))->render();
     }
 

@@ -36,8 +36,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('delete-visitor/{id}', [DashboardController::class, 'deleteVisitor'])->name('destroy-visitor');
     Route::get('partners', [DashboardController::class, 'partners'])->name('partner');
 
+    Route::post('user-resume', [UserController::class, 'updateResume'])->name('update-resume');
 
     Route::view('profile', 'dashboard.profile')->name('profile');
+    Route::view('profile/user', 'users.profile')->name('user.profile');
 });
 
 require __DIR__.'/auth.php';
