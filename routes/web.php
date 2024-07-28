@@ -20,7 +20,10 @@ use App\Http\Controllers\Home\LandingPageController;
 // Route::view('/', 'landing-page.welcome');
 Route::get('/', [LandingPageController::class, 'index'])->name('home');
 Route::post('post-message', [LandingPageController::class, 'contactUs'])->name('contact-us');
-// Route::get('/login', [LandingPageController::class, 'login'])->name('login');
+Route::post('email-newsletter', [LandingPageController::class, 'emailNewsLetter'])->name('email-newsletter');
+Route::get('user-resume/{id}', [LandingPageController::class, 'staffResume'])->name('staff-resume');
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('welcome')->namespace('Home')->group(function () {

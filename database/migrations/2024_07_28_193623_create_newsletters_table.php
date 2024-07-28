@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('newsletters', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
             $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('subject')->nullable();
-            $table->longText('message')->nullable();
             $table->enum('status', [1, 0])->default(0);
             $table->timestamps();
         });
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('newsletters');
     }
 };
