@@ -38,6 +38,32 @@
     <!-- responsive css -->
     <link rel="stylesheet" type="text/css" href="{{asset('front/assets/css/responsive.css')}}">
 
+    <!-- Jquerry -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
+    <style>
+        .custom-swal-popup {
+            font-size: 16px; /* Adjust font size as needed */
+        }
+
+        .custom-swal-title-error {
+            color: red; /* Red color for the title */
+            font-size: 20px; /* Increase font size */
+        }
+
+        .custom-swal-title-success {
+            color: green; /* green color for the title */
+            font-size: 20px; /* Increase font size */
+        }
+
+        .custom-swal-icon {
+            width: 40px; /* Increase icon size */
+            height: 40px; /* Increase icon size */
+        }
+    </style>
+
     @livewireStyles
 </head>
 
@@ -54,6 +80,48 @@
     <div class="full-width-header">
         @include('landing-page.layout.navigation')
         <div class="content">
+            @if (session('error'))
+                <script>
+                    $(document).ready(function() {
+                        let title = '{{ session('error') }}';
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: title,
+                            showConfirmButton: false,
+                            timer: 5000,
+                            toast: true,
+                            customClass: {
+                                popup: 'custom-swal-popup',
+                                title: 'custom-swal-title-error',
+                                icon: 'custom-swal-icon'
+                            }
+                        });
+                    });
+                </script>
+            @endif
+
+            @if (session('success'))
+                <script>
+                    $(document).ready(function() {
+                        let title = '{{ session('success') }}';
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: title,
+                            showConfirmButton: false,
+                            timer: 5000,
+                            toast: true,
+                            customClass: {
+                                popup: 'custom-swal-popup',
+                                title: 'custom-swal-title-success',
+                                icon: 'custom-swal-icon'
+                            }
+                        });
+                    });
+                </script>
+            @endif
+
             @yield('content')
         </div>
     </div>

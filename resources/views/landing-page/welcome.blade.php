@@ -402,13 +402,14 @@
                         <div class="team-wrap">
                             <div class="image-inner">
                                 @if ($staff->profile_photo)
-                                    <a href="#"><img src="{{asset('storage/profile-photos/' . $staff->profile_photo)}}" alt=""></a>
+                                    <a href="//"><img src="{{asset('storage/profile-photos/' . $staff->profile_photo)}}" alt=""></a>
                                 @else
-                                    <a href="#"><img src="{{asset('panel/assets/img/avatars/8.jpg');}}" alt=""></a>
+                                    <a href="//"><img src="{{asset('panel/assets/img/avatars/8.jpg');}}" alt=""></a>
                                 @endif
                             </div>
                         </div>
-                        <div class="team-content text-center">{{ $staff->name }}</a></h4>
+                        <div class="team-content text-center">
+                            <h4 class="person-name"><a href="{{ route('staff-resume', $staff->profileDetails ? $staff->profileDetails->user_id : 'qwerty') }}" target="_blank">{{ $staff->name }}</a></h4>
                             <span class="designation">
                             {{ $staff->profileDetails ? $staff->profileDetails->title : 'Staff' }}
                             </span>
@@ -491,159 +492,6 @@
                         </ul>
                     </div>
                 </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/5.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Rushali Rumi</a></h4>
-                        <span class="designation">Design Lead</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/6.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Abu Sayed</a></h4>
-                        <span class="designation">App Developer</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/7.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Sonia Akhter</a></h4>
-                        <span class="designation">Graphic Artist</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/8.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Rayhan Ali</a></h4>
-                        <span class="designation">CEO & Founder</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/9.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Benjir Akther</a></h4>
-                        <span class="designation">Graphic Designer</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/1.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Makhaia Antitni</a></h4>
-                        <span class="designation">President & CEO</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/2.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Corey Anderson</a></h4>
-                        <span class="designation">CEO & Founder</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/3.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Masud Rana</a></h4>
-                        <span class="designation">Web Developer</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/4.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Najmul Huda</a></h4>
-                        <span class="designation">Digital Marketer</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
                 --}}
             </div>
             <div class="line-inner">
@@ -662,16 +510,16 @@
                 <div class="col-lg-4">
                     <div class="contact-box">
                         <div class="sec-title mb-45">
-                            <span class="sub-text new-text white-color">Let's Talk</span>
-                            <h2 class="title white-color">Speak With Expert Engineers.</h2>
+                            <span class="sub-text new-text white-color">{{__('Let\'s Talk')}}</span>
+                            <h2 class="title white-color">{{__('Speak With Expert Engineers.')}}</h2>
                         </div>
                         <div class="address-box mb-25">
                             <div class="address-icon">
                                 <i class="fa fa-home"></i>
                             </div>
                             <div class="address-text">
-                                <span class="label">Phone:</span>
-                                <a href="tel:0781315904">(+256) 781-315904</a>
+                                <span class="label">{{__('Phone:')}}</span>
+                                <a href="tel:0781315904">{{__('(+256) 781-315904')}}</a>
                             </div>
                         </div>
                         <div class="address-box mb-25">
@@ -679,8 +527,8 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="address-text">
-                                <span class="label">Email:</span>
-                                <a href="#">info@stardena.com</a>
+                                <span class="label">{{__('Email:')}}</span>
+                                <a href="mailto:info@stardena.com">{{__('info@stardena.com')}}</a>
                             </div>
                         </div>
                         <div class="address-box">
@@ -688,8 +536,8 @@
                                 <i class="fa fa-map-marker"></i>
                             </div>
                             <div class="address-text">
-                                <span class="label">Address:</span>
-                                <div class="desc">Makerere Kikoni, Uganda</div>
+                                <span class="label">{{__('Address:')}}</span>
+                                <div class="desc">{{__('Makerere Kikoni, Uganda')}}</div>
                             </div>
                         </div>
                     </div>
@@ -697,34 +545,33 @@
                 <div class="col-lg-8 pl-70 md-pl-15 md-mt-40">
                     <div class="contact-widget onepage-style">
                         <div class="sec-title2 mb-40">
-                            <span class="sub-text contact mb-15">Get In Touch</span>
-                            <h2 class="title testi-title">Fill The Form Below</h2>
-
+                            <span class="sub-text contact mb-15">{{__('Get In Touch')}}</span>
+                            <h2 class="title testi-title">{{__('Fill The Form Below')}}</h2>
                         </div>
-                        <div id="form-messages"></div>
-                        <form id="contact-form" method="post" action="mailer.php">
+                        <form method="post" action="{{ route('contact-us') }}">
+                            @csrf
                             <fieldset>
                                 <div class="row">
                                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                                         <input class="from-control" type="text" id="name" name="name"
-                                            placeholder="Name" required="">
+                                            placeholder="Name" required="Your name is required">
                                     </div>
                                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                                         <input class="from-control" type="text" id="email" name="email"
-                                            placeholder="E-Mail" required="">
+                                            placeholder="E-Mail" required="Your email is required">
                                     </div>
                                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                                         <input class="from-control" type="text" id="phone" name="phone"
-                                            placeholder="Phone Number" required="">
+                                            placeholder="Phone Number" required="Your phone is required">
                                     </div>
                                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
-                                        <input class="from-control" type="text" id="website" name="website"
-                                            placeholder="Your Website" required="">
+                                        <input class="from-control" type="text" id="subject" name="subject"
+                                            placeholder="Subject" required="Your subject is required">
                                     </div>
 
                                     <div class="col-lg-12 mb-30">
                                         <textarea class="from-control" id="message" name="message"
-                                            placeholder="Your message Here" required=""></textarea>
+                                            placeholder="Your message Here" required="Your message is required"></textarea>
                                     </div>
                                 </div>
                                 <div class="btn-part">

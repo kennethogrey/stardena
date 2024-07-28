@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Contact;
 use App\Models\Visitor;
 use App\Models\Partner;
+use App\Models\Newsletter;
 use DB;
 
 class LandingPageController extends Controller
@@ -63,7 +64,7 @@ class LandingPageController extends Controller
 
     public function contactUs(Request $request)
     {
-        $contact_us = Contact::create($request->only(['name', 'email', 'subject', 'message']));
+        $contact_us = Contact::create($request->only(['name', 'email', 'phone', 'subject', 'message']));
         if ($contact_us) {
             return redirect()->back()->with('success', 'Message Sent Successfully');
         } else {
@@ -90,9 +91,26 @@ class LandingPageController extends Controller
         }
     }
 
-    // public function login()
-    // {
-    //     return view('landing-page.login');
-    // }
-    
+    public function staffResume($id) 
+    {
+        if ($id === 'qwerty') {
+            return back()->with('error', 'Resume Not Updated Yet');
+        }
+        
+        $staff = User::with('profileDetails')->where('id', $id)->first();
+        return view('landing-page.single-team', compact(
+            'staff',
+        ));
+
+    }
+
+    public function emailNewsLetter(Request $request)
+    {
+        $email_list = Newsletter::create($request->only(['email']));
+        if ($email_list) {
+            return redirect()->back()->with('success', 'Email Saved Successfully');
+        } else {
+            return redirect()->back()->with('error', 'Something Went Wrong, Please Subscribe Again');
+        }
+    }
 }

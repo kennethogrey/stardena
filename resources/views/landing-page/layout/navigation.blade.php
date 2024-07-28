@@ -8,7 +8,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-2">
                         <div class="logo-part">
-                            <a href="index.html">
+                            <a href="/">
                                 <img class="normal-logo" src="{{asset('front/assets/images/stardena_orange.png')}}" alt="logo">
                                 <img class="sticky-logo" src="{{asset('front/assets/images/stardena_blue.png')}}" alt="logo">
                             </a>
@@ -24,16 +24,20 @@
                             <div class="main-menu">
                                 <nav class="rs-menu pr-100 md-pr-0">
                                     <ul id="onepage-menu" class="nav-menu">
-                                        <li> <a href="#rs-header">Home</a></li>
-                                        <li><a href="#rs-about">About</a></li>
-                                        <li><a href="#rs-services">Services</a></li>
-                                        <li><a href="#rs-team">Team</a></li>
-                                        <!-- <li><a href="#rs-portfolio">Portfolio</a></li> -->
-                                        <!-- <li><a href="#rs-blog">Blog</a></li> -->
-                                        <li><a href="#rs-contact">Contact</a></li>
-                                    </ul> <!-- //.nav-menu -->
+                                        @if (!Route::is('staff-resume'))
+                                            <li> <a href="#rs-header">{{__('Home')}}</a></li>
+                                            <li><a href="#rs-about">{{__('About')}}</a></li>
+                                            <li><a href="#rs-services">{{__('Services')}}</a></li>
+                                            <li><a href="#rs-team">{{__('Team')}}</a></li>
+                                            <!-- <li><a href="#rs-portfolio">Portfolio</a></li> -->
+                                            <!-- <li><a href="#rs-blog">Blog</a></li> -->
+                                            <li><a href="#rs-contact">{{__('Contact')}}</a></li>
+                                        @else
+                                            <li><a href="#rs-resume">{{__('Staff Resume')}}</a></li>
+                                        @endif
+                                    </ul>
                                 </nav>
-                            </div> <!-- //.main-menu -->
+                            </div>
                             <div class="expand-btn-inner search-icon hidden-md">
                                 <ul>
                                     <li class="sidebarmenu-search">
@@ -87,7 +91,7 @@
             <a href="index.html"><img src="{{asset('front/assets/images/stardena_blue.png')}}" alt="logo"></a>
         </div>
         <div class="offcanvas-text">
-            <p>To empower organizations with innovative ICT solutions that enhance efficiency, connectivity, and security.</p>
+            <p>{{__('To empower organizations with innovative ICT solutions that enhance efficiency, connectivity, and security.')}}</p>
         </div>
         <div class="canvas-contact">
             <div class="address-area">
@@ -96,8 +100,8 @@
                         <i class="flaticon-location"></i>
                     </div>
                     <div class="info-content">
-                        <h4 class="title">Address</h4>
-                        <em>Makerere-Kikoni. Kampala</em>
+                        <h4 class="title">{{__('Address')}}</h4>
+                        <em>{{__('Makerere-Kikoni. Kampala')}}</em>
                     </div>
                 </div>
                 <div class="address-list">
@@ -105,8 +109,8 @@
                         <i class="flaticon-email"></i>
                     </div>
                     <div class="info-content">
-                        <h4 class="title">Email</h4>
-                        <em><a href="mailto:info@stardena.com">info@stardena.com</a></em>
+                        <h4 class="title">{{__('Email')}}</h4>
+                        <em><a href="mailto:info@stardena.com">{{__('info@stardena.com')}}</a></em>
                     </div>
                 </div>
                 <div class="address-list">
@@ -114,9 +118,9 @@
                         <i class="flaticon-call"></i>
                     </div>
                     <div class="info-content">
-                        <h4 class="title">Phone</h4>
-                        <a href="tel:0781315904"><em>+256 781 315904</em></a>
-                        <a href="tel:0776263482"><em>+256 776 263482</em></a>
+                        <h4 class="title">{{__('Phone')}}</h4>
+                        <a href="tel:0781315904"><em>{{__('+256 781 315904')}}</em></a>
+                        <a href="tel:0776263482"><em>{{__('+256 776 263482')}}</em></a>
                     </div>
                 </div>
             </div>
