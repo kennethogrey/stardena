@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('newsletters', function (Blueprint $table) {
             $table->id();
             $table->string('email')->nullable();
-            $table->enum('status', [1, 0])->default(0);
+            $table->enum('status', [1, 0])->default(1);
             $table->timestamps();
         });
     }

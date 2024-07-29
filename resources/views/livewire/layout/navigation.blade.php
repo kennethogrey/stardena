@@ -50,12 +50,17 @@ new class extends Component
         <li class="nav-item"><a class="nav-link" href="{{ route('message') }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-pencil') }}"></use>
-            </svg> Feedback</a>
+            </svg> {{__('Feedback')}}</a>
         </li>
         <li class="nav-item"><a class="nav-link" href="{{ route('partner') }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-people') }}"></use>
-            </svg> Partners</a>
+            </svg> {{__('Partners')}}</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('send.newsletter') }}">
+            <svg class="nav-icon">
+                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-send') }}"></use>
+            </svg> {{__('NewsLetters')}}</a>
         </li>
         
         <li class="nav-title">{{ __('Products & Services') }}</li>
