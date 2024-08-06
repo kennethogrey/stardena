@@ -503,6 +503,109 @@
     </div>
     <!-- Team Section End -->
 
+    <!-- Project Section Start -->
+    <div id="rs-portfolio" class="rs-project style4 rs-rain-animate pt-110 pb-120 md-pt-70 md-pb-80">
+        <div class="container">
+            <div class="sec-title2 text-center mb-45">
+                <span class="sub-text">{{__('Projects')}}</span>
+                <h2 class="title title2">
+                    {{__('Our Projects Available in the Market')}}
+                </h2>
+            </div>
+
+            <div class="row mb-5 justify-content-center">
+                <div class="col-10 text-center">
+                    <div class="btn-group btn-group-toggle " data-toggle="buttons">
+                    <label class="btn active ">
+                        <input type="radio" name="shuffle-filter" value="all" checked="checked" />{{__('All Projects')}}
+                    </label>
+                    <label class="btn">
+                        <input type="radio" name="shuffle-filter" value="design" />UI/UX Design
+                    </label>
+                    <label class="btn">
+                        <input type="radio" name="shuffle-filter" value="branding" />branding
+                    </label>
+                    <label class="btn">
+                        <input type="radio" name="shuffle-filter" value="illustration" />Web Development
+                    </label>
+                        <label class="btn">
+                        <input type="radio" name="shuffle-filter" value="photo" />Photography
+                    </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row shuffle-wrapper portfolio-gallery">
+                <div class="col-lg-4 mb-30 shuffle-item" data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+                    <div class="project-item">
+                        <div class="project-img">
+                            <img src="{{asset('front/assets/images/project/style2/1.jpg')}}" alt="">
+                        </div>
+                        <div class="project-content">
+                            <p class="category"><a href="#">Software</a></p>
+                            <h3 class="title"><a href="case-studies-single.html">Product Engineering</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-30 shuffle-item" data-groups="[&quot;branding&quot;]">
+                    <div class="project-item">
+                        <div class="project-img">
+                            <img src="{{asset('front/assets/images/project/style2/2.jpg')}}" alt="">
+                        </div>
+                        <div class="project-content">
+                            <p class="category"><a href="#">Software</a></p>
+                            <h3 class="title"><a href="case-studies-single.html">Analytic Solutions</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-30 shuffle-item" data-groups="[&quot;illustration&quot;]">
+                    <div class="project-item">
+                        <div class="project-img">
+                            <img src="{{asset('front/assets/images/project/style2/3.jpg')}}" alt="">
+                        </div>
+                        <div class="project-content">
+                            <p class="category"><a href="#">Software</a></p>
+                            <h3 class="title"><a href="case-studies-single.html">Product Design</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 md-mb-30 shuffle-item" data-groups="[&quot;design&quot;,&quot;`branding&quot;]">
+                    <div class="project-item">
+                        <div class="project-img">
+                            <img src="{{asset('front/assets/images/project/style2/4.jpg')}}" alt="">
+                        </div>
+                        <div class="project-content">
+                            <p class="category"><a href="#">Software</a></p>
+                            <h3 class="title"><a href="case-studies-single.html">Growth Strategies</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 sm-mb-30 shuffle-item" data-groups="[&quot;illustration&quot;]">
+                    <div class="project-item">
+                        <div class="project-img">
+                            <img src="{{asset('front/assets/images/project/style2/5.jpg')}}" alt="">
+                        </div>
+                        <div class="project-content">
+                            <p class="category"><a href="#">Software</a></p>
+                            <h3 class="title"><a href="case-studies-single.html">Platform Integration</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 shuffle-item" data-groups="[&quot;design&quot;,&quot;photo&quot;]">
+                    <div class="project-item">
+                        <div class="project-img">
+                            <img src="{{asset('front/assets/images/project/style2/6.jpg')}}" alt="">
+                        </div>
+                        <div class="project-content">
+                            <p class="category"><a href="#">Software</a></p>
+                            <h3 class="title"><a href="case-studies-single.html">Innovative Interfaces</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Project Section End -->
+
     <!-- Contact Section Start -->
     <div id="rs-contact" class="rs-contact gray-color pt-5 md-pt-5">
         <div class="container">

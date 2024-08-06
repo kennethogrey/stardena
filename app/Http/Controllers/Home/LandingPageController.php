@@ -16,43 +16,35 @@ class LandingPageController extends Controller
     public function index()
     {
         // Check for existing session or cookie
-        //Notice This algo is not accurate as per now
         if (!session()->has('visitor_id')) {
             // Generate a unique session ID
             $visitorId = uniqid();
             session()->put('visitor_id', $visitorId);
-            Visitor::updateOrCreate(['visitor_id' => $visitorId],[
+            Visitor::updateOrCreate(['visitor_id' => $visitorId], [
                 'counter' => DB::raw('counter + 1'),
             ]);
         } else {
             $visitorId = session()->get('visitor_id');
-            Visitor::updateOrCreate(['visitor_id' => $visitorId],[
+            Visitor::updateOrCreate(['visitor_id' => $visitorId], [
                 'counter' => DB::raw('counter + 1'),
             ]);
         }
+
+        // Fetch developers
         $developers = User::where('status', 1)
             ->whereIn('role', ['admin', 'developer', 'staff'])
             ->get();
 
-        $originalPartners = Partner::all();
-        $clonedPartners = $originalPartners->map(function ($partner) {
-            return clone $partner;
-        });
-        $partners = $clonedPartners->pluck('company_logo', 'domain_name')->toArray();
-        $project_counter = $clonedPartners->count();
-        // dd($partners);
+        // Fetch partners with specific columns
+        $partners = Partner::pluck('company_logo', 'domain_name')->toArray();
+        $project_counter = count($partners);
 
-        $originalUsers = User::all();
-        $clonedUsers = $originalUsers->map(function ($user) {
-            return clone $user;
-        });
+        // Count clients
+        $clientCount = User::where('role', 'client')->orWhere('staff', 'client')->count();
 
-        $client_counter = $clonedUsers->filter(function ($user) {
-            return $user->role === 'client' || $user->staff === 'client';
-        });
-        $clientCount = $client_counter->count();
-
+        // Fetch staff with their profile details
         $staff = User::with('profileDetails')->get();
+
         return view('landing-page.welcome', compact(
             'partners',
             'project_counter',
@@ -61,6 +53,7 @@ class LandingPageController extends Controller
             'staff',
         ))->render();
     }
+
 
     public function contactUs(Request $request)
     {
@@ -106,11 +99,17 @@ class LandingPageController extends Controller
 
     public function emailNewsLetter(Request $request)
     {
+        $validated = $request->validate([
+            'email' => 'required|string|max:255|email',
+        ]);
+
         $email_list = Newsletter::create($request->only(['email']));
+
         if ($email_list) {
             return redirect()->back()->with('success', 'Email Saved Successfully');
         } else {
             return redirect()->back()->with('error', 'Something Went Wrong, Please Subscribe Again');
         }
     }
+
 }

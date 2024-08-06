@@ -69,10 +69,10 @@ new class extends Component
                 <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-star') }}"></use>
             </svg> {{ __('APPs & Systems') }}</a>
             <ul class="nav-group-items compact">
-                <li class="nav-item"><a class="nav-link" href="//" target="_top">
+                <li class="nav-item"><a class="nav-link" href="{{ route('software-systems') }}" target="_top">
                     <svg class="nav-icon">
-                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-apps') }}"></use>
-                    </svg> {{ __('APPs') }}</a>
+                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-devices') }}"></use>
+                    </svg> {{ __('Inventory/SaaS') }}</a>
                 </li>
             </ul>
         </li>

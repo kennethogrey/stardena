@@ -41,10 +41,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('user-resume', [UserController::class, 'updateResume'])->name('update-resume');
     Route::post('emails/newsletter/send', [DashboardController::class, 'sendNewsletter'])->name('send-newsletter');
+    Route::post('emails/newsletter/delete', [DashboardController::class, 'deleteNewsletter'])->name('delete-newsletter');
 
     Route::view('profile', 'dashboard.profile')->name('profile');
     Route::view('profile/user', 'users.profile')->name('user.profile');
     Route::view('email/newsletter', 'dashboard.newsletter')->name('send.newsletter');
+
+    // Software
+    Route::view('software-systems', 'software.systems')->name('software-systems');
+
 });
 
 require __DIR__.'/auth.php';

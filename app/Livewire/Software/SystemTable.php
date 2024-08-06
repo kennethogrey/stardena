@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire\Home;
+namespace App\Livewire\Software;
 
-use App\Models\Newsletter;
+use App\Models\System;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Button;
@@ -16,7 +16,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 
-final class EmailTable extends PowerGridComponent
+final class SystemTable extends PowerGridComponent
 {
     use WithExport;
 
@@ -37,7 +37,7 @@ final class EmailTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Newsletter::query();
+        return System::query();
     }
 
     public function relationSearch(): array
@@ -49,18 +49,21 @@ final class EmailTable extends PowerGridComponent
     {
         return PowerGrid::fields()
             ->add('id')
-            ->add('email')
-            ->add('status', function (Newsletter $model) {
-                $statusText = ($model->status == '1') ? 'Subscribed' : 'Unsubscribed';
-                $statusColor = ($model->status == '1') ? 'btn-success' : 'btn-danger';
-                $statusSvg = ($model->status == '1') ? 'thumb-up' : 'thumb-down';
-
+            ->add('image')
+            ->add('inventory_name')
+            ->add('software_category')
+            ->add('system_status', function (System $model) {
+                $statusText = ($model->system_status == '1') ? 'Active' : 'Inactive';
+                $statusColor = ($model->system_status == '1') ? 'btn-success' : 'btn-danger';
+                $statusSvg = ($model->system_status == '1') ? 'thumb-up' : 'thumb-down';
+                
                 return '<span class="text-white btn ' . $statusColor . '" type="button">
                         <svg class="icon me-2">
                             <use xlink:href="panel/icons/sprites/free.svg#cil-'.$statusSvg.' "></use>
                         </svg>' . $statusText . '
                     </span>';
                 })  
+            ->add('updated_at')
             ->add('created_at');
     }
 
@@ -68,13 +71,24 @@ final class EmailTable extends PowerGridComponent
     {
         return [
             Column::make('Id', 'id'),
-            Column::make('Email', 'email')
+            Column::make('Image', 'image')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Status', 'status')
+            Column::make('Inventory name', 'inventory_name')
                 ->sortable()
                 ->searchable(),
+
+            Column::make('Software category', 'software_category')
+                ->sortable()
+                ->searchable(),
+
+            Column::make('System status', 'system_status')
+                ->sortable()
+                ->searchable(),
+
+            Column::make('Updated at', 'created_at')
+                ->sortable(),
 
             Column::make('Created at', 'created_at')
                 ->sortable()
@@ -90,20 +104,20 @@ final class EmailTable extends PowerGridComponent
         ];
     }
 
-    #[\Livewire\Attributes\On('deleteEmail')]
-    public function deleteEmail($email_id): void
+    #[\Livewire\Attributes\On('edit')]
+    public function edit($rowId): void
     {
-        $this->js('deleteEmail('.$email_id.')');
+        $this->js('alert('.$rowId.')');
     }
 
-    public function actions(Newsletter $row): array
+    public function actions(System $row): array
     {
         return [
-            Button::add('deleteEmail')
-                ->slot('<svg class="icon icon-lg me-2"><use xlink:href="' . asset('panel/icons/sprites/free.svg#cil-delete') . '"></use></svg>')
+            Button::add('edit')
+                ->slot('Edit: '.$row->id)
                 ->id()
-                ->class('btn btn-ghost-danger')
-                ->dispatch('deleteEmail', ['email_id' => $row->id])
+                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
+                ->dispatch('edit', ['rowId' => $row->id])
         ];
     }
 
