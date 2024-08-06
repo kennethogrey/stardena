@@ -41,7 +41,11 @@
                                 <em class="paper-plane"><input type="submit" value="Sign up"></em>
                                 <i class="flaticon-send"></i>
                             </p>
-                        </form>
+                        </form><br>
+                        
+                        <p class="widget-desc">{{__('Important Links')}}</p>
+                        <a class="readon learn-more submit" href="{{ route('register') }}">{{__('Sign Up')}}</a>
+                        <a class="readon learn-more submit" href="{{ route('login') }}">{{__('Sign In')}}</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +55,7 @@
                 <div class="row y-middle">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="copyright">
-                            <p>&copy; <span id="current-year">2024</span> All Rights Reserved.
+                            <p>&copy; <span id="current-year">{{__('2024')}}</span> {{__('All Rights Reserved.')}}
                         </div>
                     </div>
 

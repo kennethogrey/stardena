@@ -415,7 +415,7 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLiveLabel">Confirm Delete Action</h5>
+                                                    <h5 class="modal-title" id="staticBackdropLiveLabel">{{__('Confirm Delete Action')}}</h5>
                                                     <button class="btn-close" type="button" onclick="closeModal()" aria-label="Close"></button>
                                                 </div>
                                                 @if ($partner)
