@@ -440,59 +440,6 @@
                         </div>
                     </div>
                 @endforeach
-                {{--
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/2.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Corey Anderson</a></h4>
-                        <span class="designation">CEO & Founder</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/3.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Masud Rana</a></h4>
-                        <span class="designation">Web Developer</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="team-item-wrap">
-                    <div class="team-wrap">
-                        <div class="image-inner">
-                            <a href="#"><img src="{{asset('front/assets/images/team/style1/4.jpg')}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h4 class="person-name"><a href="single-team.html">Najmul Huda</a></h4>
-                        <span class="designation">Digital Marketer</span>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                --}}
             </div>
             <div class="line-inner">
                 <div class="line"></div>
@@ -516,91 +463,31 @@
             <div class="row mb-5 justify-content-center">
                 <div class="col-10 text-center">
                     <div class="btn-group btn-group-toggle " data-toggle="buttons">
-                    <label class="btn active ">
-                        <input type="radio" name="shuffle-filter" value="all" checked="checked" />{{__('All Projects')}}
-                    </label>
-                    <label class="btn">
-                        <input type="radio" name="shuffle-filter" value="design" />UI/UX Design
-                    </label>
-                    <label class="btn">
-                        <input type="radio" name="shuffle-filter" value="branding" />branding
-                    </label>
-                    <label class="btn">
-                        <input type="radio" name="shuffle-filter" value="illustration" />Web Development
-                    </label>
-                        <label class="btn">
-                        <input type="radio" name="shuffle-filter" value="photo" />Photography
-                    </label>
+                        <label class="btn active">
+                            <input type="radio" name="shuffle-filter" value="all" checked="checked" />{{ __('All Projects') }}
+                        </label>
+                        @foreach($categories as $category)
+                            <label class="btn">
+                                <input type="radio" name="shuffle-filter" value="{{ $category }}" />{{ $category }}
+                            </label>
+                        @endforeach
                     </div>
                 </div>
             </div>
             <div class="row shuffle-wrapper portfolio-gallery">
-                <div class="col-lg-4 mb-30 shuffle-item" data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
-                    <div class="project-item">
-                        <div class="project-img">
-                            <img src="{{asset('front/assets/images/project/style2/1.jpg')}}" alt="">
-                        </div>
-                        <div class="project-content">
-                            <p class="category"><a href="#">Software</a></p>
-                            <h3 class="title"><a href="case-studies-single.html">Product Engineering</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-30 shuffle-item" data-groups="[&quot;branding&quot;]">
-                    <div class="project-item">
-                        <div class="project-img">
-                            <img src="{{asset('front/assets/images/project/style2/2.jpg')}}" alt="">
-                        </div>
-                        <div class="project-content">
-                            <p class="category"><a href="#">Software</a></p>
-                            <h3 class="title"><a href="case-studies-single.html">Analytic Solutions</a></h3>
+                @foreach($products as $product)
+                    <div class="col-lg-4 mb-30 shuffle-item" data-groups='["{{ $product->software_category }}"]'>
+                        <div class="project-item">
+                            <div class="project-img">
+                                <img src="{{ asset('front/assets/images/project/style2/'.$product->image) }}" alt="{{ $product->inventory_name }}">
+                            </div>
+                            <div class="project-content">
+                                <p class="category"><a href="{{ $product->demo_link }}" target="_blank">{{ $product->software_category }}</a></p>
+                                <h3 class="title"><a href="{{ $product->demo_link }}" target="_blank">{{ $product->inventory_name }}</a></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 mb-30 shuffle-item" data-groups="[&quot;illustration&quot;]">
-                    <div class="project-item">
-                        <div class="project-img">
-                            <img src="{{asset('front/assets/images/project/style2/3.jpg')}}" alt="">
-                        </div>
-                        <div class="project-content">
-                            <p class="category"><a href="#">Software</a></p>
-                            <h3 class="title"><a href="case-studies-single.html">Product Design</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 md-mb-30 shuffle-item" data-groups="[&quot;design&quot;,&quot;`branding&quot;]">
-                    <div class="project-item">
-                        <div class="project-img">
-                            <img src="{{asset('front/assets/images/project/style2/4.jpg')}}" alt="">
-                        </div>
-                        <div class="project-content">
-                            <p class="category"><a href="#">Software</a></p>
-                            <h3 class="title"><a href="case-studies-single.html">Growth Strategies</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 sm-mb-30 shuffle-item" data-groups="[&quot;illustration&quot;]">
-                    <div class="project-item">
-                        <div class="project-img">
-                            <img src="{{asset('front/assets/images/project/style2/5.jpg')}}" alt="">
-                        </div>
-                        <div class="project-content">
-                            <p class="category"><a href="#">Software</a></p>
-                            <h3 class="title"><a href="case-studies-single.html">Platform Integration</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 shuffle-item" data-groups="[&quot;design&quot;,&quot;photo&quot;]">
-                    <div class="project-item">
-                        <div class="project-img">
-                            <img src="{{asset('front/assets/images/project/style2/6.jpg')}}" alt="">
-                        </div>
-                        <div class="project-content">
-                            <p class="category"><a href="#">Software</a></p>
-                            <h3 class="title"><a href="case-studies-single.html">Innovative Interfaces</a></h3>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

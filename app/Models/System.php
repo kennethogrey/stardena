@@ -19,5 +19,6 @@ class System extends Model
         'inventory_name',
         'software_category',
         'system_status',
+        'demo_link',
     ];
 }

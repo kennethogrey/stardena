@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->string('inventory_name')->nullable();
+            $table->string('demo_link')->nullable();
             $table->string('software_category')->nullable();
             $table->enum('system_status', [1, 0])->default(0);
             $table->timestamps();
