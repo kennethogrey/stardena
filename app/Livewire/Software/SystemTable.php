@@ -51,6 +51,7 @@ final class SystemTable extends PowerGridComponent
             ->add('id')
             ->add('image')
             ->add('inventory_name')
+            ->add('demo_link')
             ->add('software_category')
             ->add('system_status', function (System $model) {
                 $statusText = ($model->system_status == '1') ? 'Active' : 'Inactive';
@@ -78,6 +79,9 @@ final class SystemTable extends PowerGridComponent
             Column::make('Inventory name', 'inventory_name')
                 ->sortable()
                 ->searchable(),
+            Column::make('URL Link', 'demo_link')
+                    ->sortable()
+                    ->searchable(),
 
             Column::make('Software category', 'software_category')
                 ->sortable()
@@ -104,20 +108,20 @@ final class SystemTable extends PowerGridComponent
         ];
     }
 
-    #[\Livewire\Attributes\On('edit')]
-    public function edit($rowId): void
-    {
-        $this->js('alert('.$rowId.')');
-    }
 
     public function actions(System $row): array
     {
         return [
             Button::add('edit')
-                ->slot('Edit: '.$row->id)
+                ->slot('<svg class="icon icon-lg me-2"><use xlink:href="' . asset('panel/icons/sprites/free.svg#cil-pen') . '"></use></svg>')
                 ->id()
-                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                ->dispatch('edit', ['rowId' => $row->id])
+                ->class('btn btn-ghost-primary')
+                ->dispatch('edit', ['rowId' => $row->id]),
+            Button::add('delete')
+                ->slot('<svg class="icon icon-lg me-2"><use xlink:href="' . asset('panel/icons/sprites/free.svg#cil-delete') . '"></use></svg>')
+                ->id()
+                ->class('btn btn-ghost-danger')
+                ->dispatch('delete', ['rowId' => $row->id])
         ];
     }
 

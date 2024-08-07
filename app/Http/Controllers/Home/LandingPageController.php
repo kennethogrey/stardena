@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\System;
 use App\Models\Contact;
 use App\Models\Visitor;
 use App\Models\Partner;
@@ -45,12 +46,16 @@ class LandingPageController extends Controller
         // Fetch staff with their profile details
         $staff = User::with('profileDetails')->get();
 
+        $products = System::where('system_status', 1)->get();
+        $categories = $products->pluck('software_category')->unique();
         return view('landing-page.welcome', compact(
             'partners',
             'project_counter',
             'developers',
             'clientCount',
             'staff',
+            'products',
+            'categories',
         ))->render();
     }
 
