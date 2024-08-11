@@ -57,10 +57,6 @@ class DashboardController extends Controller
 
         foreach ($emails as $email) {
             try {
-                // Mail::send('dashboard.news-email', ['message' => (string)$message, 'subject' => (string)$subject], function($mail) use ($email, $subject) {
-                //     $mail->to($email)
-                //          ->subject((string)$subject);
-                // });
                 Mail::to($email)->send(new NewsEmail((string)$message, (string)$subject));
             } catch (\Exception $e) {
                 \Log::error("Failed to send email to ".$email .": ". $e->getMessage());
@@ -78,10 +74,14 @@ class DashboardController extends Controller
     public function deleteNewsletter(Request $request)
     {
         $deleted_email = Newsletter::find($request['email_id']);
-        if ($deleted_email->delete()) {
-            return response()->json(['status' => 'success', 'message' => 'Newsletters Deleted Successfully']);
+        if (auth()->user()->role !== 'admin') {
+            return response()->json(['status' => 'error', 'message' => 'You don\'t have Permissions to Delete a Subcriber']);
         } else {
-            return response()->json(['status' => 'error', 'message' => 'Something Went Wrong, Try Again']);
+            if ($deleted_email->delete()) {
+                return response()->json(['status' => 'success', 'message' => 'Newsletters Deleted Successfully']);
+            } else {
+                return response()->json(['status' => 'error', 'message' => 'Something Went Wrong, Try Again']);
+            }     
         }
     }
 }

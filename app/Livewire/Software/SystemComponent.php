@@ -52,27 +52,35 @@ class SystemComponent extends Component
     #[\Livewire\Attributes\On('edit')]
     public function edit($rowId): void
     {
-        $system = System::find($rowId);
-        $this->system_id = $system->id;
-        $this->image = $system->image;
-        $this->inventory_name = $system->inventory_name;
-        $this->demo_link = $system->demo_link;
-        $this->software_category = $system->software_category;
-        $this->system_status = $system->system_status;
+        if (\Auth::user()->role !== 'admin') {
+            session()->flash('warning', __('You Don\'t Have Permissions To Delete a System'));
+        } else {
+            $system = System::find($rowId);
+            $this->system_id = $system->id;
+            $this->image = $system->image;
+            $this->inventory_name = $system->inventory_name;
+            $this->demo_link = $system->demo_link;
+            $this->software_category = $system->software_category;
+            $this->system_status = $system->system_status;
 
-        $this->edit_system = true;
-        // $this->js('alert('.$rowId.')');
+            $this->edit_system = true;
+            // $this->js('alert('.$rowId.')');
+        }
     }
 
     #[\Livewire\Attributes\On('delete')]
     public function delete($rowId): void
     {
-        $system = System::find($rowId);
-        $this->inventory_name = $system->inventory_name;
-        $this->system_id = $system->id;
+        if (\Auth::user()->role !== 'admin') {
+            session()->flash('warning', __('You Don\'t Have Permissions To Delete a System'));
+        } else {
+            $system = System::find($rowId);
+            $this->inventory_name = $system->inventory_name;
+            $this->system_id = $system->id;
 
-        $this->delete_system = true;
-        $this->js('deleteSystem()');
+            $this->delete_system = true;
+            $this->js('deleteSystem()');
+        }
     }
 
     public function deleteSystemNow($system_id): void

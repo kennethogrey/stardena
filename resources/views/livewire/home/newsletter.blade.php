@@ -73,7 +73,7 @@ new class extends Component
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Error',
-                                text: 'Unexpected response status: ' + response.status
+                                text: response.message
                             });
                         }
                     },
@@ -133,7 +133,7 @@ new class extends Component
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Error',
-                                    text: 'Unexpected response status: ' + response.status
+                                    text: response.message
                                 });
                             }
                         },

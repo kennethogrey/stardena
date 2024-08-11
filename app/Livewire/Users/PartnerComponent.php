@@ -7,7 +7,6 @@ use App\Livewire\Home\SessionComponent;
 use App\Models\Partner;
 use Livewire\WithFileUploads;
 use App\Models\User;
-use App\Livewire\Users\PartnersTable;
 use Illuminate\Support\Facades\Auth;
 
 class PartnerComponent extends Component
@@ -36,7 +35,6 @@ class PartnerComponent extends Component
 
         $partner = Partner::find($this->partner_id);
         if ($partner) {
-            // Decode the existing agreement_documents field if it's not empty
             $existingDocuments = $partner->agreement_documents ? json_decode($partner->agreement_documents, true) : [];
 
             foreach ($this->agreement_documents as $document) {
@@ -82,8 +80,8 @@ class PartnerComponent extends Component
     public function deletePartner($partner_id):void
     {
         $this->partner_id = $partner_id;
-        if (!Auth::user()->staff === 'admin') {
-            session()->flash('danger', __('You Don\'t Have Permissions To Delete Partner'));
+        if (Auth::user()->role !== 'admin') {
+            session()->flash('warning', __('You Don\'t Have Permissions To Delete a Partner'));
         } else {
             $this->partner = Partner::find($partner_id);
             $this->js('deletePartner()');
@@ -91,28 +89,27 @@ class PartnerComponent extends Component
     }
 
     public function deletePartnerNow($partner_id): void
-{
-    $partner = Partner::find($partner_id);
-    if ($partner) {
-        // Check for available agreement documents
-        $agreementDocuments = $partner->agreement_documents ? json_decode($partner->agreement_documents, true) : [];
-        if (!empty($agreementDocuments)) {
-            foreach ($agreementDocuments as $document) {
-                \Storage::delete('public/files/docs/' . $document);
+    {
+        $partner = Partner::find($partner_id);
+        if ($partner) {
+            $agreementDocuments = $partner->agreement_documents ? json_decode($partner->agreement_documents, true) : [];
+            if (!empty($agreementDocuments)) {
+                foreach ($agreementDocuments as $document) {
+                    \Storage::delete('public/files/docs/' . $document);
+                }
             }
+            // Delete Company Logo if it exists
+            if ($partner->company_logo) {
+                \Storage::delete('public/files/logos/' . $partner->company_logo);
+            }
+            $partner->delete();
+            session()->flash('success', 'Data Deleted Successfully');
+        } else {
+            session()->flash('danger', 'Partner Not Found');
         }
-        // Delete Company Logo if it exists
-        if ($partner->company_logo) {
-            \Storage::delete('public/files/logos/' . $partner->company_logo);
-        }
-        $partner->delete();
-        session()->flash('success', 'Data Deleted Successfully');
-    } else {
-        session()->flash('danger', 'Partner Not Found');
-    }
 
-    $this->js('closeModal()');
-}
+        $this->js('closeModal()');
+    }
 
 
     #[\Livewire\Attributes\On('show')]
@@ -184,7 +181,7 @@ class PartnerComponent extends Component
                     session()->flash('success', 'Data Updated Successfully');
                     $this->step = 'step_two';
                 } else {
-                    $error_status = throw new Exception("Error Processing Request", 1);
+                    $error_status = throw new \Exception("Error Processing Request", 1);
                     session()->flash('danger', __($error_status));
                 }
             } else {
@@ -197,13 +194,12 @@ class PartnerComponent extends Component
                 $create_partner->save();
 
                 if (!$create_partner) {
-                    $error_status = throw new Exception("Error Processing Request", 1);
+                    $error_status = throw new \Exception("Error Processing Request", 1);
                     session()->flash('danger', __($error_status));
                 } else {
                     session()->flash('success', 'Data Stored Successfully');
                     $this->step = 'step_two';
                     $this->partner_id = $create_partner->id;
-
                 }
             }
 
@@ -235,13 +231,13 @@ class PartnerComponent extends Component
                     $this->reset();
                     $this->js('closeModal()');
                 } else {
-                    $error_status = throw new Exception("Error Processing Request", 1);
+                    $error_status = throw new \Exception("Error Processing Request", 1);
                     session()->flash('danger', __($error_status));
                 }
             } else {
                 $update_partner = Partner::findOrFail($this->partner_id);
                 if (!$update_partner) {
-                    $error_status = throw new Exception("Error Processing Request", 1);
+                    $error_status = throw new \Exception("Error Processing Request", 1);
                     session()->flash('danger', __($error_status));
                 }else {
                     foreach ($validatedPartner as $field => $value) {

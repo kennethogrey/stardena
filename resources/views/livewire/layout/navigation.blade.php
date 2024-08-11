@@ -49,22 +49,27 @@ new class extends Component
                 </svg> {{ __('Users') }}</a>
             </li>
         @endif
-        <li class="nav-item"><a class="nav-link" href="{{ route('message') }}">
-            <svg class="nav-icon">
-                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-pencil') }}"></use>
-            </svg> {{__('Feedback')}}</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('partner') }}">
-            <svg class="nav-icon">
-                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-people') }}"></use>
-            </svg> {{__('Partners')}}</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('send.newsletter') }}">
-            <svg class="nav-icon">
-                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-send') }}"></use>
-            </svg> {{__('NewsLetters')}}</a>
-        </li>
-        
+        @if (auth()->user()->role === 'admin')
+            <li class="nav-item"><a class="nav-link" href="{{ route('message') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-pencil') }}"></use>
+                </svg> {{__('Feedback')}}</a>
+            </li>
+        @endif
+        @if (auth()->user()->role === 'admin' && auth()->user()->role === 'developer')
+            <li class="nav-item"><a class="nav-link" href="{{ route('partner') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-people') }}"></use>
+                </svg> {{__('Partners')}}</a>
+            </li>
+        @endif
+        @if (auth()->user()->role !== 'developer' && auth()->user()->role !== 'client')
+            <li class="nav-item"><a class="nav-link" href="{{ route('send.newsletter') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-send') }}"></use>
+                </svg> {{__('NewsLetters')}}</a>
+            </li>
+        @endif
         <li class="nav-title">{{ __('Products & Services') }}</li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
             <svg class="nav-icon">
