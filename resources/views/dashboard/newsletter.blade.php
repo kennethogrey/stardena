@@ -6,11 +6,15 @@
                 <div class="row">
                     <div class="col">
                         <div class="card mb-4">
-                            <div class="card-header">
-                                <strong>{{__('Newsletters')}}</strong>
-                            </div>
-                            <livewire:home.newsletter /> 
-                            <livewire:home.email-table/>
+                            @if (auth()->user()->role !== 'developer' && auth()->user()->role !== 'client')
+                                <div class="card-header">
+                                    <strong>{{__('Newsletters')}}</strong>
+                                </div>
+                                <livewire:home.newsletter /> 
+                                <livewire:home.email-table/>
+                            @else
+                                @include('users.not-found')
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -63,7 +63,6 @@ final class FeedbackTable extends PowerGridComponent
                         </svg>' . $statusText . '
                     </span>';
                 }) 
-            ->add('message')
             ->add('created_at');
     }
 
@@ -82,11 +81,7 @@ final class FeedbackTable extends PowerGridComponent
             Column::make('Subject', 'subject')
                 ->sortable()
                 ->searchable(),
-
-            Column::make('Message', 'message')
-                ->sortable()
-                ->searchable(),
-
+                
             Column::make('Status', 'status')
                 ->sortable()
                 ->searchable(),

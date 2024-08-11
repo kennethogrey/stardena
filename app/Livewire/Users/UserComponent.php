@@ -86,19 +86,26 @@ class UserComponent extends Component
                     }
                 }elseif ($this->form_update_user == 'update_user') {
                     $user = User::find($this->user_id);
+
                     if ($user) {
-                        $user->update([
-                            'name' => $data['name'],
-                            'email' => $data['email'],
-                            'phone' => $data['phone'],
-                            'role' => $data['role'],
-                            'staff' => $data['staff'],
-                            'status' => $data['status'],
-                        ]);
-                        session()->flash('success', 'Updated Successfully');
-                    }else {
+                        if ($user->role == 'admin' && auth()->user()->role !== 'admin') {
+                            session()->flash('warning', 'Admin cannot be edited by non-Admin');
+                        } elseif ($user->role == 'staff' && auth()->user()->email !== $data['email']) {
+                            session()->flash('warning', 'staff cannot be edited by another Staff');
+                        } else {
+                            $user->update([
+                                'name' => $data['name'],
+                                'email' => $data['email'],
+                                'phone' => $data['phone'],
+                                'role' => $data['role'],
+                                'staff' => $data['staff'],
+                                'status' => $data['status'],
+                            ]);
+                            session()->flash('success', 'Updated Successfully');
+                        }
+                    } else {
                         session()->flash('danger', 'Update Failed');
-                    } 
+                    }
                 } else {
                     session()->flash('warning', 'No Form Specified');
                 }

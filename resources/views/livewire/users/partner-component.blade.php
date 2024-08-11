@@ -421,7 +421,6 @@
                                                 @if ($partner)
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalPopoversLabel">{{__('Delete Details of ')}}{{ $partner->company_name }}</h5>
-                                                        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <p>{{__('Are You Sure You Want To Delete This Company details')}}</p>
