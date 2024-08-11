@@ -18,18 +18,18 @@
                         </div>
                         <div class="card-body">
                             <livewire:users.user-table/>
-                            <div class="example">
-                                <div class="tab-content rounded-bottom">
-                                    <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1002">
-                                        <div class="modal fade" id="staticBackdropLive" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="staticBackdropLiveLabel">{{__('Edit')}} @if ($updateUser) {{ $updateUser->name }} @endif Infomation</h5>
-                                                        <button class="btn-close" type="button" onclick="closeModal()" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        @if ($updateUser)
+                            @if ($updateUser)
+                                <div class="example">
+                                    <div class="tab-content rounded-bottom">
+                                        <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1002">
+                                            <div class="modal fade" id="staticBackdropLive" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLiveLabel">{{__('Edit')}} @if ($updateUser) {{ $updateUser->name }} @endif Infomation</h5>
+                                                            <button class="btn-close" type="button" onclick="closeModal()" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
                                                             <form wire:submit.prevent="update_user" id="myForm" class="mt-4">
                                                                 @csrf
                                                                 <div class="row">
@@ -135,27 +135,27 @@
                                                                     <button class="btn btn-ghost-primary">{{('Update')}}</button>
                                                                 </div>
                                                             </form>
-                                                        @endif
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Button to trigger the modal -->
+                                            <!-- <button id="showModalButton" class="btn btn-primary" type="button">Show Modal</button> -->
                                         </div>
-                                        <!-- Button to trigger the modal -->
-                                        <!-- <button id="showModalButton" class="btn btn-primary" type="button">Show Modal</button> -->
                                     </div>
                                 </div>
-                            </div>
-                            <div class="example">
-                                <div class="tab-content rounded-bottom">
-                                    <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1002">
-                                        <div class="modal fade" id="staticCreateUser" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="staticBackdropLiveLabel">{{__('Add New User')}}</h5>
-                                                        <button class="btn-close" type="button" onclick="closeModal()" aria-label="Close"></button>
-                                                    </div>
-                                                    @if (!empty($form_create_user))
+                            @endif
+                            @if (!empty($form_create_user))
+                                <div class="example">
+                                    <div class="tab-content rounded-bottom">
+                                        <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1002">
+                                            <div class="modal fade" id="staticCreateUser" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLiveLabel">{{__('Add New User')}}</h5>
+                                                            <button class="btn-close" type="button" onclick="closeModal()" aria-label="Close"></button>
+                                                        </div>
                                                         <div class="modal-body">
                                                             <form wire:submit="update_user" class="mt-4">
                                                                 @csrf
@@ -263,21 +263,21 @@
                                                                 </div>
                                                             </form>
                                                         </div>
-                                                    @endif
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <!-- Button to trigger the modal -->
+                                            <!-- <button id="showModalButton" class="btn btn-primary" type="button">Show Modal</button> -->
                                         </div>
-                                        <!-- Button to trigger the modal -->
-                                        <!-- <button id="showModalButton" class="btn btn-primary" type="button">Show Modal</button> -->
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-content rounded-bottom">
-                                <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1006">
-                                    <div class="modal fade" id="modalDeleteUser" tabindex="-1" aria-labelledby="exampleModalPopoversLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                @if ($user)
+                            @endif
+                            @if ($user)
+                                <div class="tab-content rounded-bottom">
+                                    <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-1006">
+                                        <div class="modal fade" id="modalDeleteUser" tabindex="-1" aria-labelledby="exampleModalPopoversLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalPopoversLabel">{{__('Delete Details of ')}}{{ $user->name }}</h5>
                                                         <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
@@ -289,12 +289,12 @@
                                                         <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">{{__('Cancel')}}</button>
                                                         <button class="btn btn-primary" type="button" wire:click="deleteUserNow({{ $user->id }})">{{__('Confirm Deletion')}}</button>
                                                     </div>
-                                                @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

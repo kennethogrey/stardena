@@ -42,11 +42,13 @@ new class extends Component
             </a>
         </li>
         <li class="nav-title">{{ __('Users Management') }}</li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('user') }}">
-            <svg class="nav-icon">
-                <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-user-female') }}"></use>
-            </svg> {{ __('Users') }}</a>
-        </li>
+        @if (auth()->user()->role !== 'developer' && auth()->user()->role !== 'client')
+            <li class="nav-item"><a class="nav-link" href="{{ route('user') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-user-female') }}"></use>
+                </svg> {{ __('Users') }}</a>
+            </li>
+        @endif
         <li class="nav-item"><a class="nav-link" href="{{ route('message') }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-pencil') }}"></use>
