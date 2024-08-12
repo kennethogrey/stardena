@@ -8,14 +8,24 @@ use Illuminate\Http\Request;
 use App\Models\Visitor;
 use App\Mail\NewsEmail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
+        $minutes = 10;
+        $sessions = DB::table(config('session.table'))->distinct()
+        ->select(['users.id', 'users.name', 'users.email', 'users.profile_photo', 'sessions.last_activity'])
+        ->where('sessions.last_activity', '>', Carbon::now()->subMinutes($minutes)->getTimestamp())
+        ->leftJoin('users', config('session.table') . '.user_id', '=', 'users.id')
+        ->get();
+
         $visitors = Visitor::all();
         return view('dashboard.dashboard', compact(
-            'visitors'
+            'visitors',
+            'sessions'
         ))->render();
     }
 
