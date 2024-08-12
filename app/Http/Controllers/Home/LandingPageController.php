@@ -16,18 +16,20 @@ class LandingPageController extends Controller
 {
     public function index()
     {
+        $ip_address = request()->ip();
         // Check for existing session or cookie
         if (!session()->has('visitor_id')) {
-            // Generate a unique session ID
             $visitorId = uniqid();
             session()->put('visitor_id', $visitorId);
             Visitor::updateOrCreate(['visitor_id' => $visitorId], [
                 'counter' => DB::raw('counter + 1'),
+                'ip_address' => $ip_address,
             ]);
         } else {
             $visitorId = session()->get('visitor_id');
             Visitor::updateOrCreate(['visitor_id' => $visitorId], [
                 'counter' => DB::raw('counter + 1'),
+                'ip_address' => $ip_address,
             ]);
         }
 

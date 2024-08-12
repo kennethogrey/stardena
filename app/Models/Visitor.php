@@ -17,5 +17,6 @@ class Visitor extends Model
     protected $fillable = [
         'visitor_id',
         'counter',
+        'ip_address',
     ];
 }
