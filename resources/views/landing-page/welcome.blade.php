@@ -53,7 +53,7 @@
                 @foreach ($partners as $domain => $logo)
                     <div class="partner-item">
                         <div class="logo-img">
-                            <a href="{{ $domain }}">
+                            <a href="{{ $domain }}" target="_blank">
                                 <img class="wrapper" src="{{ asset('storage/files/logos/' . $logo) }}" alt="">
                             </a>
                         </div>

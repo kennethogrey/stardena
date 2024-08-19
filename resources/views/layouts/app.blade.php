@@ -39,9 +39,11 @@
         <link href="{{ asset('panel/css/ads.css') }}" rel="stylesheet">
         <script src="{{ asset('panel/js/config.js') }}"></script>
         <script src="{{ asset('panel/js/color-modes.js') }}"></script>
-        <!-- <link href="{{ asset('panel/css/coreui-chartjs.css') }}" rel="stylesheet"> -->
+        <link href="{{ asset('panel/css/coreui-chartjs.css') }}" rel="stylesheet">
         <link href="{{ asset('panel/css/simplebar.css') }}" rel="stylesheet">
         <link href="{{ asset('panel/icons/css/flag.min.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('panel/chartjs/dist/css/coreui-chartjs.css') }}" rel="stylesheet">
         @livewireStyles
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
         
@@ -49,6 +51,32 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <!-- Jquerry -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        
+        <style>
+            .custom-swal-popup {
+                font-size: 16px; /* Adjust font size as needed */
+            }
+
+            .custom-swal-title-error {
+                color: red; /* Red color for the title */
+                font-size: 20px; /* Increase font size */
+            }
+
+            .custom-swal-title-success {
+                color: green; /* green color for the title */
+                font-size: 20px; /* Increase font size */
+            }
+
+            .custom-swal-icon {
+                width: 40px; /* Increase icon size */
+                height: 40px; /* Increase icon size */
+            }
+        </style>
+
 
     </head>
     <body>
@@ -57,6 +85,50 @@
             <div class="wrapper d-flex flex-column min-vh-100">
                 <livewire:layout.header />
                 @yield('content')
+                
+                <div class="content">
+                    @if (session('error'))
+                        <script>
+                            $(document).ready(function() {
+                                let title = '{{ session('error') }}';
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: title,
+                                    showConfirmButton: false,
+                                    timer: 5000,
+                                    toast: true,
+                                    customClass: {
+                                        popup: 'custom-swal-popup',
+                                        title: 'custom-swal-title-error',
+                                        icon: 'custom-swal-icon'
+                                    }
+                                });
+                            });
+                        </script>
+                    @endif
+
+                    @if (session('success'))
+                        <script>
+                            $(document).ready(function() {
+                                let title = '{{ session('success') }}';
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: title,
+                                    showConfirmButton: false,
+                                    timer: 5000,
+                                    toast: true,
+                                    customClass: {
+                                        popup: 'custom-swal-popup',
+                                        title: 'custom-swal-title-success',
+                                        icon: 'custom-swal-icon'
+                                    }
+                                });
+                            });
+                        </script>
+                    @endif
+                </div>
                 <footer class="footer px-4">
                     <div>
                         {{ __('Version: 1.0.0') }}
@@ -88,7 +160,11 @@
                 }
             });
         </script>
+        <script src="{{ asset('panel/chart.js/dist/chart.umd.js') }}"></script>
+        <script src="{{ asset('panel/chartjs/dist/js/coreui-chartjs.js') }}"></script>
+        <script src="{{ asset('panel/utils/dist/umd/index.js') }}"></script>
         <script src="{{ asset('panel/js/main.js') }}"></script>
+        
         @livewireScripts
     </body>
 </html>
