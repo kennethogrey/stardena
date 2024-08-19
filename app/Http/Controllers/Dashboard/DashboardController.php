@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 use App\Models\Visitor;
+use App\Models\User;
+use App\Models\Partner;
 use App\Mail\NewsEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
@@ -23,9 +25,17 @@ class DashboardController extends Controller
         ->get();
 
         $visitors = Visitor::all();
+        $user_count = User::count();
+        $income = Partner::sum('amount_paid');
+        $sessionz = DB::table('visitors')->count();
+
+
         return view('dashboard.dashboard', compact(
             'visitors',
-            'sessions'
+            'sessions',
+            'user_count',
+            'income',
+            'sessionz',
         ))->render();
     }
 
@@ -94,4 +104,25 @@ class DashboardController extends Controller
             }     
         }
     }
+
+    public function showChart() {
+        $partners = Partner::selectRaw('SUM(amount_paid) as total_paid, DATE_FORMAT(updated_at, "%Y-%m") as month')
+            ->groupBy('month')
+            ->orderBy('month', 'asc')
+            ->get();
+    
+        // Prepare data points for the chart
+        $dataPoints = [];
+        foreach ($partners as $partner) {
+            $formattedMonth = Carbon::createFromFormat('Y-m', $partner->month)->format('F Y'); // e.g., "August 2024"
+            $dataPoints[] = [
+                'label' => $formattedMonth,
+                'y' => (float) $partner->total_paid, // Ensure it's treated as a number
+            ];
+        }
+    
+        return response()->json($dataPoints);
+    }
+    
+    
 }

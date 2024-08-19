@@ -56,7 +56,7 @@ new class extends Component
                 </svg> {{__('Feedback')}}</a>
             </li>
         @endif
-        @if (auth()->user()->role === 'admin' && auth()->user()->role === 'developer')
+        @if (auth()->user()->role === 'admin' || auth()->user()->staff === 'developer')
             <li class="nav-item"><a class="nav-link" href="{{ route('partner') }}">
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-people') }}"></use>

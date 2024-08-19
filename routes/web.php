@@ -50,6 +50,9 @@ Route::middleware(['auth'])->group(function () {
     // Software
     Route::view('software-systems', 'software.systems')->name('software-systems');
 
+    // Charts
+    Route::get('/partners/chart', [DashboardController::class, 'showChart'])->name('partners.chart');
+    
 });
 
 require __DIR__.'/auth.php';
