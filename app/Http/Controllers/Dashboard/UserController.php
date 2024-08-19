@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Image;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
         return view('users.users')->render();
     }
 
-    public function userStatus($id) 
+    public function userStatus($id)
     {
         $user = User::where('id', $id)->first();
         if ($user) {
@@ -31,22 +32,33 @@ class UserController extends Controller
         }
     }
 
-    public function userPhoto(Request $request) 
+    public function userPhoto(Request $request)
     {
         $user = auth()->user();
         $file = $request->file('photo');
+        $old_photo = $user->profile_photo;
+
         if ($file != null) {
             // Delete the existing profile photo if it exists
-            if ($user->profile_photo) {
-                Storage::delete('public/profile-photos/'.$user->profile_photo);
-            }
+//            if ($user->profile_photo) {
+//                Storage::delete('public/profile-photos/'.$user->profile_photo);
+//            }
             $fileName = time().'.'.$file->extension();
-            $file->move(storage_path('app/public/profile-photos'),$fileName);
+            ddd($fileName);
+            $resizedImage = Image::make($file->getRealPath());
+            $resizedImage->fit(768,768);
+            $resizedImage->move(storage_path('app/public/profile-photos'),$fileName);
 
-            User::where('id', $user->id)->update(['profile_photo' => $fileName]);
-            return redirect()->back()->with('success', 'Profile Photo Updated Successfully');
-        } else {
-            return redirect()->back()->with('error', 'Profile Photo Upload FAILED');
+            $imageSave = User::where('id', $user->id)->update(['profile_photo' => $fileName]);
+            if ($imageSave) {
+                Storage::delete('public/profile-photos/'.$old_photo);
+                return redirect()->back()->with('success', 'Profile Photo Updated Successfully');
+            }
+            else{
+                return redirect()->back()->with('error', 'Profile Photo Upload FAILED');
+            }
+        }else{
+            return redirect()->back()->with('error', 'Please Upload Profile Photo');
         }
     }
 
@@ -60,10 +72,10 @@ class UserController extends Controller
         $user = User::where('id', $user_id)->first();
 
         if ($user) {
-            $user->update(['role_id' => $role_id, 'staff' => $staff]); 
+            $user->update(['role_id' => $role_id, 'staff' => $staff]);
             return response()->json(['success' => true, 'message' => 'User Role Updated Successfully']);
         } else {
-            return response()->json(['success' => false, 'message' => 'An error occurred']);        
+            return response()->json(['success' => false, 'message' => 'An error occurred']);
         }
     }
 
@@ -80,7 +92,7 @@ class UserController extends Controller
         $validated['user_id'] = $user_id;
 
         $user_profile = Profile::updateOrInsert(
-            ['user_id' => $user_id], 
+            ['user_id' => $user_id],
             ['resume' => $validated['resume']]
         );
 
