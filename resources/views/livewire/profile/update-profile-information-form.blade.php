@@ -2,15 +2,19 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
 
-new class extends Component
-{
-    
+new class extends Component {
+
     use WithFileUploads;
+
     public string $name = '';
     public string $email = '';
     public string $phone = '';
@@ -67,27 +71,42 @@ new class extends Component
 
         Session::flash('status', 'verification-link-sent');
     }
-
     public function updateProfilePhoto(): void
     {
         $this->validate([
             'photo' => 'required|file|mimes:png,jpeg,jpg|max:5120',
         ]);
 
-        $image_extension = $this->photo->getClientOriginalExtension();
-        $image_name = 'profile_' . time() . '.' . $image_extension;
-        $this->photo->storeAs('public/profile-photos', $image_name);
-        
+        $file = $this->photo;
+
+        // Move the uploaded file to the public profile-photos directory
+        $fileName = 'profile_' . time() . '.' . $file->getClientOriginalExtension();
+        $directory = 'profile-photos/';
+        $path = $file->storeAs($directory, $fileName, 'public');
+
+        // Full path to the saved file
+        $fullPath = public_path('storage/' . $path);
+
+        // Resize the image and save it
+        $manager = new ImageManager(new Driver());
+        $image = $manager->read($fullPath);
+        $image = $image->resize(768, 768);
+        $image->toPng()->save($fullPath);
+
         $user = Auth::user();
-        if ($user) {
-            // delete previous Image
-            \Storage::delete('public/profile-photos/' . $user->profile_photo);
-            $user->profile_photo = $image_name;
-            $user->save();
-            $this->dispatch('photo-updated', ['name' => $user->name]);   
+        $oldProfile = $user->profile_photo;
+        $user->profile_photo = $fileName;
+
+        $saved = $user->save();
+
+        if ($saved) {
+            // Delete the old profile photo if it exists
+            if ($oldProfile && File::exists(public_path('storage/profile-photos/'.$oldProfile))) {
+                File::delete(public_path('storage/profile-photos/'.$oldProfile));
+            }
+            $this->dispatch('photo-updated', ['name' => $user->name]);
         }
     }
-
 }; ?>
 <section>
     <div class="row mb-4 align-items-stretch">
@@ -108,7 +127,7 @@ new class extends Component
                         <label class="input-group-text" for="inputGroupFile02">{{ __('Upload') }}</label>
                     </div>
                     @error('photo')
-                        <div class="text-danger">{{ $message }}</div>
+                    <div class="text-danger">{{ $message }}</div>
                     @enderror
                     <div class="col-md-6 mb-3">
                         <button class="btn btn-ghost-primary">{{ __('Update Photo') }}</button>
@@ -131,31 +150,34 @@ new class extends Component
             <div class="border p-4 rounded-3 d-flex flex-column h-100">
                 <form wire:submit="updateProfileInformation">
                     <div class="form-floating mb-3">
-                        <input wire:model="name" class="form-control rounded-md" id="name" name="name" type="text" placeholder="name">
+                        <input wire:model="name" class="form-control rounded-md" id="name" name="name" type="text"
+                               placeholder="name">
                         <label for="floatingInput2">{{ __('Full Name') }}</label>
                     </div>
                     @error('name')
-                        <div class="text-danger">{{ $message }}</div>
+                    <div class="text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-floating mb-3">
-                        <input wire:model="email" class="form-control rounded-md" id="email" name="email" type="email" placeholder="email">
+                        <input wire:model="email" class="form-control rounded-md" id="email" name="email" type="email"
+                               placeholder="email">
                         <label for="floatingInput2">{{ __('Email') }}</label>
                     </div>
                     @error('email')
-                        <div class="text-danger">{{ $message }}</div>
+                    <div class="text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-floating mb-3">
-                        <input wire:model="phone" class="form-control rounded-md" id="phone" name="phone" type="text" placeholder="phone">
+                        <input wire:model="phone" class="form-control rounded-md" id="phone" name="phone" type="text"
+                               placeholder="phone">
                         <label for="floatingInput2">{{ __('Phone') }}</label>
                     </div>
                     @error('phone')
-                        <div class="text-danger">{{ $message }}</div>
+                    <div class="text-danger">{{ $message }}</div>
                     @enderror
                     <div class="col-md-6 mb-3">
                         <button class="btn btn-ghost-primary">{{ __('Update Info') }}</button>
                     </div>
                     <x-action-message class="text-success" on="profile-updated">
-                    {{ __('Info Updated') }}
+                        {{ __('Info Updated') }}
                     </x-action-message>
                 </form>
             </div>

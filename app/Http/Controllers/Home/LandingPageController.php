@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\System;
@@ -50,6 +51,7 @@ class LandingPageController extends Controller
 
         $products = System::where('system_status', 1)->get();
         $categories = $products->pluck('software_category')->unique();
+        $testimonials = Testimonial::all();
         return view('landing-page.welcome', compact(
             'partners',
             'project_counter',
@@ -58,6 +60,7 @@ class LandingPageController extends Controller
             'staff',
             'products',
             'categories',
+            'testimonials'
         ))->render();
     }
 
@@ -80,7 +83,7 @@ class LandingPageController extends Controller
         ));
     }
 
-    public function deleteMessage($id) 
+    public function deleteMessage($id)
     {
         $deleted_msg = Contact::find($id);
         $deleted_suc = $deleted_msg->delete();
@@ -91,12 +94,12 @@ class LandingPageController extends Controller
         }
     }
 
-    public function staffResume($id) 
+    public function staffResume($id)
     {
         if ($id === 'qwerty') {
             return back()->with('error', 'Resume Not Updated Yet');
         }
-        
+
         $staff = User::with('profileDetails')->where('id', $id)->first();
         return view('landing-page.single-team', compact(
             'staff',
