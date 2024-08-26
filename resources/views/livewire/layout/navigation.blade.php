@@ -70,6 +70,13 @@ new class extends Component
                 </svg> {{__('NewsLetters')}}</a>
             </li>
         @endif
+        @if (auth()->user()->role !== 'admin' || auth()->user()->role !== 'developer')
+            <li class="nav-item"><a class="nav-link" href="{{ route('testimonials.index') }}">
+                    <svg class="nav-icon">
+                        <use xlink:href="{{ asset('panel/icons/sprites/free.svg#cil-thumb-up') }}"></use>
+                    </svg> {{__('Testimonials')}}</a>
+            </li>
+        @endif
         <li class="nav-title">{{ __('Products & Services') }}</li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
             <svg class="nav-icon">
@@ -101,7 +108,7 @@ new class extends Component
             </ul>
         </li>
     </ul>
-    <div class="sidebar-footer border-top d-none d-md-flex">     
+    <div class="sidebar-footer border-top d-none d-md-flex">
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
 </div>

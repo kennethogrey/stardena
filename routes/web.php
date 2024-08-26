@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\UserController;
@@ -34,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users', [UserController::class, 'userIndex'])->name('user');
     Route::get('user-status/{id}', [UserController::class, 'userStatus'])->name('user-status');
     Route::post('user-photo', [UserController::class, 'userPhoto'])->name('user-photo');
-    Route::post('user-role', [UserController::class, 'updateUserRole'])->name('user-role');   
+    Route::post('user-role', [UserController::class, 'updateUserRole'])->name('user-role');
     Route::get('messages', [LandingPageController::class, 'visitorsMessage'])->name('message');
     Route::get('delete-visitor/{id}', [DashboardController::class, 'deleteVisitor'])->name('destroy-visitor');
     Route::get('partners', [DashboardController::class, 'partners'])->name('partner');
@@ -52,7 +53,15 @@ Route::middleware(['auth'])->group(function () {
 
     // Charts
     Route::get('/partners/chart', [DashboardController::class, 'showChart'])->name('partners.chart');
-    
+
+    //testimonials
+    Route::get('/testimonials',[TestimonialController::class,'index'])->name('testimonials.index');
+    Route::get('/testimonials/create',[TestimonialController::class,'create'])->name('testimonials.create');
+    Route::post('/testimonials',[TestimonialController::class,'store'])->name('testimonials.store');
+    Route::get('/testimonials/{testimonial}',[TestimonialController::class,'edit'])->name('testimonials.edit');
+    Route::patch('/testimonials/{testimonial}',[TestimonialController::class,'update'])->name('testimonials.update');
+    Route::delete('/testimonials/{testimonial}',[TestimonialController::class,'destroy'])->name('testimonials.delete');
+
 });
 
 require __DIR__.'/auth.php';

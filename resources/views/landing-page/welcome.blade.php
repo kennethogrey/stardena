@@ -8,19 +8,19 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="banner-content">
-                        <div class="rs-videos">
-                            <div class="animate-border white-color style3">
-                                <a class="popup-border popup-videos"
-                                    href="https://www.youtube.com/watch?v=YLN1Argi7ik">
-                                    <i class="fa fa-play"></i>
-                                </a>
-                            </div>
-                        </div>
+{{--                        <div class="rs-videos">--}}
+{{--                            <div class="animate-border white-color style3">--}}
+{{--                                <a class="popup-border popup-videos"--}}
+{{--                                    href="https://www.youtube.com/watch?v=YLN1Argi7ik">--}}
+{{--                                    <i class="fa fa-play"></i>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <h1 class="title">
                             {{__('I.T Infrastructure For Your Business Needs...')}}
                         </h1>
                         <p class="desc">
-                            {{__('Stardena is a dynamic portfolio tech company specializing in the development of innovative solutions across A.I, web, mobile apps, and embedded systems. ')}}    
+                            {{__('Stardena is a dynamic portfolio tech company specializing in the development of innovative solutions across A.I, web, mobile apps, and embedded systems. ')}}
                         </p>
                         <ul class="banner-btn">
                             <li><a class="readon started" href="#rs-contact">{{__('Get Started')}}</a></li>
@@ -68,18 +68,18 @@
     <div id="rs-about" class="rs-about pt-5 md-pt-10">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-5 pb-100"> 
+                <div class="col-lg-5 pb-100">
                     <div class="sec-title mb-50">
                         <div class="sub-text style4-bg">{{__('About Us')}}</div>
                         <h2 class="title  pb-20">
                             {{__('Stardena Tech Solutions: Pioneering Innovation Across Multiple Platforms...')}}
                         </h2>
                         <div class="desc">
-                            {{__('At Stardena Tech Solutions, we are more than just a tech company. 
-                            We are innovators, creators, and problem solvers dedicated to pushing the 
-                            boundaries of technology. Founded in January 2024 by software engineers 
-                            Ogire Kenneth and Eluk Samuel Kiira, Stardena has quickly emerged as a 
-                            dynamic force in the Software industry. ')}}                           
+                            {{__('At Stardena Tech Solutions, we are more than just a tech company.
+                            We are innovators, creators, and problem solvers dedicated to pushing the
+                            boundaries of technology. Founded in January 2024 by software engineers
+                            Ogire Kenneth and Eluk Samuel Kiira, Stardena has quickly emerged as a
+                            dynamic force in the Software industry. ')}}
                         </div>
                     </div>
                     <!-- Counter Section Start -->
@@ -146,7 +146,7 @@
                                             </div>
                                             <div class="services-desc">
                                                 <p>
-                                                    {{__('We Write code that meets certain standards of readability, maintainability, efficiency, and reliability.')}}            
+                                                    {{__('We Write code that meets certain standards of readability, maintainability, efficiency, and reliability.')}}
                                                 </p>
                                             </div>
                                         </div>
@@ -257,7 +257,7 @@
                             </div>
                             <div class="services-desc">
                                 <p>
-                                    {{__('From concept to deployment, we craft engaging and scalable mobile apps that 
+                                    {{__('From concept to deployment, we craft engaging and scalable mobile apps that
                                     captivate audiences')}}
                                 </p>
                             </div>
@@ -279,7 +279,7 @@
                             </div>
                             <div class="services-desc">
                                 <p>
-                                    {{__('Our web development services are tailored to meet the unique needs of each client, 
+                                    {{__('Our web development services are tailored to meet the unique needs of each client,
                                     ensuring user-friendly interfaces and robust functionality.')}}
                                 </p>
                             </div>
@@ -365,7 +365,7 @@
                             </div>
                             <div class="services-desc">
                                 <p>
-                                    {{__('User Interface (UI) and User Experience (UX) design focus on creating intuitive, 
+                                    {{__('User Interface (UI) and User Experience (UX) design focus on creating intuitive,
                                     engaging, and functional digital experiences for users')}}
                                 </p>
                             </div>
@@ -451,50 +451,110 @@
     <!-- Team Section End -->
 
     <!-- Project Section Start -->
-    <div id="rs-portfolio" class="rs-project style4 rs-rain-animate pt-110 pb-120 md-pt-70 md-pb-80">
-        <div class="container">
-            <div class="sec-title2 text-center mb-45">
-                <span class="sub-text">{{__('Projects')}}</span>
-                <h2 class="title title2">
-                    {{__('Our Projects Available in the Market')}}
-                </h2>
-            </div>
+    @if($products->count() > 0)
+        <div id="rs-portfolio" class="rs-project style4 rs-rain-animate pt-110 pb-120 md-pt-70 md-pb-80">
+            <div class="container">
+                <div class="sec-title2 text-center mb-45">
+                    <span class="sub-text">{{__('Projects')}}</span>
+                    <h2 class="title title2">
+                        {{__('Our Projects Available in the Market')}}
+                    </h2>
+                </div>
 
-            <div class="row mb-5 justify-content-center">
-                <div class="col-10 text-center">
-                    <div class="btn-group btn-group-toggle " data-toggle="buttons">
-                        <label class="btn active">
-                            <input type="radio" name="shuffle-filter" value="all" checked="checked" />{{ __('All Projects') }}
-                        </label>
-                        @foreach($categories as $category)
-                            <label class="btn">
-                                <input type="radio" name="shuffle-filter" value="{{ $category }}" />{{ $category }}
+                <div class="row mb-5 justify-content-center">
+                    <div class="col-10 text-center">
+                        <div class="btn-group btn-group-toggle " data-toggle="buttons">
+                            <label class="btn active">
+                                <input type="radio" name="shuffle-filter" value="all" checked="checked" />{{ __('All Projects') }}
                             </label>
+                            @foreach($categories as $category)
+                                <label class="btn">
+                                    <input type="radio" name="shuffle-filter" value="{{ $category }}" />{{ $category }}
+                                </label>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="row shuffle-wrapper portfolio-gallery">
+                    @foreach($products as $product)
+                        <div class="col-lg-4 mb-30 shuffle-item" data-groups='["{{ $product->software_category }}"]'>
+                            <div class="project-item">
+                                <div class="project-img">
+                                    <img src="{{ asset('front/assets/images/project/style2/'.$product->image) }}" alt="{{ $product->inventory_name }}">
+                                </div>
+                                <div class="project-content">
+                                    <p class="category"><a href="{{ $product->demo_link }}" target="_blank">{{ $product->software_category }}</a></p>
+                                    <h3 class="title"><a href="{{ $product->demo_link }}" target="_blank">{{ $product->inventory_name }}</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
+    <!-- Project Section End -->
+
+    <!-- Testimonial Section Start -->
+    <div class="rs-testimonial main-home rs-rain-animate style4 modify1 md-fixing">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 hidden-md">
+                    <div class="testi-image">
+                        <img src="{{ asset('front/assets/images/testimonial/testimonial-2.png')}}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 pl-50 md-pl-15">
+                    <div class="sec-title mb-50">
+                        <div class="sub-text style4-bg left testi">Testimonials</div>
+                        <h2 class="title pb-20">
+                            What Customer Saying
+                        </h2>
+                        <div class="desc">
+                            Over 25 years working in IT services developing software applications and mobile apps
+                            for clients all over the world.
+                        </div>
+                    </div>
+                    <div class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="30"
+                         data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000"
+                         data-smart-speed="800" data-dots="true" data-nav="false" data-nav-speed="false"
+                         data-md-device="1" data-md-device-nav="false" data-md-device-dots="false"
+                         data-center-mode="false" data-ipad-device2="1" data-ipad-device-nav2="false"
+                         data-ipad-device-dots2="false" data-ipad-device="1" data-ipad-device-nav="false"
+                         data-ipad-device-dots="true" data-mobile-device="1" data-mobile-device-nav="false"
+                         data-mobile-device-dots="false">
+                        @foreach($testimonials as $testimonial)
+                            <div class="testi-item">
+                                <div class="author-desc">
+                                    <div class="desc"><img class="quote" src="{{ asset('front/assets/images/testimonial/main-home/quote2.png')}}" alt="">Capitalize on
+                                        {{$testimonial->message}}
+                                    </div>
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="author-img">
+                                        <img src="{{ asset('testimonialImages/' . $testimonial->image) }}" alt="">
+                                    </div>
+                                    <div class="author-part">
+                                        <a class="name" href="#">{{$testimonial->name}}</a>
+                                        <span class="designation">{{$testimonial->occupation}}</span>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
                 </div>
             </div>
-            <div class="row shuffle-wrapper portfolio-gallery">
-                @foreach($products as $product)
-                    <div class="col-lg-4 mb-30 shuffle-item" data-groups='["{{ $product->software_category }}"]'>
-                        <div class="project-item">
-                            <div class="project-img">
-                                <img src="{{ asset('front/assets/images/project/style2/'.$product->image) }}" alt="{{ $product->inventory_name }}">
-                            </div>
-                            <div class="project-content">
-                                <p class="category"><a href="{{ $product->demo_link }}" target="_blank">{{ $product->software_category }}</a></p>
-                                <h3 class="title"><a href="{{ $product->demo_link }}" target="_blank">{{ $product->inventory_name }}</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+        </div>
+        <div class="line-inner">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
     </div>
-    <!-- Project Section End -->
+    <!-- Testimonial Section End -->
 
     <!-- Contact Section Start -->
-    <div id="rs-contact" class="rs-contact gray-color pt-5 md-pt-5">
+    <div id="rs-contact" class="rs-contact gray-color pt-120 md-pt-80 pb-120 md-pb-80">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">

@@ -29,7 +29,9 @@
                                             <li><a href="#rs-about">{{__('About')}}</a></li>
                                             <li><a href="#rs-services">{{__('Services')}}</a></li>
                                             <li><a href="#rs-team">{{__('Team')}}</a></li>
-                                            <li><a href="#rs-portfolio">Products</a></li>
+                                            @if($products->count() > 0)
+                                                <li><a href="#rs-portfolio">Products</a></li>
+                                            @endif
                                             <!-- <li><a href="#rs-blog">Blog</a></li> -->
                                             <li><a href="#rs-contact">{{__('Contact')}}</a></li>
                                         @else
