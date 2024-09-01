@@ -5,10 +5,50 @@
     <!-- meta tag -->
     <meta charset="utf-8">
     <title>@yield('title')</title>
-    <meta name="description" content="The Best Software Development Company Uganda.">
+    <meta name="description" content="{{meta_description()}}">
     <!-- responsive tag -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Keywords (Deprecated) -->
+    <!-- Although this is no longer used by most search engines, some still look at it -->
+    <meta name="keywords" content="Software Development, Custom Software Solutions, Web Development, Mobile App Development, IT Consulting, Software Engineering, Application Development, Cloud Solutions, Enterprise Software, Full-Stack Development, Software Outsourcing, SaaS Development, Tech Consulting, Digital Transformation, Software Design, Software Integration, Agile Development, DevOps, UI/UX Design, IT Services">
+
+    <!-- Author -->
+    <meta name="author" content="Stardena">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags (for Social Media) -->
+    <meta property="og:title" content="Your Page Title">
+    <meta property="og:description" content="{{meta_description()}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{home_url()}}">
+    <meta property="og:image" content="{{getLogoUrl()}}">
+
+{{--    <!-- Twitter Card Meta Tags (for Twitter) -->--}}
+{{--    <meta name="twitter:card" content="summary_large_image">--}}
+{{--    <meta name="twitter:title" content="Your Page Title">--}}
+{{--    <meta name="twitter:description" content="Stardena, the Best Software Development Company in Uganda.">--}}
+{{--    <meta name="twitter:image" content="https://www.yourwebsite.com/path-to-image.jpg">--}}
+
+    <!-- Canonical Tag (To avoid duplicate content issues) -->
+    <link rel="canonical" href="{{home_url()}}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ getFaviconUrl() }}" type="image/x-icon">
+
+    <!-- Schema.org for Google -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Stardena",
+          "description": "{{meta_description()}}",
+          "url": "{{home_url()}}"
+        }
+    </script>
 
     <!-- favicon -->
     <link rel="apple-touch-icon" href="{{ getFaviconUrl() }}">
@@ -39,10 +79,10 @@
     <link rel="stylesheet" type="text/css" href="{{asset('front/assets/css/responsive.css')}}">
 
     <!-- Jquerry -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    
+    <script src="{{asset('front/assets/js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('front/assets/js/sweetalert2.min.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('front/assets/css/sweetalert2.min.css')}}">
+
     <style>
         .custom-swal-popup {
             font-size: 16px; /* Adjust font size as needed */
@@ -75,7 +115,7 @@
         <div class="loader-container"></div>
     </div>
     <!--Preloader area End here-->
-    
+
     <!--Full width header Start-->
     <div class="full-width-header">
         @include('landing-page.layout.navigation')

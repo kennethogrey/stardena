@@ -17,10 +17,10 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
                         <h1 class="title">
-                            {{__('I.T Infrastructure For Your Business Needs...')}}
+                            {{__('"Empowering Innovation, Crafting Excellence"')}}
                         </h1>
                         <p class="desc">
-                            {{__('Stardena is a dynamic portfolio tech company specializing in the development of innovative solutions across A.I, web, mobile apps, and embedded systems. ')}}
+                            {{__('At Stardena, we transform ideas into cutting-edge software solutions. Partner with us to bring your vision to life with precision, creativity, and unmatched expertise.')}}
                         </p>
                         <ul class="banner-btn">
                             <li><a class="readon started" href="#rs-contact">{{__('Get Started')}}</a></li>
@@ -404,7 +404,7 @@
                                 @if ($staff->profile_photo)
                                     <a href="//"><img src="{{asset('storage/profile-photos/' . $staff->profile_photo)}}" alt=""></a>
                                 @else
-                                    <a href="//"><img src="{{asset('panel/assets/img/avatars/8.jpg');}}" alt=""></a>
+                                    <a href="//"><img src="{{asset('panel/assets/img/avatars/8.jpg')}}" alt=""></a>
                                 @endif
                             </div>
                         </div>
