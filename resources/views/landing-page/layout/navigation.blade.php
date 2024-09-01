@@ -126,12 +126,12 @@
                     </div>
                 </div>
             </div>
-            <ul class="social">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
+{{--            <ul class="social">--}}
+{{--                <li><a href="#"><i class="fa fa-facebook"></i></a></li>--}}
+{{--                <li><a href="#"><i class="fa fa-twitter"></i></a></li>--}}
+{{--                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>--}}
+{{--                <li><a href="#"><i class="fa fa-instagram"></i></a></li>--}}
+{{--            </ul>--}}
         </div>
     </nav>
     <!-- Canvas Menu end -->

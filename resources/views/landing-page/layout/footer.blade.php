@@ -9,26 +9,26 @@
                         </div>
                         <div class="textwidget pb-30">
                             <p>{{__('In the vibrant tapestry of Africa, we envision a digital landscape where
-                                 innovation knows no bounds. Stardena\'s vision is to be a beacon of technological 
+                                 innovation knows no bounds. Stardena\'s vision is to be a beacon of technological
                                  empowerment, weaving solutions that harmonize seamlessly with the diverse
                                   rhythms of the continent.')}} </p>
                         </div>
-                        <ul class="footer-social md-mb-30">
-                            <li>
-                                <a href="#" target="_blank"><span><i class="fa fa-facebook"></i></span></a>
-                            </li>
-                            <li>
-                                <a href="# " target="_blank"><span><i class="fa fa-twitter"></i></span></a>
-                            </li>
+{{--                        <ul class="footer-social md-mb-30">--}}
+{{--                            <li>--}}
+{{--                                <a href="#" target="_blank"><span><i class="fa fa-facebook"></i></span></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="# " target="_blank"><span><i class="fa fa-twitter"></i></span></a>--}}
+{{--                            </li>--}}
 
-                            <li>
-                                <a href="# " target="_blank"><span><i class="fa fa-whatsapp"></i></span></a>
-                            </li>
-                            <li>
-                                <a href="# " target="_blank"><span><i class="fa fa-instagram"></i></span></a>
-                            </li>
+{{--                            <li>--}}
+{{--                                <a href="# " target="_blank"><span><i class="fa fa-whatsapp"></i></span></a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="# " target="_blank"><span><i class="fa fa-instagram"></i></span></a>--}}
+{{--                            </li>--}}
 
-                        </ul>
+{{--                        </ul>--}}
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <h3 class="widget-title">{{__('Newsletter')}}</h3>
@@ -42,10 +42,10 @@
                                 <i class="flaticon-send"></i>
                             </p>
                         </form><br>
-                        
-                        <p class="widget-desc">{{__('Important Links')}}</p>
-                        <a class="readon learn-more submit" href="{{ route('register') }}">{{__('Sign Up')}}</a>
-                        <a class="readon learn-more submit" href="{{ route('login') }}">{{__('Sign In')}}</a>
+
+{{--                        <p class="widget-desc">{{__('Important Links')}}</p>--}}
+{{--                        <a class="readon learn-more submit" href="{{ route('register') }}">{{__('Sign Up')}}</a>--}}
+{{--                        <a class="readon learn-more submit" href="{{ route('login') }}">{{__('Sign In')}}</a>--}}
                     </div>
                 </div>
             </div>
