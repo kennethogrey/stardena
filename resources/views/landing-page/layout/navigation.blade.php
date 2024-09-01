@@ -42,12 +42,12 @@
                             </div>
                             <div class="expand-btn-inner search-icon hidden-md">
                                 <ul>
-                                    <li class="sidebarmenu-search">
-                                        <a class="hidden-xs rs-search" data-target=".search-modal"
-                                            data-toggle="modal" href="#">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
+{{--                                    <li class="sidebarmenu-search">--}}
+{{--                                        <a class="hidden-xs rs-search" data-target=".search-modal"--}}
+{{--                                            data-toggle="modal" href="#">--}}
+{{--                                            <i class="flaticon-search"></i>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
                                     <li>
                                         <a id="nav-expander" class="humburger nav-expander" href="#">
                                             <span class="dot1"></span>
